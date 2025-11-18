@@ -1,0 +1,212 @@
+name: christian-faith-web-local
+
+services:
+  app:
+    build:
+      context: ../..
+      dockerfile: devops/local/Dockerfile
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+        - PHP_VERSION=8.3
+        - NODE_VERSION=20
+        - COMPOSER_VERSION=2.7
+      cache_from:
+        - php:8.3-fpm-alpine
+    container_name: christian-faith-web-app-local
+    working_dir: /var/www/html
+    volumes:
+      # Application code
+      - ../../:/var/www/html
+      # Configuration files
+      - ./configs/php.ini:/usr/local/etc/php/php.ini:ro
+      - ./configs/nginx.conf:/etc/nginx/http.d/default.conf:ro
+      - ./configs/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+    environment:
+      - PHP_FPM_POOL_NAME=www
+      - DOCKER_BUILDKIT=1
+      - PHP_IDE_CONFIG=serverName=christian-faith-web-local
+      - XDEBUG_MODE=${XDEBUG_MODE:-off}
+      - XDEBUG_CONFIG=client_host=host.docker.internal client_port=9003
+    networks:
+      - christian-faith-web-network-local
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    ports:
+      - "${DOCKER_NGINX_PORT:-8100}:80"
+      - "${DOCKER_VITE_PORT:-8109}:8109"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 60s
+
+  mysql:
+    image: mysql:8.0.35
+    platform: linux/amd64
+    container_name: christian-faith-web-mysql-local
+    ports:
+      - "${DOCKER_MYSQL_PORT:-8101}:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-christianfaith_db}
+      MYSQL_USER: ${DB_USERNAME:-christianfaith_user}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-christianfaith_password}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_password}
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - christian-faith-web-mysql-data-local:/var/lib/mysql
+      - ./configs/mysql.cnf:/etc/mysql/conf.d/custom.cnf:ro
+      - ../common/configs/app.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    networks:
+      - christian-faith-web-network-local
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.25'
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${DB_ROOT_PASSWORD:-root_password}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: christian-faith-web-redis-local
+    ports:
+      - "${DOCKER_REDIS_PORT:-8103}:6379"
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - christian-faith-web-redis-data-local:/data
+      - ./configs/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    networks:
+      - christian-faith-web-network-local
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2
+    container_name: christian-faith-web-phpmyadmin-local
+    ports:
+      - "${DOCKER_PHPMYADMIN_PORT:-8102}:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: ${DB_ROOT_PASSWORD:-root_password}
+      UPLOAD_LIMIT: 300M
+      MEMORY_LIMIT: 512M
+      MAX_EXECUTION_TIME: 600
+    networks:
+      - christian-faith-web-network-local
+    depends_on:
+      mysql:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    container_name: christian-faith-web-mailhog-local
+    ports:
+      - "${DOCKER_MAILHOG_SMTP_PORT:-8104}:1025"
+      - "${DOCKER_MAILHOG_WEB_PORT:-8105}:8025"
+    networks:
+      - christian-faith-web-network-local
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: christian-faith-web-redis-commander-local
+    ports:
+      - "${DOCKER_REDIS_COMMANDER_PORT:-8106}:8081"
+    environment:
+      REDIS_HOSTS: local:redis:6379
+      HTTP_USER: admin
+      HTTP_PASSWORD: ${REDIS_COMMANDER_PASSWORD:-admin}
+    networks:
+      - christian-faith-web-network-local
+    depends_on:
+      redis:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
+
+  minio:
+    image: minio/minio:RELEASE.2024-06-29T01-20-47Z
+    container_name: christian-faith-web-minio-local
+    ports:
+      - "${DOCKER_MINIO_PORT:-8107}:9000"
+      - "${DOCKER_MINIO_CONSOLE_PORT:-8108}:9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    volumes:
+      - christian-faith-web-minio-data-local:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - christian-faith-web-network-local
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.1'
+          memory: 256M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  christian-faith-web-network-local:
+    driver: bridge
+
+volumes:
+  christian-faith-web-mysql-data-local:
+    driver: local
+  christian-faith-web-redis-data-local:
+    driver: local
+  christian-faith-web-ssl-certs-local:
+    driver: local
+  christian-faith-web-minio-data-local:
+    driver: local

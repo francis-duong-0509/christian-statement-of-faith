@@ -1,0 +1,88 @@
+name: prism-web-dev
+
+services:
+  prism-web-mysql-dev:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysql-data-dev:/var/lib/mysql
+    expose:
+      - 3306
+    networks:
+      - dokploy-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  prism-web-app-dev:
+    build:
+      context: ../..
+      dockerfile: devops/common/Dockerfile
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+        - ENV_TYPE=dev
+    volumes:
+      - prism-web-storage-dev:/var/www/html/storage
+      - prism-web-nginx-tmp:/var/lib/nginx/tmp
+    expose:
+      - 80
+    networks:
+      - dokploy-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 1.5G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+
+  prism-web-phpmyadmin-dev:
+    image: phpmyadmin/phpmyadmin
+    expose:
+      - 80
+    environment:
+      PMA_HOST: ${DB_HOST:-prism-web-mysql-dev}
+      PMA_USER: ${DB_USERNAME:-prismweb_user}
+      PMA_PASSWORD: ${DB_PASSWORD:-prismweb_password}
+      UPLOAD_LIMIT: 300M
+    networks:
+      - dokploy-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+networks:
+  dokploy-network:
+    external: true
+
+volumes:
+  mysql-data-dev:
+    driver: local
+  prism-web-data-dev:
+    driver: local
+  prism-web-storage-dev:
+    driver: local
+  prism-web-nginx-tmp:
+    driver: local
