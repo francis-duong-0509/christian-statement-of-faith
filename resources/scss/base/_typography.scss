@@ -1,0 +1,158 @@
+// ============================================
+// TYPOGRAPHY
+// ============================================
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  @include heading-base;
+}
+
+h1 {
+  font-size: $h1-font-size;
+
+  @include respond-below(md) {
+    font-size: $h1-font-size * 0.8;
+  }
+}
+
+h2 {
+  font-size: $h2-font-size;
+
+  @include respond-below(md) {
+    font-size: $h2-font-size * 0.85;
+  }
+}
+
+h3 {
+  font-size: $h3-font-size;
+
+  @include respond-below(md) {
+    font-size: $h3-font-size * 0.9;
+  }
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+}
+
+h6 {
+  font-size: $h6-font-size;
+}
+
+// Paragraphs
+p {
+  margin-bottom: 1rem;
+  line-height: $line-height-base;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Lead text
+.lead {
+  font-size: 1.25rem;
+  font-weight: $font-weight-normal;
+  line-height: 1.6;
+  color: $text-secondary;
+}
+
+// Blockquote (for Scripture quotes)
+blockquote {
+  position: relative;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  font-family: $font-family-serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: $text-primary;
+  background: $gray-50;
+  border-left: 4px solid $primary;
+  border-radius: $border-radius;
+
+  &::before {
+    content: '\201C';
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 3rem;
+    color: $primary;
+    opacity: 0.2;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-style: normal;
+    color: $text-secondary;
+    font-family: $font-family-sans;
+
+    &::before {
+      content: '\2014\00A0';
+    }
+  }
+}
+
+// Code
+code {
+  padding: 0.125rem 0.375rem;
+  font-family: $font-family-mono;
+  font-size: 0.875em;
+  color: $danger;
+  background-color: $gray-100;
+  border-radius: $border-radius-sm;
+}
+
+pre {
+  padding: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+  font-family: $font-family-mono;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  background-color: $gray-900;
+  color: $gray-100;
+  border-radius: $border-radius;
+
+  code {
+    padding: 0;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
+
+// Text utilities
+.text-primary { color: $primary !important; }
+.text-secondary { color: $text-secondary !important; }
+.text-muted { color: $text-muted !important; }
+.text-light { color: $text-light !important; }
+.text-dark { color: $gray-900 !important; }
+.text-white { color: $white !important; }
+
+.text-success { color: $success !important; }
+.text-info { color: $info !important; }
+.text-warning { color: $warning !important; }
+.text-danger { color: $danger !important; }
+
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+
+.fw-normal { font-weight: $font-weight-normal !important; }
+.fw-medium { font-weight: $font-weight-medium !important; }
+.fw-semibold { font-weight: $font-weight-semibold !important; }
+.fw-bold { font-weight: $font-weight-bold !important; }
+
+.font-serif { font-family: $font-family-serif !important; }
+.font-sans { font-family: $font-family-sans !important; }
+.font-mono { font-family: $font-family-mono !important; }

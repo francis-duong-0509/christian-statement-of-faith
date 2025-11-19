@@ -1,0 +1,177 @@
+// ============================================
+// HOME PAGE
+// ============================================
+
+// Hero Section
+.page-hero {
+  background: linear-gradient(135deg, $primary 0%, lighten($primary, 10%) 100%);
+  color: $white;
+  padding: 6rem 0;
+  text-align: center;
+
+  @include respond-below(md) {
+    padding: 4rem 0;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2.625rem;
+    font-weight: $font-weight-bold;
+    color: $white;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+
+    @include respond-below(md) {
+      font-size: 2rem;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include respond-below(md) {
+      font-size: 1rem;
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  // Featured verse
+  .hero-verse {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: $border-radius-lg;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    blockquote {
+      font-family: $font-family-serif;
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: $white;
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+
+      &::before {
+        display: none;
+      }
+
+      cite {
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+}
+
+// Feature Cards Section
+.feature-cards-section {
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    @include respond-below(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-below(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Latest Content Section
+.latest-content-section {
+  background-color: $gray-50;
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    @include respond-below(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-below(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Newsletter Section
+.newsletter-section {
+  background: linear-gradient(135deg, $primary 0%, lighten($primary, 10%) 100%);
+  color: $white;
+  padding: 4rem 0;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    color: $white;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0.75rem;
+
+    @include respond-below(sm) {
+      flex-direction: column;
+    }
+
+    .form-control {
+      flex: 1;
+      background-color: $white;
+      border: none;
+      padding: 0.875rem 1.25rem;
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    .btn {
+      white-space: nowrap;
+
+      @include respond-below(sm) {
+        width: 100%;
+      }
+    }
+  }
+
+  .newsletter-note {
+    margin-top: 1rem;
+    font-size: $font-size-sm;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}

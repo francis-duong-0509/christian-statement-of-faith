@@ -1,0 +1,271 @@
+// ============================================
+// HEADER & NAVIGATION
+// ============================================
+
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: $zindex-sticky;
+  @include glass-effect;
+  border-bottom: 1px solid $navbar-border-color;
+  height: $navbar-height;
+
+  // Scroll shadow effect
+  &.scrolled {
+    box-shadow: $box-shadow;
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $navbar-height;
+  padding: 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+// Brand
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: $font-family-serif;
+  font-size: 1.5rem;
+  font-weight: $font-weight-bold;
+  color: $primary;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+    color: $primary;
+  }
+
+  .brand-icon {
+    font-size: 1.75rem;
+  }
+
+  .brand-text {
+    color: $text-primary;
+  }
+
+  @include respond-below(md) {
+    font-size: 1.25rem;
+
+    .brand-icon {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Navigation Menu
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include respond-below(lg) {
+    position: fixed;
+    top: $navbar-height;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    padding: 1.5rem;
+    background-color: $white;
+    border-bottom: 1px solid $border-color;
+    box-shadow: $box-shadow-lg;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: $zindex-dropdown;
+
+    &.show {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.9375rem;
+  font-weight: $font-weight-medium;
+  color: $text-secondary;
+  text-decoration: none;
+  border-radius: $border-radius;
+  transition: $transition-fast;
+
+  &:hover {
+    background-color: $gray-100;
+    color: $text-primary;
+  }
+
+  &.active {
+    color: $primary;
+    background-color: rgba($primary, 0.08);
+    font-weight: $font-weight-semibold;
+  }
+
+  @include respond-below(lg) {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+// Mobile Toggle
+.navbar-toggler {
+  display: none;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: $text-primary;
+
+  @include respond-below(lg) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-toggler-icon {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+  }
+}
+
+// Language Switcher
+.language-switcher {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background-color: $gray-100;
+  border-radius: $border-radius;
+
+  .lang-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: $border-radius-sm;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: $transition-fast;
+
+    &:hover {
+      background-color: $white;
+    }
+
+    &.active {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+
+  @include respond-below(lg) {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+// Search Button
+.search-btn {
+  @include center-flex;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    background-color: $gray-100;
+    border-color: $gray-400;
+  }
+
+  .search-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  @include respond-below(lg) {
+    display: none;
+  }
+}
+
+// Dropdown Menu
+.dropdown {
+  position: relative;
+
+  &:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: $zindex-dropdown;
+  min-width: 200px;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-lg;
+
+  @include fade-in;
+
+  .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9375rem;
+    color: $text-primary;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: $transition-fast;
+
+    &:hover {
+      background-color: $gray-50;
+      color: $primary;
+    }
+  }
+
+  .dropdown-divider {
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid $border-color;
+  }
+}

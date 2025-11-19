@@ -44,25 +44,8 @@ class FaithCategory extends Model
         return $query->where('is_active', true);
     }
 
-    // ==========================================================
-    // ACCESSORS (Dynamic Attributes)
-    // ==========================================================
-
-    public function getNameAttribute()
+    public function scopeOrdered($query)
     {
-        $locale = app()->getLocale(); // 'vi' or 'en'
-        return $this->{"name_$locale"};
-    }
-
-    public function getSlugAttribute()
-    {
-        $locale = app()->getLocale(); // 'vi' or 'en'
-        return $this->{"slug_$locale"};
-    }
-
-    public function getDescriptionAttribute()
-    {
-        $locale = app()->getLocale(); // 'vi' or 'en'
-        return $this->{"description_$locale"};
+        return $query->orderBy('order', 'asc');
     }
 }
