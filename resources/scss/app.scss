@@ -1,0 +1,53 @@
+/*!
+ * Statement of Faith Website
+ * Modern, Professional Christian Theological Resource
+ * Built with Bootstrap 5.3 & Custom SCSS
+ */
+
+// ============================================
+// BOOTSTRAP 5.3
+// ============================================
+@import 'bootstrap/scss/bootstrap';
+
+// ============================================
+// VARIABLES & MIXINS
+// ============================================
+@import 'variables';
+@import 'mixins';
+
+// ============================================
+// BASE STYLES
+// ============================================
+@import 'base/reset';
+@import 'base/typography';
+
+// ============================================
+// LAYOUT
+// ============================================
+@import 'layout/containers';
+@import 'layout/header';
+@import 'layout/footer';
+
+// ============================================
+// COMPONENTS
+// ============================================
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/badges';
+@import 'components/forms';
+@import 'components/breadcrumb';
+@import 'components/modals';
+@import 'components/tooltips';
+
+// ============================================
+// PAGES
+// ============================================
+@import 'pages/home';
+@import 'pages/statement-of-faith';
+@import 'pages/dictionary';
+@import 'pages/blog';
+
+// ============================================
+// UTILITIES
+// ============================================
+@import 'utilities/utilities';

@@ -1,0 +1,50 @@
+// ============================================
+// BREADCRUMB
+// ============================================
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  list-style: none;
+  font-size: $font-size-sm;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  color: $text-secondary;
+
+  + .breadcrumb-item {
+    padding-left: 0.5rem;
+
+    &::before {
+      content: '/';
+      padding-right: 0.5rem;
+      color: $text-muted;
+    }
+  }
+
+  a {
+    color: $text-secondary;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &.active {
+    color: $text-primary;
+    font-weight: $font-weight-medium;
+  }
+
+  // Truncate on mobile
+  @include respond-below(md) {
+    @include text-truncate;
+    max-width: 150px;
+  }
+}

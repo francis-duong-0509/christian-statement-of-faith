@@ -1,0 +1,141 @@
+// ============================================
+// FORMS
+// ============================================
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+  font-size: 0.9375rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $text-primary;
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  transition: $transition-fast;
+
+  &:focus {
+    outline: 0;
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.1);
+  }
+
+  &:disabled {
+    background-color: $gray-100;
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &::placeholder {
+    color: $text-light;
+  }
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-select {
+  @extend .form-control;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  padding-right: 2.5rem;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.form-check-input {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+
+  &:focus {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+.form-check-label {
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.9375rem;
+}
+
+.form-text {
+  display: block;
+  margin-top: 0.375rem;
+  font-size: $font-size-sm;
+  color: $text-muted;
+}
+
+.form-error {
+  display: block;
+  margin-top: 0.375rem;
+  font-size: $font-size-sm;
+  color: $danger;
+}
+
+// Search Input
+.search-input-group {
+  position: relative;
+
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-muted;
+  }
+
+  .form-control {
+    padding-left: 2.75rem;
+  }
+
+  .search-clear {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: $text-muted;
+    cursor: pointer;
+    padding: 0.25rem;
+
+    &:hover {
+      color: $text-primary;
+    }
+  }
+}
+
+// Input sizes
+.form-control-sm {
+  padding: 0.5rem 0.75rem;
+  font-size: $font-size-sm;
+}
+
+.form-control-lg {
+  padding: 1rem 1.25rem;
+  font-size: 1.125rem;
+}
