@@ -1,16 +1,18 @@
 /*
- * Custom Styles for Statement of Faith Website
- * Modern, elegant design for theological resources
+ * Custom Styles for Reformed Faith Website
+ * Scholarly, elegant design for Reformed theological resources
+ * Emphasizing the Five Solas and Reformed identity
  */
 
 /* ==================== CSS VARIABLES ==================== */
 :root {
-    /* Colors */
+    /* Colors - Reformed Theology Palette */
     --primary: #1e3a5f;
     --primary-dark: #152b47;
     --primary-light: #2a5080;
     --secondary: #8b4513;
     --accent: #d4a574;
+    --accent-light: #e6c89b;
 
     /* Neutrals */
     --white: #ffffff;
@@ -30,8 +32,8 @@
     --text-secondary: #6c757d;
     --text-light: #adb5bd;
 
-    /* Fonts */
-    --font-serif: 'Crimson Text', Georgia, serif;
+    /* Fonts - Scholarly Typography */
+    --font-serif: 'Crimson Text', Georgia, 'Times New Roman', serif;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
     /* Spacing */
@@ -74,13 +76,13 @@ html {
 body {
     font-family: var(--font-sans);
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.8;
     color: var(--text-primary);
     background-color: var(--white);
     overflow-x: hidden;
 }
 
-/* Typography */
+/* Typography - Scholarly Feel */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
     font-weight: 700;
@@ -190,7 +192,53 @@ img {
     width: 60%;
 }
 
-/* ==================== HERO SECTION ==================== */
+/* Language Switcher Styles */
+.language-switcher .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem !important;
+}
+
+.language-switcher .dropdown-menu {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
+    min-width: 180px;
+}
+
+.language-switcher .dropdown-item {
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.language-switcher .dropdown-item:hover {
+    background-color: var(--gray-50);
+    color: var(--primary);
+}
+
+.language-switcher .dropdown-item.active {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.language-switcher .lang-check {
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.language-switcher .dropdown-item.active .lang-check {
+    opacity: 1;
+}
+
+#currentLang {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ==================== HERO SECTION - REDUCED HEIGHT ==================== */
 .hero-section {
     position: relative;
     min-height: 100vh;
@@ -201,6 +249,12 @@ img {
     color: var(--white);
     padding: var(--spacing-4xl) 0 var(--spacing-3xl);
     overflow: hidden;
+}
+
+/* Reduced Hero Height */
+.hero-section.hero-reduced {
+    min-height: 550px;
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
 }
 
 .hero-section::before {
@@ -232,7 +286,7 @@ img {
 }
 
 .hero-title {
-    font-size: 64px;
+    font-size: 56px;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: var(--spacing-md);
@@ -243,7 +297,7 @@ img {
 .hero-subtitle {
     font-size: 20px;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: var(--spacing-xl);
     max-width: 700px;
     margin-left: auto;
@@ -293,7 +347,7 @@ img {
 
 .scroll-indicator {
     position: absolute;
-    bottom: var(--spacing-xl);
+    bottom: var(--spacing-lg);
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -318,6 +372,108 @@ img {
     }
 }
 
+/* ==================== FIVE SOLAS SECTION ==================== */
+.five-solas-section {
+    background-color: var(--white);
+    padding: var(--spacing-4xl) 0;
+}
+
+.section-title-main {
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-serif);
+}
+
+.section-intro {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-2xl);
+}
+
+.sola-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    height: 100%;
+    text-align: center;
+    transition: all var(--transition);
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--gray-200);
+    position: relative;
+    overflow: hidden;
+}
+
+.sola-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+    transform: scaleX(0);
+    transition: transform var(--transition);
+}
+
+.sola-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary);
+}
+
+.sola-card:hover::before {
+    transform: scaleX(1);
+}
+
+.sola-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    transition: var(--transition);
+}
+
+.sola-card:hover .sola-icon {
+    transform: scale(1.1);
+}
+
+.sola-icon i {
+    font-size: 42px;
+    color: var(--white);
+}
+
+.sola-latin {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-serif);
+    font-style: italic;
+}
+
+.sola-english {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-sans);
+}
+
+.sola-tagline {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
 /* ==================== SECTIONS ==================== */
 section {
     padding: var(--spacing-4xl) 0;
@@ -328,6 +484,7 @@ section {
     font-weight: 700;
     color: var(--primary);
     margin-bottom: var(--spacing-sm);
+    font-family: var(--font-serif);
 }
 
 .section-subtitle {
@@ -335,32 +492,35 @@ section {
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto var(--spacing-xl);
+    line-height: 1.7;
 }
 
-/* ==================== FEATURES SECTION ==================== */
-.features-section {
+/* ==================== RESOURCES SECTION (ENHANCED) ==================== */
+.resources-section {
     background-color: var(--gray-50);
 }
 
-.feature-card {
+.resource-card {
     background: var(--white);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
     height: 100%;
     transition: all var(--transition);
     box-shadow: var(--shadow-md);
-    border: 1px solid var(--gray-200);
+    border: 2px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
 }
 
-.feature-card:hover {
+.resource-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-xl);
     border-color: var(--primary-light);
 }
 
-.feature-icon {
-    width: 80px;
-    height: 80px;
+.resource-icon {
+    width: 90px;
+    height: 90px;
     border-radius: var(--radius-md);
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     display: flex;
@@ -370,39 +530,112 @@ section {
     transition: var(--transition);
 }
 
-.feature-card:hover .feature-icon {
-    transform: scale(1.1) rotate(5deg);
+.resource-card:hover .resource-icon {
+    transform: scale(1.05) rotate(3deg);
 }
 
-.feature-icon i {
-    font-size: 36px;
+.resource-icon i {
+    font-size: 40px;
     color: var(--white);
 }
 
-.feature-title {
-    font-size: 24px;
+.resource-title {
+    font-size: 26px;
     font-weight: 700;
     color: var(--primary);
     margin-bottom: var(--spacing-sm);
+    font-family: var(--font-serif);
 }
 
-.feature-description {
+.resource-description {
     color: var(--text-secondary);
-    line-height: 1.8;
+    line-height: 1.7;
     margin-bottom: var(--spacing-md);
+    font-size: 16px;
 }
 
-.feature-link {
-    display: inline-flex;
+.resource-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-lg) 0;
+    flex-grow: 1;
+}
+
+.resource-features li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    font-size: 15px;
+}
+
+.resource-features li i {
+    color: #10b981;
+    margin-right: var(--spacing-xs);
+    margin-top: 4px;
+    font-size: 16px;
+}
+
+.resource-card .btn-block {
+    width: 100%;
+    margin-top: auto;
+}
+
+/* ==================== WHY REFORMED THEOLOGY SECTION ==================== */
+.why-reformed-section {
+    background-color: var(--gray-100);
+}
+
+.distinctive-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    height: 100%;
+    transition: all var(--transition);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+}
+
+.distinctive-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+.distinctive-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    display: flex;
     align-items: center;
-    color: var(--primary);
-    font-weight: 600;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
     transition: var(--transition);
 }
 
-.feature-link:hover {
-    color: var(--primary-light);
-    transform: translateX(5px);
+.distinctive-card:hover .distinctive-icon {
+    transform: scale(1.08);
+}
+
+.distinctive-icon i {
+    font-size: 32px;
+    color: var(--white);
+}
+
+.distinctive-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-serif);
+}
+
+.distinctive-description {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0;
 }
 
 /* ==================== BLOG SECTION ==================== */
@@ -479,6 +712,7 @@ section {
     margin-bottom: var(--spacing-sm);
     line-height: 1.4;
     transition: var(--transition);
+    font-family: var(--font-serif);
 }
 
 .blog-card:hover .blog-title {
@@ -516,7 +750,7 @@ section {
 
 .newsletter-icon {
     font-size: 64px;
-    color: var(--accent);
+    color: var(--accent-light);
     margin-bottom: var(--spacing-md);
 }
 
@@ -525,6 +759,7 @@ section {
     font-weight: 700;
     color: var(--white);
     margin-bottom: var(--spacing-sm);
+    font-family: var(--font-serif);
 }
 
 .newsletter-description {
@@ -788,7 +1023,12 @@ section {
         font-size: 48px;
     }
 
-    .section-title {
+    .hero-section.hero-reduced {
+        min-height: 500px;
+    }
+
+    .section-title,
+    .section-title-main {
         font-size: 36px;
     }
 
@@ -799,8 +1039,13 @@ section {
 
 @media (max-width: 767px) {
     .hero-section {
-        min-height: 80vh;
+        min-height: 70vh;
         padding: var(--spacing-3xl) 0;
+    }
+
+    .hero-section.hero-reduced {
+        min-height: 450px;
+        padding: var(--spacing-2xl) 0;
     }
 
     .hero-title {
@@ -821,11 +1066,13 @@ section {
         max-width: 300px;
     }
 
-    .section-title {
+    .section-title,
+    .section-title-main {
         font-size: 32px;
     }
 
-    .section-subtitle {
+    .section-subtitle,
+    .section-intro {
         font-size: 16px;
     }
 
@@ -833,8 +1080,10 @@ section {
         padding: var(--spacing-2xl) 0;
     }
 
-    .feature-card,
-    .blog-card {
+    .resource-card,
+    .blog-card,
+    .sola-card,
+    .distinctive-card {
         margin-bottom: var(--spacing-md);
     }
 
@@ -850,6 +1099,14 @@ section {
         align-items: center;
         gap: var(--spacing-xs);
     }
+
+    .sola-latin {
+        font-size: 24px;
+    }
+
+    .sola-english {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 575px) {
@@ -858,19 +1115,30 @@ section {
     h3 { font-size: 22px; }
 
     .hero-title {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     .navbar-brand {
         font-size: 20px;
     }
 
-    .feature-icon {
+    .resource-icon,
+    .sola-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .resource-icon i,
+    .sola-icon i {
+        font-size: 32px;
+    }
+
+    .distinctive-icon {
         width: 60px;
         height: 60px;
     }
 
-    .feature-icon i {
+    .distinctive-icon i {
         font-size: 28px;
     }
 
@@ -924,4 +1192,9 @@ section {
     to {
         transform: rotate(360deg);
     }
+}
+
+/* ==================== SMOOTH SCROLL ==================== */
+.smooth-scroll {
+    scroll-behavior: smooth;
 }

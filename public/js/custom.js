@@ -1,6 +1,6 @@
 /**
- * Custom JavaScript for Statement of Faith Website
- * Handles interactive features, animations, and UX enhancements
+ * Custom JavaScript for Reformed Faith Website
+ * Handles interactive features, animations, UX enhancements, and multi-language support
  */
 
 (function() {
@@ -11,6 +11,11 @@
     const scrollTopBtn = document.getElementById('scrollTop');
     const newsletterForm = document.getElementById('newsletterForm');
     const scrollIndicator = document.querySelector('.scroll-indicator');
+
+    // Language switcher elements
+    const languageDropdown = document.getElementById('languageDropdown');
+    const currentLangDisplay = document.getElementById('currentLang');
+    const languageItems = document.querySelectorAll('.language-switcher .dropdown-item');
 
     // ==================== INITIALIZATION ====================
     document.addEventListener('DOMContentLoaded', function() {
@@ -23,8 +28,9 @@
         setupMobileMenu();
         setupScrollIndicator();
         setupSmoothScroll();
+        setupLanguageSwitcher();
 
-        console.log('Statement of Faith - Website initialized successfully');
+        console.log('Reformed Faith Website - Initialized successfully');
     });
 
     // ==================== AOS INITIALIZATION ====================
@@ -41,6 +47,77 @@
                 delay: 0
             });
         }
+    }
+
+    // ==================== LANGUAGE SWITCHER ====================
+    /**
+     * Setup multi-language switcher functionality
+     */
+    function setupLanguageSwitcher() {
+        // Load saved language preference from localStorage
+        const savedLang = localStorage.getItem('preferred_language') || 'en';
+        setLanguage(savedLang, false);
+
+        // Add click handlers to language switcher items
+        languageItems.forEach(function(item) {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                setLanguage(lang, true);
+            });
+        });
+    }
+
+    /**
+     * Set website language
+     * @param {string} lang - Language code ('en' or 'vi')
+     * @param {boolean} savePreference - Whether to save to localStorage
+     */
+    function setLanguage(lang, savePreference) {
+        // Update all elements with language attributes
+        const elementsWithLang = document.querySelectorAll('[data-lang-' + lang + ']');
+
+        elementsWithLang.forEach(function(element) {
+            const translatedText = element.getAttribute('data-lang-' + lang);
+
+            // Check if it's a placeholder attribute
+            if (element.hasAttribute('data-lang-placeholder-' + lang) && element.tagName === 'INPUT') {
+                element.placeholder = element.getAttribute('data-lang-placeholder-' + lang);
+            } else if (translatedText) {
+                element.textContent = translatedText;
+            }
+        });
+
+        // Update current language display
+        if (currentLangDisplay) {
+            currentLangDisplay.textContent = lang.toUpperCase();
+        }
+
+        // Update active state on language items
+        languageItems.forEach(function(item) {
+            const itemLang = item.getAttribute('data-lang');
+            if (itemLang === lang) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+
+        // Update HTML lang attribute
+        document.documentElement.setAttribute('lang', lang);
+
+        // Save preference to localStorage if requested
+        if (savePreference) {
+            localStorage.setItem('preferred_language', lang);
+
+            // Show notification
+            showNotification(
+                lang === 'en' ? 'Language changed to English' : 'Đã chuyển sang Tiếng Việt',
+                'success'
+            );
+        }
+
+        console.log('Language set to:', lang);
     }
 
     // ==================== SCROLL HANDLERS ====================
@@ -122,7 +199,11 @@
 
             // Validate email
             if (!emailInput.value || !isValidEmail(emailInput.value)) {
-                showNotification('Please enter a valid email address', 'error');
+                const currentLang = localStorage.getItem('preferred_language') || 'en';
+                const errorMsg = currentLang === 'en'
+                    ? 'Please enter a valid email address'
+                    : 'Vui lòng nhập địa chỉ email hợp lệ';
+                showNotification(errorMsg, 'error');
                 return;
             }
 
@@ -188,6 +269,7 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             z-index: 9999;
             animation: slideInRight 0.3s ease;
+            max-width: 350px;
         `;
 
         document.body.appendChild(notification);
@@ -196,7 +278,9 @@
         setTimeout(function() {
             notification.style.animation = 'slideOutRight 0.3s ease';
             setTimeout(function() {
-                document.body.removeChild(notification);
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
             }, 300);
         }, 3000);
     }
@@ -241,9 +325,9 @@
         if (!scrollIndicator) return;
 
         scrollIndicator.addEventListener('click', function() {
-            const featuresSection = document.querySelector('.features-section');
-            if (featuresSection) {
-                featuresSection.scrollIntoView({
+            const fiveSolasSection = document.getElementById('five-solas');
+            if (fiveSolasSection) {
+                fiveSolasSection.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
@@ -272,6 +356,11 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+
+                    // Update URL without jumping
+                    if (history.pushState) {
+                        history.pushState(null, null, href);
+                    }
                 }
             });
         });
@@ -307,7 +396,7 @@
      * Add interactive hover effects to cards
      */
     function setupCardEffects() {
-        const cards = document.querySelectorAll('.feature-card, .blog-card');
+        const cards = document.querySelectorAll('.resource-card, .blog-card, .sola-card, .distinctive-card');
 
         cards.forEach(function(card) {
             card.addEventListener('mouseenter', function() {
@@ -450,7 +539,8 @@
 
     // ==================== EXPORT FOR TESTING ====================
     // Expose functions for testing if needed
-    window.StatementOfFaith = {
+    window.ReformedFaith = {
+        setLanguage: setLanguage,
         isValidEmail: isValidEmail,
         isInViewport: isInViewport,
         showNotification: showNotification
@@ -493,6 +583,21 @@ style.textContent = `
     /* Menu animation */
     .navbar-collapse.menu-animating {
         animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Smooth transitions for language changes */
+    [data-lang-en],
+    [data-lang-vi] {
+        transition: opacity 0.2s ease;
     }
 `;
 document.head.appendChild(style);
