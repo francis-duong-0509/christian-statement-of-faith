@@ -901,19 +901,22 @@
 
     <!-- Floating Action Buttons -->
     <div class="floating-buttons">
-        <!-- To Top Button -->
-        <button class="fab-button fab-to-top" id="fabToTop" aria-label="Scroll to top">
-            <i class="fas fa-arrow-up"></i>
-        </button>
+        <!-- Donate Button with Label (TOP - Most Prominent) -->
+        <div class="fab-with-label">
+            <span class="fab-label" data-lang-en="Give" data-lang-vi="Dâng Hiến">Give</span>
+            <button class="fab-button fab-donate" id="fabDonate" aria-label="Support our ministry">
+                <i class="fas fa-heart"></i>
+            </button>
+        </div>
 
-        <!-- Facebook Button -->
+        <!-- Facebook Button (MIDDLE) -->
         <a href="https://www.facebook.com/yourpage" target="_blank" class="fab-button fab-facebook" aria-label="Visit our Facebook page">
             <i class="fab fa-facebook-f"></i>
         </a>
 
-        <!-- Donate Button -->
-        <button class="fab-button fab-donate" id="fabDonate" aria-label="Support our ministry">
-            <i class="fas fa-heart"></i>
+        <!-- To Top Button (BOTTOM - Utility) -->
+        <button class="fab-button fab-to-top" id="fabToTop" aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
         </button>
     </div>
 
@@ -951,8 +954,11 @@
                     <i class="fas fa-heart donate-heart-icon"></i>
                 </div>
                 <h3 id="donateModalTitle" class="donate-modal-title">
-                    <span data-lang-en="Support Our Ministry" data-lang-vi="Ủng Hộ Chức Vụ">Support Our Ministry</span>
+                    <span data-lang-en="Partner With Us in God's Work" data-lang-vi="Đồng Hành Cùng Chúng Tôi Trong Công Việc Chúa">Partner With Us in God's Work</span>
                 </h3>
+                <p class="donate-subtitle">
+                    <span data-lang-en="Every gift makes a difference" data-lang-vi="Mọi đóng góp đều tạo nên khác biệt">Every gift makes a difference</span>
+                </p>
                 <button class="modal-close" aria-label="Close modal" data-dismiss-donate="modal">
                     <i class="fas fa-times"></i>
                 </button>
@@ -961,45 +967,61 @@
             <!-- Body -->
             <div class="donate-modal-body">
                 <!-- Thank You Message -->
-                <p class="donate-message"
-                   data-lang-en="Your generous support helps us continue sharing biblical truth and theological resources. Thank you for partnering with us in ministry."
-                   data-lang-vi="Sự ủng hộ hào phóng của bạn giúp chúng tôi tiếp tục chia sẻ chân lý Kinh Thánh và tài nguyên thần học. Cảm ơn bạn đã đồng hành với chúng tôi trong chức vụ.">
-                    Your generous support helps us continue sharing biblical truth and theological resources. Thank you for partnering with us in ministry.
-                </p>
-
-                <!-- QR Code Section -->
-                <div class="qr-code-section">
-                    <h4 class="qr-title">
-                        <span data-lang-en="Scan QR Code to Donate" data-lang-vi="Quét Mã QR Để Ủng Hộ">Scan QR Code to Donate</span>
-                    </h4>
-                    <div class="qr-code-wrapper">
-                        <img src="https://via.placeholder.com/250x250/1e3a5f/ffffff?text=QR+Banking"
-                             alt="QR Code for Banking"
-                             class="qr-code-image">
-                    </div>
+                <div class="donate-message">
+                    <p data-lang-en="Your support, whether large or small, helps us continue sharing God's Word and developing quality theological resources. We believe equipping believers with deep biblical understanding is essential to the mission of proclaiming the Gospel."
+                       data-lang-vi="Mọi sự ủng hộ của bạn, dù lớn hay nhỏ, đều giúp chúng tôi tiếp tục chia sẻ Lời Chúa và phát triển các tài nguyên thần học chất lượng. Chúng tôi tin rằng việc trang bị cho tín đồ hiểu biết sâu sắc về Kinh Thánh là phần thiết yếu trong sứ mạng loan báo Phúc Âm.">
+                        Your support, whether large or small, helps us continue sharing God's Word and developing quality theological resources. We believe equipping believers with deep biblical understanding is essential to the mission of proclaiming the Gospel.
+                    </p>
+                    <p data-lang-en="We operate entirely as a non-profit ministry and depend on the generous support of people like you. Every contribution is used faithfully for God's glory and to serve the Church."
+                       data-lang-vi="Chúng tôi hoạt động hoàn toàn phi lợi nhuận và phụ thuộc vào sự hỗ trợ hào phóng của những người như bạn. Mỗi đóng góp được sử dụng một cách trung tín để vinh hiển Đức Chúa Trời và phục vụ Hội Thánh.">
+                        We operate entirely as a non-profit ministry and depend on the generous support of people like you. Every contribution is used faithfully for God's glory and to serve the Church.
+                    </p>
+                    <p data-lang-en="Thank you for considering supporting this ministry!"
+                       data-lang-vi="Cảm ơn bạn đã cân nhắc ủng hộ chức vụ này!">
+                        Thank you for considering supporting this ministry!
+                    </p>
                 </div>
 
-                <!-- Banking Information -->
-                <div class="banking-info-section">
-                    <h4 class="banking-title">
-                        <span data-lang-en="Banking Information" data-lang-vi="Thông Tin Ngân Hàng">Banking Information</span>
-                    </h4>
-                    <div class="banking-details">
-                        <div class="banking-row">
-                            <span class="banking-label" data-lang-en="Bank:" data-lang-vi="Ngân hàng:">Bank:</span>
-                            <span class="banking-value">Vietcombank</span>
+                <!-- Two Column Layout for QR and Banking -->
+                <div class="donate-content-grid">
+                    <!-- Left Column: QR Code -->
+                    <div class="qr-section">
+                        <div class="qr-code-wrapper">
+                            <img src="https://via.placeholder.com/280x280/1e3a5f/ffffff?text=QR+Banking"
+                                 alt="QR Code for Banking"
+                                 class="qr-code-image">
                         </div>
-                        <div class="banking-row">
-                            <span class="banking-label" data-lang-en="Account Number:" data-lang-vi="Số tài khoản:">Account Number:</span>
-                            <span class="banking-value">1234567890</span>
-                        </div>
-                        <div class="banking-row">
-                            <span class="banking-label" data-lang-en="Account Name:" data-lang-vi="Tên tài khoản:">Account Name:</span>
-                            <span class="banking-value">Statement of Faith Ministry</span>
-                        </div>
-                        <div class="banking-row">
-                            <span class="banking-label" data-lang-en="Branch:" data-lang-vi="Chi nhánh:">Branch:</span>
-                            <span class="banking-value">Ho Chi Minh City</span>
+                        <p class="qr-caption">
+                            <span data-lang-en="Scan to Give - Any Amount Appreciated" data-lang-vi="Quét Mã Để Dâng Hiến - Mọi Số Tiền Đều Được Trân Trọng">Scan to Give - Any Amount Appreciated</span>
+                        </p>
+                    </div>
+
+                    <!-- Right Column: Banking Information -->
+                    <div class="banking-section">
+                        <h4 class="banking-title">
+                            <span data-lang-en="Banking Information" data-lang-vi="Thông Tin Ngân Hàng">Banking Information</span>
+                        </h4>
+                        <div class="banking-details-panel">
+                            <div class="banking-field">
+                                <div class="banking-label" data-lang-en="Bank" data-lang-vi="Ngân hàng">Bank</div>
+                                <div class="banking-value">Vietcombank (VCB)</div>
+                            </div>
+                            <div class="banking-field">
+                                <div class="banking-label" data-lang-en="Account Number" data-lang-vi="Số tài khoản">Account Number</div>
+                                <div class="banking-value">1234 5678 9012</div>
+                            </div>
+                            <div class="banking-field">
+                                <div class="banking-label" data-lang-en="Account Holder" data-lang-vi="Chủ tài khoản">Account Holder</div>
+                                <div class="banking-value">STATEMENT OF FAITH</div>
+                            </div>
+                            <div class="banking-field">
+                                <div class="banking-label" data-lang-en="Branch" data-lang-vi="Chi nhánh">Branch</div>
+                                <div class="banking-value" data-lang-en="Ho Chi Minh City Branch" data-lang-vi="Chi nhánh TP. Hồ Chí Minh">Ho Chi Minh City Branch</div>
+                            </div>
+                            <div class="banking-field">
+                                <div class="banking-label" data-lang-en="Transfer Note" data-lang-vi="Nội dung chuyển khoản">Transfer Note</div>
+                                <div class="banking-value" data-lang-en="Support Statement of Faith" data-lang-vi="Ung ho Statement of Faith">Support Statement of Faith</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1008,11 +1030,9 @@
             <!-- Footer -->
             <div class="donate-modal-footer">
                 <p class="donate-footer-text">
-                    <i class="fas fa-heart text-danger"></i>
-                    <span data-lang-en="Thank you for your generosity and faithfulness!"
-                          data-lang-vi="Cảm ơn sự hào phóng và thành tín của bạn!">
-                        Thank you for your generosity and faithfulness!
-                    </span>
+                    <span data-lang-en="May the Lord bless your generous heart." data-lang-vi="Nguyện Chúa ban phước cho tấm lòng hào phóng của bạn.">May the Lord bless your generous heart.</span>
+                    <br>
+                    <span class="scripture-ref">(2 Corinthians 9:7 / 2 Cô-rinh-tô 9:7)</span>
                 </p>
             </div>
         </div>

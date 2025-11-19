@@ -94,7 +94,12 @@
             if (element.hasAttribute('data-lang-placeholder-' + lang) && element.tagName === 'INPUT') {
                 element.placeholder = element.getAttribute('data-lang-placeholder-' + lang);
             } else if (translatedText) {
-                element.textContent = translatedText;
+                // For elements inside donate-message div, preserve paragraph structure
+                if (element.tagName === 'P' && element.closest('.donate-message')) {
+                    element.textContent = translatedText;
+                } else {
+                    element.textContent = translatedText;
+                }
             }
         });
 
