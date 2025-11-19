@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reformed Theology - Comprehensive resources on biblical doctrine, the Five Solas, theological dictionary, and insightful Reformed teachings rooted in Scripture alone.">
-    <meta name="keywords" content="reformed theology, five solas, sola scriptura, statement of faith, christian theology, biblical truth, theological dictionary, reformed blog">
-    <title>Reformed Statement of Faith - Biblical Truth & Reformed Theology</title>
+    <meta name="description" content="Biblical Theology - Comprehensive resources on biblical doctrine, theological dictionary, and insightful biblical teachings rooted in Scripture alone.">
+    <meta name="keywords" content="biblical theology, scripture, statement of faith, christian theology, biblical truth, theological dictionary, theology blog">
+    <title>Statement of Faith - Biblical Truth & Theology</title>
 
     <!-- Google Fonts - Scholarly Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,8 +29,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <i class="fas fa-book-open me-2"></i>
-                <span class="brand-text">Reformed Faith</span>
+                <img src="{{ asset('images/logo.png') }}" alt="Statement of Faith" class="site-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,6 +45,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dictionary" data-lang-en="Dictionary" data-lang-vi="Từ Điển">Dictionary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/scripture-lectures" data-lang-en="Scripture Lectures" data-lang-vi="Giảng Giải Kinh">Scripture Lectures</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/blog" data-lang-en="Blog" data-lang-vi="Blog">Blog</a>
@@ -74,22 +76,21 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
                     <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000"
-                        data-lang-en="Reformed Theology: Rooted in Scripture Alone"
-                        data-lang-vi="Thần Học Cải Chánh: Dựa Trên Kinh Thánh">
-                        Reformed Theology: Rooted in Scripture Alone
+                        data-lang-en="Christian Theology: Rooted in Scripture Alone"
+                        data-lang-vi="Thần Học Cơ Đốc: Dựa Trên Kinh Thánh">
+                        Christian Theology: Rooted in Scripture Alone
                     </h1>
                     <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"
-                       data-lang-en="A comprehensive resource for understanding biblical doctrine, the Five Solas of the Reformation, and Reformed theological truth grounded in God's Word."
-                       data-lang-vi="Nguồn tài nguyên toàn diện để hiểu giáo lý Kinh Thánh, Năm Điển Cải Chánh, và chân lý thần học Cải Chánh dựa trên Lời Chúa.">
-                        A comprehensive resource for understanding biblical doctrine, the Five Solas of the Reformation,
-                        and Reformed theological truth grounded in God's Word.
+                       data-lang-en="A comprehensive resource for understanding biblical doctrine and theological truth grounded in God's Word."
+                       data-lang-vi="Nguồn tài nguyên toàn diện để hiểu giáo lý Kinh Thánh và chân lý thần học dựa trên Lời Chúa.">
+                        A comprehensive resource for understanding biblical doctrine and theological truth grounded in God's Word.
                     </p>
                     <div class="hero-cta" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                        <a href="/faith-statements" class="btn btn-primary btn-lg me-3">
+                        <a href="/faith-statements" class="btn btn-hero-primary btn-lg me-3">
                             <span data-lang-en="Explore Our Beliefs" data-lang-vi="Khám Phá Đức Tin">Explore Our Beliefs</span>
                             <i class="fas fa-arrow-right ms-2"></i>
                         </a>
-                        <a href="#statement-of-faith" class="btn btn-outline-light btn-lg smooth-scroll">
+                        <a href="#statement-of-faith" class="btn btn-hero-secondary btn-lg smooth-scroll">
                             <span data-lang-en="Our Beliefs" data-lang-vi="Niềm Tin">Our Beliefs</span>
                         </a>
                     </div>
@@ -285,120 +286,297 @@
         </div>
     </section>
 
-    <!-- Five Solas Section -->
-    <section class="five-solas-section py-5" id="five-solas">
+    <!-- Our Foundation: Scripture Alone Section -->
+    <section class="scripture-foundation-section py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Column: Image -->
+                <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="foundation-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519791883288-dc8bd696e667?w=800&q=80"
+                             alt="Open Bible"
+                             class="foundation-image img-fluid">
+                    </div>
+                </div>
+
+                <!-- Right Column: Content -->
+                <div class="col-lg-7" data-aos="fade-left">
+                    <h2 class="section-title mb-4"
+                        data-lang-en="Our Foundation: Scripture Alone"
+                        data-lang-vi="Nền Tảng Của Chúng Ta: Chỉ Kinh Thánh">
+                        Our Foundation: Scripture Alone
+                    </h2>
+
+                    <div class="foundation-points">
+                        <!-- Point 1: Supreme Authority -->
+                        <div class="foundation-point">
+                            <div class="point-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="point-content">
+                                <h4 class="point-title"
+                                    data-lang-en="Supreme Authority"
+                                    data-lang-vi="Thẩm Quyền Tối Cao">
+                                    Supreme Authority
+                                </h4>
+                                <p class="point-text"
+                                   data-lang-en="We believe the Bible is the supreme and final authority for all matters of faith and practice."
+                                   data-lang-vi="Chúng tôi tin rằng Kinh Thánh là thẩm quyền tối cao và cuối cùng cho mọi vấn đề về đức tin và đời sống.">
+                                    We believe the Bible is the supreme and final authority for all matters of faith and practice.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Point 2: Sufficient for Life -->
+                        <div class="foundation-point">
+                            <div class="point-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="point-content">
+                                <h4 class="point-title"
+                                    data-lang-en="Sufficient for Life"
+                                    data-lang-vi="Đủ Cho Cuộc Sống">
+                                    Sufficient for Life
+                                </h4>
+                                <p class="point-text"
+                                   data-lang-en="Scripture provides everything we need to know God and live faithfully for His glory."
+                                   data-lang-vi="Kinh Thánh cung cấp mọi điều chúng ta cần để biết Đức Chúa Trời và sống trung tín cho vinh hiển Ngài.">
+                                    Scripture provides everything we need to know God and live faithfully for His glory.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Point 3: Clear Teaching -->
+                        <div class="foundation-point">
+                            <div class="point-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="point-content">
+                                <h4 class="point-title"
+                                    data-lang-en="Clear Teaching"
+                                    data-lang-vi="Giáo Lý Rõ Ràng">
+                                    Clear Teaching
+                                </h4>
+                                <p class="point-text"
+                                   data-lang-en="The essential truths of the Gospel are clearly revealed in Scripture for all believers."
+                                   data-lang-vi="Những chân lý thiết yếu của Phúc Âm được bày tỏ rõ ràng trong Kinh Thánh cho tất cả tín đồ.">
+                                    The essential truths of the Gospel are clearly revealed in Scripture for all believers.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Point 4: God's Inspired Word -->
+                        <div class="foundation-point">
+                            <div class="point-icon">
+                                <i class="fas fa-book-bible"></i>
+                            </div>
+                            <div class="point-content">
+                                <h4 class="point-title"
+                                    data-lang-en="God's Inspired Word"
+                                    data-lang-vi="Lời Được Soi Dẫn">
+                                    God's Inspired Word
+                                </h4>
+                                <p class="point-text"
+                                   data-lang-en="Every word of Scripture is inspired by God and profitable for teaching and correction."
+                                   data-lang-vi="Mọi lời trong Kinh Thánh đều được Đức Chúa Trời soi dẫn và hữu ích cho sự dạy dỗ và sửa trách.">
+                                    Every word of Scripture is inspired by God and profitable for teaching and correction.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dictionary Showcase Section -->
+    <section class="dictionary-showcase-section py-5">
         <div class="container">
             <!-- Section Header -->
             <div class="row text-center mb-5">
                 <div class="col-lg-10 mx-auto">
-                    <h2 class="section-title-main" data-aos="fade-up"
-                        data-lang-en="The Five Solas of Reformed Theology"
-                        data-lang-vi="Năm Điển Của Thần Học Cải Chánh">
-                        The Five Solas of Reformed Theology
+                    <h2 class="section-title" data-aos="fade-up"
+                        data-lang-en="Multilingual Biblical Dictionary"
+                        data-lang-vi="Từ Điển Kinh Thánh Đa Ngôn Ngữ">
+                        Multilingual Biblical Dictionary
                     </h2>
-                    <p class="section-intro" data-aos="fade-up" data-aos-delay="100"
-                       data-lang-en="Reformed Theology is a comprehensive system of Christian doctrine rooted in the Protestant Reformation. At its heart are the Five Solas—five fundamental principles that define our understanding of Scripture, salvation, and the glory of God. These truths form the bedrock of biblical Christianity."
-                       data-lang-vi="Thần Học Cải Chánh là một hệ thống giáo lý Cơ Đốc toàn diện bắt nguồn từ Cải Chánh Tin Lành. Trung tâm của nó là Năm Điển—năm nguyên tắc căn bản định hình sự hiểu biết của chúng ta về Kinh Thánh, sự cứu rỗi, và vinh hiển của Đức Chúa Trời.">
-                        Reformed Theology is a comprehensive system of Christian doctrine rooted in the Protestant Reformation.
-                        At its heart are the Five Solas—five fundamental principles that define our understanding of Scripture,
-                        salvation, and the glory of God. These truths form the bedrock of biblical Christianity.
+                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100"
+                       data-lang-en="Hebrew, Greek & English theological terms explained in Vietnamese"
+                       data-lang-vi="Tra cứu từ ngữ thần học từ tiếng Hebrew (Cựu Ước), Greek (Tân Ước), và English với giải nghĩa tiếng Việt chi tiết">
+                        Hebrew, Greek & English theological terms explained in Vietnamese
+                    </p>
+                    <p class="dictionary-intro" data-aos="fade-up" data-aos-delay="200"
+                       data-lang-en="Vietnamese cannot fully express the nuances and context of many Biblical terms. Our dictionary provides original meanings from Hebrew and Greek, helping you understand Scripture with scholarly depth."
+                       data-lang-vi="Tiếng Việt không thể diễn tả đúng ngữ nghĩa và bối cảnh của nhiều từ ngữ trong Kinh Thánh. Từ điển của chúng tôi cung cấp nghĩa gốc từ tiếng Hebrew và Greek, giúp bạn hiểu sâu sắc học thuật Kinh Thánh.">
+                        Vietnamese cannot fully express the nuances and context of many Biblical terms. Our dictionary provides original meanings from Hebrew and Greek, helping you understand Scripture with scholarly depth.
                     </p>
                 </div>
             </div>
 
-            <!-- Five Solas Cards -->
+            <!-- Feature Highlights -->
             <div class="row g-4 mb-5">
-                <!-- Sola 1: Sola Scriptura -->
+                <!-- Feature 1: Hebrew -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="sola-card">
-                        <div class="sola-icon">
-                            <i class="fas fa-book-bible"></i>
+                    <div class="dictionary-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-scroll"></i>
+                            <span class="hebrew-letter">א</span>
                         </div>
-                        <h3 class="sola-latin">Sola Scriptura</h3>
-                        <h4 class="sola-english" data-lang-en="Scripture Alone" data-lang-vi="Chỉ Kinh Thánh">Scripture Alone</h4>
-                        <p class="sola-tagline"
-                           data-lang-en="Scripture is the only infallible rule of faith and practice"
-                           data-lang-vi="Kinh Thánh là quy tắc duy nhất vô sai sót về đức tin và thực hành">
-                            Scripture is the only infallible rule of faith and practice
+                        <h4 class="feature-title" data-lang-en="Hebrew Terms (Old Testament)" data-lang-vi="Từ Ngữ Hebrew (Cựu Ước)">
+                            Hebrew Terms (Old Testament)
+                        </h4>
+                        <p class="feature-description"
+                           data-lang-en="Original Old Testament words with Vietnamese meanings and context"
+                           data-lang-vi="Từ ngữ gốc Cựu Ước với nghĩa và bối cảnh tiếng Việt">
+                            Original Old Testament words with Vietnamese meanings and context
                         </p>
                     </div>
                 </div>
 
-                <!-- Sola 2: Sola Gratia -->
+                <!-- Feature 2: Greek -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="sola-card">
-                        <div class="sola-icon">
-                            <i class="fas fa-hands-praying"></i>
+                    <div class="dictionary-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                            <span class="greek-letter">Α</span>
                         </div>
-                        <h3 class="sola-latin">Sola Gratia</h3>
-                        <h4 class="sola-english" data-lang-en="Grace Alone" data-lang-vi="Chỉ Ân Điển">Grace Alone</h4>
-                        <p class="sola-tagline"
-                           data-lang-en="Salvation is by God's grace alone, not by human merit"
-                           data-lang-vi="Sự cứu rỗi chỉ bởi ân điển Đức Chúa Trời, không phải công đức con người">
-                            Salvation is by God's grace alone, not by human merit
+                        <h4 class="feature-title" data-lang-en="Greek Terms (New Testament)" data-lang-vi="Từ Ngữ Greek (Tân Ước)">
+                            Greek Terms (New Testament)
+                        </h4>
+                        <p class="feature-description"
+                           data-lang-en="New Testament Greek with contextual Vietnamese explanations"
+                           data-lang-vi="Từ ngữ Greek Tân Ước với giải thích bối cảnh tiếng Việt">
+                            New Testament Greek with contextual Vietnamese explanations
                         </p>
                     </div>
                 </div>
 
-                <!-- Sola 3: Sola Fide -->
+                <!-- Feature 3: English -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="sola-card">
-                        <div class="sola-icon">
-                            <i class="fas fa-cross"></i>
+                    <div class="dictionary-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-language"></i>
                         </div>
-                        <h3 class="sola-latin">Sola Fide</h3>
-                        <h4 class="sola-english" data-lang-en="Faith Alone" data-lang-vi="Chỉ Đức Tin">Faith Alone</h4>
-                        <p class="sola-tagline"
-                           data-lang-en="We are justified by faith alone in Christ"
-                           data-lang-vi="Chúng ta được xưng công chỉ bởi đức tin nơi Đấng Christ">
-                            We are justified by faith alone in Christ
+                        <h4 class="feature-title" data-lang-en="English Theological Terms" data-lang-vi="Thuật Ngữ Thần Học Tiếng Anh">
+                            English Theological Terms
+                        </h4>
+                        <p class="feature-description"
+                           data-lang-en="Key theological concepts explained clearly in Vietnamese"
+                           data-lang-vi="Các khái niệm thần học chủ chốt được giải thích rõ ràng bằng tiếng Việt">
+                            Key theological concepts explained clearly in Vietnamese
                         </p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Sola 4: Solus Christus -->
+            <!-- Sample Terms -->
+            <div class="row text-center mb-4">
+                <div class="col-12">
+                    <h3 class="sample-terms-title" data-aos="fade-up"
+                        data-lang-en="Sample Dictionary Entries"
+                        data-lang-vi="Mẫu Từ Điển">
+                        Sample Dictionary Entries
+                    </h3>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <!-- Term 1: Agape (Greek) -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="term-card">
+                        <span class="language-badge badge-greek">GREEK</span>
+                        <div class="term-original">ἀγάπη</div>
+                        <div class="term-transliteration">(agapē)</div>
+                        <div class="term-vietnamese">Tình yêu thương của Đức Chúa Trời</div>
+                        <div class="term-english">God's unconditional love</div>
+                        <a href="/dictionary/agape" class="term-link">
+                            <span data-lang-en="View Definition" data-lang-vi="Xem Định Nghĩa">View Definition</span>
+                            <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Term 2: Chesed (Hebrew) -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="term-card">
+                        <span class="language-badge badge-hebrew">HEBREW</span>
+                        <div class="term-original">חֶסֶד</div>
+                        <div class="term-transliteration">(chesed)</div>
+                        <div class="term-vietnamese">Lòng thương xót bền vững</div>
+                        <div class="term-english">Steadfast love/covenant faithfulness</div>
+                        <a href="/dictionary/chesed" class="term-link">
+                            <span data-lang-en="View Definition" data-lang-vi="Xem Định Nghĩa">View Definition</span>
+                            <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Term 3: Justification (English) -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="term-card">
+                        <span class="language-badge badge-english">ENGLISH</span>
+                        <div class="term-original">Justification</div>
+                        <div class="term-transliteration"></div>
+                        <div class="term-vietnamese">Xưng Công Bình</div>
+                        <div class="term-english">Legal declaration of righteousness</div>
+                        <a href="/dictionary/justification" class="term-link">
+                            <span data-lang-en="View Definition" data-lang-vi="Xem Định Nghĩa">View Definition</span>
+                            <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Term 4: Pistis (Greek) -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="sola-card">
-                        <div class="sola-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h3 class="sola-latin">Solus Christus</h3>
-                        <h4 class="sola-english" data-lang-en="Christ Alone" data-lang-vi="Chỉ Đấng Christ">Christ Alone</h4>
-                        <p class="sola-tagline"
-                           data-lang-en="Christ is the only mediator between God and humanity"
-                           data-lang-vi="Đấng Christ là Đấng trung bảo duy nhất giữa Đức Chúa Trời và con người">
-                            Christ is the only mediator between God and humanity
-                        </p>
+                    <div class="term-card">
+                        <span class="language-badge badge-greek">GREEK</span>
+                        <div class="term-original">πίστις</div>
+                        <div class="term-transliteration">(pistis)</div>
+                        <div class="term-vietnamese">Đức tin</div>
+                        <div class="term-english">Faith/trust/belief</div>
+                        <a href="/dictionary/pistis" class="term-link">
+                            <span data-lang-en="View Definition" data-lang-vi="Xem Định Nghĩa">View Definition</span>
+                            <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Sola 5: Soli Deo Gloria -->
+                <!-- Term 5: Berith (Hebrew) -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="sola-card">
-                        <div class="sola-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3 class="sola-latin">Soli Deo Gloria</h3>
-                        <h4 class="sola-english" data-lang-en="Glory to God Alone" data-lang-vi="Chỉ Vinh Hiển Đức Chúa Trời">Glory to God Alone</h4>
-                        <p class="sola-tagline"
-                           data-lang-en="All things are done for the glory of God alone"
-                           data-lang-vi="Mọi điều được làm chỉ vì vinh hiển Đức Chúa Trời">
-                            All things are done for the glory of God alone
-                        </p>
+                    <div class="term-card">
+                        <span class="language-badge badge-hebrew">HEBREW</span>
+                        <div class="term-original">בְּרִית</div>
+                        <div class="term-transliteration">(berith)</div>
+                        <div class="term-vietnamese">Giao ước</div>
+                        <div class="term-english">Covenant</div>
+                        <a href="/dictionary/berith" class="term-link">
+                            <span data-lang-en="View Definition" data-lang-vi="Xem Định Nghĩa">View Definition</span>
+                            <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Placeholder for symmetry on desktop -->
-                <div class="col-lg-4 d-none d-lg-block"></div>
+                <!-- Term 6: Sanctification (English) -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="term-card">
+                        <span class="language-badge badge-english">ENGLISH</span>
+                        <div class="term-original">Sanctification</div>
+                        <div class="term-transliteration"></div>
+                        <div class="term-vietnamese">Sự Nên Thánh</div>
+                        <div class="term-english">Process of becoming holy</div>
+                        <a href="/dictionary/sanctification" class="term-link">
+                            <span data-lang-en="View Definition" data-lang-vi="Xem Định Nghĩa">View Definition</span>
+                            <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- CTA Button -->
             <div class="row">
-                <div class="col text-center" data-aos="fade-up" data-aos-delay="600">
-                    <a href="/faith-statements" class="btn btn-outline-primary btn-lg">
-                        <span data-lang-en="Learn More About the Five Solas" data-lang-vi="Tìm Hiểu Thêm Về Năm Điển">
-                            Learn More About the Five Solas
-                        </span>
+                <div class="col text-center" data-aos="fade-up" data-aos-delay="700">
+                    <a href="/dictionary" class="btn btn-primary btn-lg">
+                        <span data-lang-en="Explore Full Dictionary" data-lang-vi="Khám Phá Từ Điển Đầy Đủ">Explore Full Dictionary</span>
                         <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                 </div>
@@ -412,84 +590,84 @@
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto">
                     <h2 class="section-title" data-aos="fade-up"
-                        data-lang-en="Reformed Theological Resources"
-                        data-lang-vi="Tài Nguyên Thần Học Cải Chánh">
-                        Reformed Theological Resources
+                        data-lang-en="Biblical Theological Resources"
+                        data-lang-vi="Tài Nguyên Thần Học Kinh Thánh">
+                        Biblical Theological Resources
                     </h2>
                     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100"
-                       data-lang-en="Comprehensive tools for studying biblical theology rooted in the Reformed tradition"
-                       data-lang-vi="Công cụ toàn diện để nghiên cứu thần học Kinh Thánh dựa trên truyền thống Cải Chánh">
-                        Comprehensive tools for studying biblical theology rooted in the Reformed tradition
+                       data-lang-en="Comprehensive tools for studying biblical theology rooted in Scripture"
+                       data-lang-vi="Công cụ toàn diện để nghiên cứu thần học Kinh Thánh dựa trên Kinh Thánh">
+                        Comprehensive tools for studying biblical theology rooted in Scripture
                     </p>
                 </div>
             </div>
             <div class="row g-4">
                 <!-- Resource Card 1: Statement of Faith -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-scroll"></i>
+                    <div class="resource-card-new" style="background-image: url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=800&q=80');">
+                        <div class="resource-overlay"></div>
+                        <div class="resource-content">
+                            <div class="resource-icon-new">
+                                <i class="fas fa-cross"></i>
+                            </div>
+                            <h3 class="resource-title-new" data-lang-en="Statement of Faith" data-lang-vi="Tuyên Bố Đức Tin">Statement of Faith</h3>
+                            <div class="resource-divider"></div>
+                            <p class="resource-description-new"
+                               data-lang-en="Comprehensive exposition of biblical doctrine based on Scripture alone"
+                               data-lang-vi="Giải thích toàn diện về giáo lý Kinh Thánh dựa trên Kinh Thánh">
+                                Comprehensive exposition of biblical doctrine based on Scripture alone
+                            </p>
+                            <a href="/faith-statements" class="resource-link">
+                                <span data-lang-en="Explore" data-lang-vi="Khám Phá">Explore</span>
+                                <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
                         </div>
-                        <h3 class="resource-title" data-lang-en="Statement of Faith" data-lang-vi="Tuyên Bố Đức Tin">Statement of Faith</h3>
-                        <p class="resource-description"
-                           data-lang-en="Comprehensive exposition of Reformed doctrine based on Scripture alone"
-                           data-lang-vi="Giải thích toàn diện về giáo lý Cải Chánh dựa trên Kinh Thánh">
-                            Comprehensive exposition of Reformed doctrine based on Scripture alone
-                        </p>
-                        <ul class="resource-features">
-                            <li><i class="fas fa-check-circle"></i> <span data-lang-en="Detailed theological positions" data-lang-vi="Lập trường thần học chi tiết">Detailed theological positions</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-lang-en="Scripture references throughout" data-lang-vi="Tham chiếu Kinh Thánh đầy đủ">Scripture references throughout</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-lang-en="Historic Reformed confessions" data-lang-vi="Tín điều Cải Chánh lịch sử">Historic Reformed confessions</span></li>
-                        </ul>
-                        <a href="/faith-statements" class="btn btn-primary btn-block">
-                            <span data-lang-en="Explore Our Beliefs" data-lang-vi="Khám Phá Niềm Tin">Explore Our Beliefs</span>
-                        </a>
                     </div>
                 </div>
 
                 <!-- Resource Card 2: Theological Dictionary -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-book"></i>
+                    <div class="resource-card-new" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80');">
+                        <div class="resource-overlay"></div>
+                        <div class="resource-content">
+                            <div class="resource-icon-new">
+                                <i class="fas fa-book-bible"></i>
+                            </div>
+                            <h3 class="resource-title-new" data-lang-en="Theological Dictionary" data-lang-vi="Từ Điển Thần Học">Theological Dictionary</h3>
+                            <div class="resource-divider"></div>
+                            <p class="resource-description-new"
+                               data-lang-en="Biblical and theological terms explained from a scriptural perspective"
+                               data-lang-vi="Thuật ngữ Kinh Thánh và thần học được giải thích từ góc nhìn Kinh Thánh">
+                                Biblical and theological terms explained from a scriptural perspective
+                            </p>
+                            <a href="/dictionary" class="resource-link">
+                                <span data-lang-en="Browse" data-lang-vi="Xem">Browse</span>
+                                <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
                         </div>
-                        <h3 class="resource-title" data-lang-en="Theological Dictionary" data-lang-vi="Từ Điển Thần Học">Theological Dictionary</h3>
-                        <p class="resource-description"
-                           data-lang-en="Biblical and theological terms explained from a Reformed perspective"
-                           data-lang-vi="Thuật ngữ Kinh Thánh và thần học được giải thích từ góc nhìn Cải Chánh">
-                            Biblical and theological terms explained from a Reformed perspective
-                        </p>
-                        <ul class="resource-features">
-                            <li><i class="fas fa-check-circle"></i> <span data-lang-en="500+ theological terms" data-lang-vi="Hơn 500 thuật ngữ thần học">500+ theological terms</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-lang-en="Biblical context provided" data-lang-vi="Bối cảnh Kinh Thánh được cung cấp">Biblical context provided</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-lang-en="Cross-referenced concepts" data-lang-vi="Các khái niệm tham chiếu chéo">Cross-referenced concepts</span></li>
-                        </ul>
-                        <a href="/dictionary" class="btn btn-primary btn-block">
-                            <span data-lang-en="Browse Dictionary" data-lang-vi="Xem Từ Điển">Browse Dictionary</span>
-                        </a>
                     </div>
                 </div>
 
                 <!-- Resource Card 3: Theological Blog -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-pen-fancy"></i>
+                    <div class="resource-card-new" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80');">
+                        <div class="resource-overlay"></div>
+                        <div class="resource-content">
+                            <div class="resource-icon-new">
+                                <i class="fas fa-feather-alt"></i>
+                            </div>
+                            <h3 class="resource-title-new" data-lang-en="Theological Blog" data-lang-vi="Blog Thần Học">Theological Blog</h3>
+                            <div class="resource-divider"></div>
+                            <p class="resource-description-new"
+                               data-lang-en="Articles and teachings grounded in biblical theology"
+                               data-lang-vi="Bài viết và giảng dạy dựa trên thần học Kinh Thánh">
+                                Articles and teachings grounded in biblical theology
+                            </p>
+                            <a href="/blog" class="resource-link">
+                                <span data-lang-en="Read" data-lang-vi="Đọc">Read</span>
+                                <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
                         </div>
-                        <h3 class="resource-title" data-lang-en="Theological Blog" data-lang-vi="Blog Thần Học">Theological Blog</h3>
-                        <p class="resource-description"
-                           data-lang-en="Articles and teachings grounded in Reformed biblical theology"
-                           data-lang-vi="Bài viết và giảng dạy dựa trên thần học Kinh Thánh Cải Chánh">
-                            Articles and teachings grounded in Reformed biblical theology
-                        </p>
-                        <ul class="resource-features">
-                            <li><i class="fas fa-check-circle"></i> <span data-lang-en="Weekly theological articles" data-lang-vi="Bài viết thần học hàng tuần">Weekly theological articles</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-lang-en="Biblical exposition & study" data-lang-vi="Giải thích & nghiên cứu Kinh Thánh">Biblical exposition & study</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-lang-en="Practical application" data-lang-vi="Ứng dụng thực tế">Practical application</span></li>
-                        </ul>
-                        <a href="/blog" class="btn btn-primary btn-block">
-                            <span data-lang-en="Read Articles" data-lang-vi="Đọc Bài Viết">Read Articles</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -518,8 +696,8 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <article class="blog-card">
                         <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&h=400&fit=crop"
-                                 alt="Understanding the Trinity" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=600&h=400&fit=crop"
+                                 alt="Wooden Cross" loading="lazy">
                             <span class="blog-category">Doctrine</span>
                         </div>
                         <div class="blog-content">
@@ -543,8 +721,8 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <article class="blog-card">
                         <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600&h=400&fit=crop"
-                                 alt="The Sovereignty of God" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&h=400&fit=crop"
+                                 alt="Stone Cross Monument" loading="lazy">
                             <span class="blog-category">Theology</span>
                         </div>
                         <div class="blog-content">
@@ -568,8 +746,8 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <article class="blog-card">
                         <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1503455637927-730bce8583c0?w=600&h=400&fit=crop"
-                                 alt="Justification by Faith" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=600&h=400&fit=crop"
+                                 alt="Church Cross Silhouette" loading="lazy">
                             <span class="blog-category">Salvation</span>
                         </div>
                         <div class="blog-content">
@@ -577,7 +755,7 @@
                                 <span><i class="far fa-calendar"></i> January 8, 2025</span>
                                 <span><i class="far fa-clock"></i> 12 min read</span>
                             </div>
-                            <h3 class="blog-title">Justification by Faith Alone: A Reformed Perspective</h3>
+                            <h3 class="blog-title">Justification by Faith Alone: A Biblical Perspective</h3>
                             <p class="blog-excerpt">
                                 Understanding the biblical doctrine of justification and why faith alone
                                 in Christ alone is central to the gospel message.
@@ -654,13 +832,14 @@
             <div class="row g-4">
                 <!-- About Column -->
                 <div class="col-lg-4 col-md-6">
-                    <h5 class="footer-title" data-lang-en="About" data-lang-vi="Giới Thiệu">About</h5>
+                    <div class="footer-logo mb-3">
+                        <i class="fas fa-cross"></i>
+                        <span class="footer-brand">Statement of Faith</span>
+                    </div>
                     <p class="footer-text"
-                       data-lang-en="Reformed Faith is dedicated to providing sound theological resources rooted in Scripture, helping believers grow in knowledge and understanding of God's Word through the lens of Reformed theology."
-                       data-lang-vi="Reformed Faith cam kết cung cấp tài nguyên thần học đáng tin cậy dựa trên Kinh Thánh, giúp tín hữu phát triển trong kiến thức và sự hiểu biết về Lời Chúa qua góc nhìn thần học Cải Chánh.">
-                        Reformed Faith is dedicated to providing sound theological resources
-                        rooted in Scripture, helping believers grow in knowledge and understanding
-                        of God's Word through the lens of Reformed theology.
+                       data-lang-en="Dedicated to providing sound theological resources rooted in Scripture, helping believers grow in knowledge and understanding of God's Word."
+                       data-lang-vi="Cam kết cung cấp tài nguyên thần học đáng tin cậy dựa trên Kinh Thánh, giúp tín hữu phát triển trong kiến thức và sự hiểu biết về Lời Chúa.">
+                        Dedicated to providing sound theological resources rooted in Scripture, helping believers grow in knowledge and understanding of God's Word.
                     </p>
                     <div class="social-links mt-3">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -707,7 +886,7 @@
             <div class="row mt-5 pt-4 border-top">
                 <div class="col-md-6 text-center text-md-start">
                     <p class="copyright mb-0">
-                        &copy; 2025 <span data-lang-en="Reformed Faith. All rights reserved." data-lang-vi="Reformed Faith. Mọi quyền được bảo lưu.">Reformed Faith. All rights reserved.</span>
+                        &copy; 2025 <span data-lang-en="Statement of Faith. All rights reserved." data-lang-vi="Statement of Faith. Mọi quyền được bảo lưu.">Statement of Faith. All rights reserved.</span>
                     </p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
@@ -720,8 +899,26 @@
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <!-- To Top Button -->
+        <button class="fab-button fab-to-top" id="fabToTop" aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!-- Facebook Button -->
+        <a href="https://www.facebook.com/yourpage" target="_blank" class="fab-button fab-facebook" aria-label="Visit our Facebook page">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <!-- Donate Button -->
+        <button class="fab-button fab-donate" id="fabDonate" aria-label="Support our ministry">
+            <i class="fas fa-heart"></i>
+        </button>
+    </div>
+
+    <!-- Scroll to Top Button (legacy - hidden) -->
+    <button class="scroll-top d-none" id="scrollTop" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -740,6 +937,83 @@
             </div>
             <div class="modal-footer">
                 <small class="translation-info">Bản dịch 1925</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Donate Modal -->
+    <div id="donateModal" class="donate-modal d-none" role="dialog" aria-modal="true" aria-labelledby="donateModalTitle">
+        <div class="modal-backdrop" data-dismiss-donate="modal"></div>
+        <div class="modal-container donate-modal-container">
+            <!-- Header with Heartbeat Icon -->
+            <div class="donate-modal-header">
+                <div class="donate-icon-wrapper">
+                    <i class="fas fa-heart donate-heart-icon"></i>
+                </div>
+                <h3 id="donateModalTitle" class="donate-modal-title">
+                    <span data-lang-en="Support Our Ministry" data-lang-vi="Ủng Hộ Chức Vụ">Support Our Ministry</span>
+                </h3>
+                <button class="modal-close" aria-label="Close modal" data-dismiss-donate="modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Body -->
+            <div class="donate-modal-body">
+                <!-- Thank You Message -->
+                <p class="donate-message"
+                   data-lang-en="Your generous support helps us continue sharing biblical truth and theological resources. Thank you for partnering with us in ministry."
+                   data-lang-vi="Sự ủng hộ hào phóng của bạn giúp chúng tôi tiếp tục chia sẻ chân lý Kinh Thánh và tài nguyên thần học. Cảm ơn bạn đã đồng hành với chúng tôi trong chức vụ.">
+                    Your generous support helps us continue sharing biblical truth and theological resources. Thank you for partnering with us in ministry.
+                </p>
+
+                <!-- QR Code Section -->
+                <div class="qr-code-section">
+                    <h4 class="qr-title">
+                        <span data-lang-en="Scan QR Code to Donate" data-lang-vi="Quét Mã QR Để Ủng Hộ">Scan QR Code to Donate</span>
+                    </h4>
+                    <div class="qr-code-wrapper">
+                        <img src="https://via.placeholder.com/250x250/1e3a5f/ffffff?text=QR+Banking"
+                             alt="QR Code for Banking"
+                             class="qr-code-image">
+                    </div>
+                </div>
+
+                <!-- Banking Information -->
+                <div class="banking-info-section">
+                    <h4 class="banking-title">
+                        <span data-lang-en="Banking Information" data-lang-vi="Thông Tin Ngân Hàng">Banking Information</span>
+                    </h4>
+                    <div class="banking-details">
+                        <div class="banking-row">
+                            <span class="banking-label" data-lang-en="Bank:" data-lang-vi="Ngân hàng:">Bank:</span>
+                            <span class="banking-value">Vietcombank</span>
+                        </div>
+                        <div class="banking-row">
+                            <span class="banking-label" data-lang-en="Account Number:" data-lang-vi="Số tài khoản:">Account Number:</span>
+                            <span class="banking-value">1234567890</span>
+                        </div>
+                        <div class="banking-row">
+                            <span class="banking-label" data-lang-en="Account Name:" data-lang-vi="Tên tài khoản:">Account Name:</span>
+                            <span class="banking-value">Statement of Faith Ministry</span>
+                        </div>
+                        <div class="banking-row">
+                            <span class="banking-label" data-lang-en="Branch:" data-lang-vi="Chi nhánh:">Branch:</span>
+                            <span class="banking-value">Ho Chi Minh City</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="donate-modal-footer">
+                <p class="donate-footer-text">
+                    <i class="fas fa-heart text-danger"></i>
+                    <span data-lang-en="Thank you for your generosity and faithfulness!"
+                          data-lang-vi="Cảm ơn sự hào phóng và thành tín của bạn!">
+                        Thank you for your generosity and faithfulness!
+                    </span>
+                </p>
             </div>
         </div>
     </div>

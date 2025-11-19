@@ -17,6 +17,14 @@
     const currentLangDisplay = document.getElementById('currentLang');
     const languageItems = document.querySelectorAll('.language-switcher .dropdown-item');
 
+    // Floating action buttons
+    const fabToTop = document.getElementById('fabToTop');
+    const fabDonate = document.getElementById('fabDonate');
+
+    // Donate modal elements
+    const donateModal = document.getElementById('donateModal');
+    const donateCloseButtons = document.querySelectorAll('[data-dismiss-donate="modal"]');
+
     // ==================== INITIALIZATION ====================
     document.addEventListener('DOMContentLoaded', function() {
         // Initialize AOS (Animate On Scroll)
@@ -29,6 +37,8 @@
         setupScrollIndicator();
         setupSmoothScroll();
         setupLanguageSwitcher();
+        setupFloatingButtons();
+        setupDonateModal();
 
         console.log('Reformed Faith Website - Initialized successfully');
     });
@@ -165,6 +175,15 @@
             scrollTopBtn.classList.add('visible');
         } else {
             scrollTopBtn.classList.remove('visible');
+        }
+
+        // Also handle FAB To Top button
+        if (fabToTop) {
+            if (scrollPosition > 300) {
+                fabToTop.classList.add('visible');
+            } else {
+                fabToTop.classList.remove('visible');
+            }
         }
     }
 
@@ -325,9 +344,9 @@
         if (!scrollIndicator) return;
 
         scrollIndicator.addEventListener('click', function() {
-            const fiveSolasSection = document.getElementById('five-solas');
-            if (fiveSolasSection) {
-                fiveSolasSection.scrollIntoView({
+            const statementSection = document.getElementById('statement-of-faith');
+            if (statementSection) {
+                statementSection.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
@@ -396,7 +415,7 @@
      * Add interactive hover effects to cards
      */
     function setupCardEffects() {
-        const cards = document.querySelectorAll('.resource-card, .blog-card, .sola-card, .statement-item');
+        const cards = document.querySelectorAll('.resource-card-new, .blog-card, .statement-item');
 
         cards.forEach(function(card) {
             card.addEventListener('mouseenter', function() {
@@ -646,13 +665,95 @@
         setupScriptureModal();
     }
 
+    // ==================== FLOATING ACTION BUTTONS ====================
+    /**
+     * Setup floating action buttons
+     */
+    function setupFloatingButtons() {
+        // To Top button
+        if (fabToTop) {
+            fabToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Donate button
+        if (fabDonate) {
+            fabDonate.addEventListener('click', function(e) {
+                e.preventDefault();
+                openDonateModal();
+            });
+        }
+    }
+
+    // ==================== DONATE MODAL ====================
+    /**
+     * Open donate modal
+     */
+    function openDonateModal() {
+        if (!donateModal) return;
+
+        // Show modal
+        donateModal.classList.remove('d-none');
+        document.body.style.overflow = 'hidden';
+
+        // Focus on close button for accessibility
+        const closeBtn = donateModal.querySelector('.modal-close');
+        if (closeBtn) {
+            setTimeout(() => closeBtn.focus(), 100);
+        }
+
+        console.log('Donate modal opened');
+    }
+
+    /**
+     * Close donate modal
+     */
+    function closeDonateModal() {
+        if (!donateModal) return;
+
+        donateModal.classList.add('d-none');
+        document.body.style.overflow = '';
+
+        console.log('Donate modal closed');
+    }
+
+    /**
+     * Setup donate modal event listeners
+     */
+    function setupDonateModal() {
+        if (!donateModal) return;
+
+        // Add click event to close buttons
+        donateCloseButtons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                closeDonateModal();
+            });
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && donateModal && !donateModal.classList.contains('d-none')) {
+                closeDonateModal();
+            }
+        });
+
+        console.log('Donate modal initialized');
+    }
+
     // ==================== EXPORT FOR TESTING ====================
     // Expose functions for testing if needed
     window.ReformedFaith = {
         setLanguage: setLanguage,
         isValidEmail: isValidEmail,
         isInViewport: isInViewport,
-        showNotification: showNotification
+        showNotification: showNotification,
+        openDonateModal: openDonateModal,
+        closeDonateModal: closeDonateModal
     };
 
 })();
