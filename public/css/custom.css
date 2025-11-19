@@ -1026,6 +1026,179 @@ section {
     box-shadow: var(--shadow-xl);
 }
 
+/* ==================== SCRIPTURE REFERENCES ==================== */
+.scripture-ref {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    border-bottom: 1px solid transparent;
+}
+
+.scripture-ref:hover {
+    color: #1d4ed8;
+    border-bottom-color: #1d4ed8;
+}
+
+/* ==================== SCRIPTURE MODAL ==================== */
+.scripture-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.scripture-modal.d-none {
+    display: none !important;
+}
+
+.scripture-modal .modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+    animation: fadeIn 0.3s ease;
+}
+
+.scripture-modal .modal-container {
+    position: relative;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1;
+    animation: slideInUp 0.3s ease;
+}
+
+.scripture-modal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.scripture-modal .modal-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark);
+    font-family: var(--font-heading);
+}
+
+.scripture-modal .modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all var(--transition);
+}
+
+.scripture-modal .modal-close:hover {
+    background: var(--gray-100);
+    color: var(--dark);
+}
+
+.scripture-modal .modal-body {
+    padding: 24px;
+}
+
+.scripture-modal .scripture-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 0;
+    font-style: italic;
+}
+
+.scripture-modal .modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--gray-200);
+    background: var(--gray-50);
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+}
+
+.scripture-modal .translation-info {
+    color: var(--text-secondary);
+    font-size: 14px;
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== HERO IMAGE BACKGROUND ==================== */
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(23, 25, 35, 0.85) 0%, rgba(45, 55, 72, 0.75) 100%);
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section .btn,
+.hero-section .hero-stats {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 /* ==================== BUTTONS ==================== */
 .btn-primary {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);

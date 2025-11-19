@@ -67,8 +67,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section - Reduced Height -->
-    <section class="hero-section hero-reduced">
+    <!-- Hero Section - Reduced Height with Image Background -->
+    <section class="hero-section hero-reduced" style="background-image: url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1920&q=80');">
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="row justify-content-center">
@@ -138,7 +138,11 @@
                         </p>
                         <div class="scripture-references">
                             <i class="fas fa-book-bible"></i>
-                            <span>2 Ti-mô-thê 3:16-17, 2 Phi-e-rơ 1:20-21, Thi Thiên 119:160</span>
+                            <div class="scripture-list">
+                                <a href="#" class="scripture-ref" data-reference="2 Ti-mô-thê 3:16-17">2 Ti-mô-thê 3:16-17</a>,
+                                <a href="#" class="scripture-ref" data-reference="2 Phi-e-rơ 1:20-21">2 Phi-e-rơ 1:20-21</a>,
+                                <a href="#" class="scripture-ref" data-reference="Thi Thiên 119:160">Thi Thiên 119:160</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -158,7 +162,11 @@
                         </p>
                         <div class="scripture-references">
                             <i class="fas fa-book-bible"></i>
-                            <span>Ma-thi-ơ 28:19, 2 Cô-rinh-tô 13:14, Giăng 1:1-3</span>
+                            <div class="scripture-list">
+                                <a href="#" class="scripture-ref" data-reference="Ma-thi-ơ 28:19">Ma-thi-ơ 28:19</a>,
+                                <a href="#" class="scripture-ref" data-reference="2 Cô-rinh-tô 13:14">2 Cô-rinh-tô 13:14</a>,
+                                <a href="#" class="scripture-ref" data-reference="Giăng 1:1-3">Giăng 1:1-3</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -178,7 +186,11 @@
                         </p>
                         <div class="scripture-references">
                             <i class="fas fa-book-bible"></i>
-                            <span>Giăng 17:3, Ê-phê-sô 1:3-6, Gia-cơ 1:17</span>
+                            <div class="scripture-list">
+                                <a href="#" class="scripture-ref" data-reference="Giăng 17:3">Giăng 17:3</a>,
+                                <a href="#" class="scripture-ref" data-reference="Ê-phê-sô 1:3-6">Ê-phê-sô 1:3-6</a>,
+                                <a href="#" class="scripture-ref" data-reference="Gia-cơ 1:17">Gia-cơ 1:17</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -198,7 +210,12 @@
                         </p>
                         <div class="scripture-references">
                             <i class="fas fa-book-bible"></i>
-                            <span>Giăng 1:14, Phi-líp 2:5-11, 1 Cô-rinh-tô 15:3-4, Hê-bơ-rơ 4:14-16</span>
+                            <div class="scripture-list">
+                                <a href="#" class="scripture-ref" data-reference="Giăng 1:14">Giăng 1:14</a>,
+                                <a href="#" class="scripture-ref" data-reference="Phi-líp 2:5-11">Phi-líp 2:5-11</a>,
+                                <a href="#" class="scripture-ref" data-reference="1 Cô-rinh-tô 15:3-4">1 Cô-rinh-tô 15:3-4</a>,
+                                <a href="#" class="scripture-ref" data-reference="Hê-bơ-rơ 4:14-16">Hê-bơ-rơ 4:14-16</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -218,7 +235,12 @@
                         </p>
                         <div class="scripture-references">
                             <i class="fas fa-book-bible"></i>
-                            <span>Giăng 14:16-17, 16:7-14, Rô-ma 8:9-11, 1 Cô-rinh-tô 12:4-11</span>
+                            <div class="scripture-list">
+                                <a href="#" class="scripture-ref" data-reference="Giăng 14:16-17">Giăng 14:16-17</a>,
+                                <a href="#" class="scripture-ref" data-reference="Giăng 16:7-14">Giăng 16:7-14</a>,
+                                <a href="#" class="scripture-ref" data-reference="Rô-ma 8:9-11">Rô-ma 8:9-11</a>,
+                                <a href="#" class="scripture-ref" data-reference="1 Cô-rinh-tô 12:4-11">1 Cô-rinh-tô 12:4-11</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,7 +260,12 @@
                         </p>
                         <div class="scripture-references">
                             <i class="fas fa-book-bible"></i>
-                            <span>Ê-phê-sô 2:8-10, Rô-ma 3:23-26, Tít 3:4-7, Giăng 3:16</span>
+                            <div class="scripture-list">
+                                <a href="#" class="scripture-ref" data-reference="Ê-phê-sô 2:8-10">Ê-phê-sô 2:8-10</a>,
+                                <a href="#" class="scripture-ref" data-reference="Rô-ma 3:23-26">Rô-ma 3:23-26</a>,
+                                <a href="#" class="scripture-ref" data-reference="Tít 3:4-7">Tít 3:4-7</a>,
+                                <a href="#" class="scripture-ref" data-reference="Giăng 3:16">Giăng 3:16</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -697,6 +724,25 @@
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Scripture Modal -->
+    <div id="scriptureModal" class="scripture-modal d-none" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-backdrop" data-dismiss="modal"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle" class="modal-title"></h3>
+                <button class="modal-close" aria-label="Close modal" data-dismiss="modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="scripture-text"></p>
+            </div>
+            <div class="modal-footer">
+                <small class="translation-info">Bản dịch 1925</small>
+            </div>
+        </div>
+    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
