@@ -396,7 +396,7 @@
      * Add interactive hover effects to cards
      */
     function setupCardEffects() {
-        const cards = document.querySelectorAll('.resource-card, .blog-card, .sola-card, .distinctive-card');
+        const cards = document.querySelectorAll('.resource-card, .blog-card, .sola-card, .statement-item');
 
         cards.forEach(function(card) {
             card.addEventListener('mouseenter', function() {

@@ -581,32 +581,40 @@ section {
     margin-top: auto;
 }
 
-/* ==================== WHY REFORMED THEOLOGY SECTION ==================== */
-.why-reformed-section {
-    background-color: var(--gray-100);
+/* ==================== STATEMENT OF FAITH OVERVIEW SECTION ==================== */
+.statement-overview-section {
+    background-color: var(--white);
+    padding: var(--spacing-4xl) 0;
 }
 
-.distinctive-card {
+.statement-item {
     background: var(--white);
     border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
     height: 100%;
-    transition: all var(--transition);
-    box-shadow: var(--shadow-md);
     border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
-.distinctive-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+.statement-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
     border-color: var(--primary-light);
 }
 
-.distinctive-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: var(--radius-md);
+.statement-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 700;
+    font-family: var(--font-serif);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -614,28 +622,62 @@ section {
     transition: var(--transition);
 }
 
-.distinctive-card:hover .distinctive-icon {
-    transform: scale(1.08);
+.statement-item:hover .statement-number {
+    transform: scale(1.1);
 }
 
-.distinctive-icon i {
-    font-size: 32px;
-    color: var(--white);
-}
-
-.distinctive-title {
+.statement-title {
     font-size: 22px;
     font-weight: 700;
-    color: var(--primary);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
     font-family: var(--font-serif);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.distinctive-description {
-    font-size: 15px;
-    line-height: 1.7;
+.title-vietnamese {
+    color: var(--primary);
+    font-size: 22px;
+}
+
+.title-english {
     color: var(--text-secondary);
-    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    font-style: italic;
+}
+
+.statement-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+}
+
+.scripture-references {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--gray-200);
+    margin-top: auto;
+}
+
+.scripture-references i {
+    color: var(--primary);
+    font-size: 16px;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.scripture-references span {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+    line-height: 1.6;
 }
 
 /* ==================== BLOG SECTION ==================== */
@@ -1083,7 +1125,7 @@ section {
     .resource-card,
     .blog-card,
     .sola-card,
-    .distinctive-card {
+    .statement-item {
         margin-bottom: var(--spacing-md);
     }
 
@@ -1133,13 +1175,18 @@ section {
         font-size: 32px;
     }
 
-    .distinctive-icon {
-        width: 60px;
-        height: 60px;
+    .statement-number {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
     }
 
-    .distinctive-icon i {
-        font-size: 28px;
+    .title-vietnamese {
+        font-size: 20px;
+    }
+
+    .title-english {
+        font-size: 14px;
     }
 
     .newsletter-title {
