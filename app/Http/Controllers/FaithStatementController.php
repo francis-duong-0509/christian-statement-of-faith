@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\FaithCategory;
 use App\Models\FaithStatement;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class FaithStatementController extends Controller
 {
     /**
-     * Display all faith categories
+     * Display all faith categories with their statements
      */
-    public function index()
+    public function index(): View
     {
         $categories = FaithCategory::active()
             ->ordered()
+            ->with(['statements' => function ($query) {
+                $query->active()->ordered();
+            }])
             ->withCount('statements')
             ->get();
 
@@ -23,16 +26,10 @@ class FaithStatementController extends Controller
 
     /**
      * Display category with its statements
+     * Laravel automatically injects FaithCategory model via Route Model Binding
      */
-    public function showCategory($slug)
+    public function showCategory(FaithCategory $category): View
     {
-        $locale = app()->getLocale();
-        $slugField = "slug_{$locale}";
-
-        $category = FaithCategory::active()
-            ->where($slugField, $slug)
-            ->firstOrFail();
-
         $statements = FaithStatement::active()
             ->where('faith_category_id', $category->id)
             ->ordered()
@@ -43,25 +40,13 @@ class FaithStatementController extends Controller
 
     /**
      * Display single statement detail
+     * Laravel automatically injects both FaithCategory and FaithStatement models
      */
-    public function show($categorySlug, $statementSlug)
+    public function show(FaithCategory $category, FaithStatement $statement): View
     {
-        $locale = app()->getLocale();
-        $slugField = "slug_{$locale}";
+        // Verify statement belongs to category (security check)
+        abort_if($statement->faith_category_id !== $category->id, 404);
 
-        // Find category
-        $category = FaithCategory::active()
-            ->where($slugField, $categorySlug)
-            ->firstOrFail();
-
-        // Find statement
-        $statement = FaithStatement::active()
-            ->where('faith_category_id', $category->id)
-            ->where($slugField, $statementSlug)
-            ->with('category')
-            ->firstOrFail();
-
-        // Get related statements (same category)
         $relatedStatements = FaithStatement::active()
             ->where('faith_category_id', $category->id)
             ->where('id', '!=', $statement->id)
@@ -69,6 +54,6 @@ class FaithStatementController extends Controller
             ->limit(3)
             ->get();
 
-        return view('faith.show', compact('statement', 'category', 'relatedStatements'));
+        return view('faith.show', compact('category', 'statement', 'relatedStatements'));
     }
 }

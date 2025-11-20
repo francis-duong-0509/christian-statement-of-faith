@@ -16,6 +16,8 @@ Route::get('/language/{locale}', [LanguageController::class, 'switch'])
 // Statement of Faith
 Route::prefix('statement-of-faith')->name('faith.')->group(function () {
     Route::get('/', [FaithStatementController::class, 'index'])->name('index');
+
+    // Custom Route Model Binding (defined in bootstrap/app.php)
     Route::get('/{category}', [FaithStatementController::class, 'showCategory'])->name('category');
     Route::get('/{category}/{statement}', [FaithStatementController::class, 'show'])->name('show');
 });
