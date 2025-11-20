@@ -1,6 +1,6 @@
 {{-- ============================================
-    STATEMENT OF FAITH PAGE - ULTRA MODERN REDESIGN
-    Clean, Compact, Easy to Read, Mobile-First
+    STATEMENT OF FAITH PAGE - FULL SHOWCASE
+    Premium Experience with Rich Media & Interactions
     ============================================ --}}
 
 @extends('layouts.app')
@@ -10,7 +10,6 @@
 @section('meta_description', __t('Khám phá những chân lý thiêng liêng về đức tin Cơ Đốc dựa trên Kinh Thánh, được trình bày một cách rõ ràng và đầy đủ.', 'Explore the sacred truths about Christian faith based on Scripture, presented clearly and comprehensively.'))
 
 @push('head')
-<!-- JSON-LD Structured Data for SEO -->
 <script type="application/ld+json">
 {
     "@@context": "https://schema.org",
@@ -21,8 +20,6 @@
     "inLanguage": "{{ app()->getLocale() }}"
 }
 </script>
-
-<!-- Open Graph Tags -->
 <meta property="og:title" content="{{ __t('Tuyên Bố Đức Tin', 'Statement of Faith') }} - {{ config('app.name') }}">
 <meta property="og:description" content="{{ __t('Khám phá những chân lý thiêng liêng về đức tin Cơ Đốc dựa trên Kinh Thánh', 'Explore the sacred truths about Christian faith based on Scripture') }}">
 <meta property="og:url" content="{{ route('faith.index') }}">
@@ -31,31 +28,6 @@
 @endpush
 
 @section('content')
-
-{{-- ============================================
-    HERO SECTION - COMPACT
-    ============================================ --}}
-<section class="hero-section hero-reduced" style="background-image: url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1920&q=80');">
-    <div class="hero-overlay"></div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
-                <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
-                    {{ __t('Tuyên Bố Đức Tin', 'Statement of Faith') }}
-                </h1>
-                <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                    {{ __t('Những chân lý thiêng liêng được khẳng định từ Lời Chúa', 'Sacred truths affirmed from God\'s Word') }}
-                </p>
-                <div class="hero-cta" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                    <a href="#main-content" class="btn btn-hero-primary btn-lg me-3 smooth-scroll">
-                        <span>{{ __t('Khám Phá', 'Explore') }}</span>
-                        <i class="fas fa-arrow-down ms-2"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 {{-- ============================================
     BREADCRUMB
@@ -68,64 +40,90 @@
 </div>
 
 {{-- ============================================
-    MAIN CONTENT - MODERN GRID LAYOUT
+    MAIN CONTENT - PREMIUM SHOWCASE
     ============================================ --}}
-<section id="main-content" class="faith-modern-section py-5">
-    <div class="container">
+<section id="main-content" class="faith-showcase-section py-5">
+    <div class="container-fluid px-lg-5">
         @forelse($categories as $categoryIndex => $category)
-            {{-- Category Block --}}
-            <div class="faith-category-modern mb-5" id="category-{{ $category->slug }}" data-aos="fade-up">
+            {{-- Category Showcase Block --}}
+            <div class="category-showcase-block mb-5" id="category-{{ $category->slug }}" data-aos="fade-up">
 
-                {{-- Category Header Compact --}}
-                <div class="category-header-compact">
-                    <div class="category-number-small">{{ $category->order }}</div>
-                    <div class="category-info-compact">
-                        <h2 class="category-title-compact">{{ $category->name }}</h2>
-                        <p class="category-desc-compact">{{ $category->description }}</p>
+                {{-- Category Header with Featured Image --}}
+                <div class="category-hero-header">
+                    @php
+                        $categoryImages = [
+                            'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1400&q=80', // Bible
+                            'https://images.unsplash.com/photo-1501003878151-d3cb87799705?w=1400&q=80', // Cross
+                            'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=1400&q=80', // Praying
+                            'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=1400&q=80', // Church
+                            'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=1400&q=80', // Dove
+                        ];
+                        $categoryImageUrl = $categoryImages[$categoryIndex % count($categoryImages)];
+                    @endphp
+                    <div class="category-hero-bg" style="background-image: url('{{ $categoryImageUrl }}');"></div>
+                    <div class="category-hero-overlay"></div>
+                    <div class="category-hero-content">
+                        <div class="category-badge-hero">
+                            <span class="badge-number-hero">{{ $category->order }}</span>
+                        </div>
+                        <h2 class="category-title-hero">{{ $category->name }}</h2>
+                        <p class="category-desc-hero">{{ $category->description }}</p>
+                        <div class="category-stats-hero">
+                            <span class="stat-item-hero">
+                                <i class="fas fa-book-open"></i>
+                                {{ $category->statements_count }} {{ __t('tuyên bố', 'statements') }}
+                            </span>
+                        </div>
                     </div>
                 </div>
 
-                {{-- Statements Modern Grid (2 columns desktop, 1 mobile) --}}
+                {{-- Statements Masonry Grid --}}
                 @if($category->statements->count() > 0)
-                    <div class="statements-modern-grid">
+                    <div class="statements-showcase-grid">
                         @foreach($category->statements as $statementIndex => $statement)
-                        <div class="statement-card-modern" data-aos="fade-up" data-aos-delay="{{ 100 * ($statementIndex % 2) }}">
+                        <div class="statement-showcase-card" data-aos="fade-up" data-aos-delay="{{ 100 * ($statementIndex % 3) }}">
 
-                            {{-- Compact Image --}}
+                            {{-- Featured Image with Overlay Badge --}}
                             @php
-                                $images = [
-                                    'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600&q=80',
-                                    'https://images.unsplash.com/photo-1501003878151-d3cb87799705?w=600&q=80',
-                                    'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&q=80',
-                                    'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=600&q=80',
-                                    'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=600&q=80',
-                                    'https://images.unsplash.com/photo-1544568104-5b7eb8189dd4?w=600&q=80',
+                                $statementImages = [
+                                    'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=700&q=80',
+                                    'https://images.unsplash.com/photo-1501003878151-d3cb87799705?w=700&q=80',
+                                    'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=700&q=80',
+                                    'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=700&q=80',
+                                    'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=700&q=80',
+                                    'https://images.unsplash.com/photo-1544568104-5b7eb8189dd4?w=700&q=80',
+                                    'https://images.unsplash.com/photo-1520013817300-1f4c1cb245fb?w=700&q=80',
+                                    'https://images.unsplash.com/photo-1505168125601-4ddfdea4c322?w=700&q=80',
                                 ];
-                                $imageUrl = $images[($categoryIndex * 10 + $statementIndex) % count($images)];
+                                $statementImageUrl = $statementImages[($categoryIndex * 10 + $statementIndex) % count($statementImages)];
                             @endphp
-                            <div class="statement-img-compact">
-                                <img src="{{ $imageUrl }}" alt="{{ $statement->title }}" loading="lazy">
-                                <div class="statement-badge-float">{{ $category->order }}.{{ $statement->order }}</div>
+                            <div class="statement-featured-img">
+                                <img src="{{ $statementImageUrl }}" alt="{{ $statement->title }}" loading="lazy">
+                                <div class="statement-img-overlay">
+                                    <div class="overlay-badge">{{ $category->order }}.{{ $statement->order }}</div>
+                                    <div class="overlay-icon"><i class="fas fa-cross"></i></div>
+                                </div>
                             </div>
 
-                            {{-- Content Compact --}}
-                            <div class="statement-content-compact">
-                                <h3 class="statement-title-modern">{{ $statement->title }}</h3>
+                            {{-- Content Rich --}}
+                            <div class="statement-content-rich">
+                                <h3 class="statement-title-showcase">{{ $statement->title }}</h3>
 
-                                <div class="statement-text-modern">
+                                <div class="statement-text-rich">
                                     {!! $statement->content !!}
                                 </div>
 
-                                {{-- Scripture Compact --}}
+                                {{-- Scripture References Rich --}}
                                 @if($statement->scripture_references && count($statement->scripture_references) > 0)
-                                <div class="scripture-compact">
-                                    <div class="scripture-icon-label">
+                                <div class="scripture-showcase-box">
+                                    <div class="scripture-header-rich">
                                         <i class="fas fa-book-bible"></i>
+                                        <strong>{{ __t('Kinh Thánh Tham Khảo', 'Scripture References') }}</strong>
                                     </div>
-                                    <div class="scripture-tags-compact">
+                                    <div class="scripture-pills-rich">
                                         @foreach($statement->scripture_references as $reference)
-                                            <button class="scripture-tag-modern" type="button" data-reference="{{ $reference }}" title="{{ __t('Nhấn để sao chép', 'Click to copy') }}">
-                                                {{ $reference }}
+                                            <button class="scripture-pill-showcase" type="button" data-reference="{{ $reference }}" title="{{ __t('Nhấn để sao chép', 'Click to copy') }}">
+                                                <i class="fas fa-bookmark me-1"></i>{{ $reference }}
                                             </button>
                                         @endforeach
                                     </div>
@@ -136,24 +134,27 @@
                         @endforeach
                     </div>
                 @else
-                    <div class="empty-compact">
-                        <i class="fas fa-inbox"></i>
+                    <div class="empty-showcase">
+                        <i class="fas fa-inbox fa-3x mb-3"></i>
                         <p>{{ __t('Chưa có tuyên bố', 'No statements yet') }}</p>
                     </div>
                 @endif
             </div>
 
-            {{-- Divider --}}
+            {{-- Decorative Divider --}}
             @if(!$loop->last)
-                <div class="category-divider-modern" data-aos="fade"></div>
+                <div class="category-divider-showcase" data-aos="fade">
+                    <div class="divider-ornament">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                </div>
             @endif
         @empty
-            {{-- Empty State --}}
             <div class="empty-state-center text-center py-5" data-aos="fade-up">
-                <i class="fas fa-cross fa-3x mb-3 text-muted"></i>
+                <i class="fas fa-cross fa-4x mb-4 text-muted"></i>
                 <h3>{{ __t('Chưa Có Nội Dung', 'No Content Yet') }}</h3>
                 <p class="text-muted">{{ __t('Các tuyên bố đức tin đang được cập nhật.', 'Statements are being updated.') }}</p>
-                <a href="{{ route('home') }}" class="btn btn-primary mt-3">
+                <a href="{{ route('home') }}" class="btn btn-primary btn-lg mt-3">
                     <i class="fas fa-home me-2"></i>{{ __t('Về Trang Chủ', 'Back to Home') }}
                 </a>
             </div>
@@ -162,381 +163,536 @@
 </section>
 
 {{-- Back to Top --}}
-<button class="btn-back-top" id="btnBackTop" aria-label="{{ __t('Lên đầu trang', 'Back to top') }}">
+<button class="btn-back-top-showcase" id="btnBackTop" aria-label="{{ __t('Lên đầu trang', 'Back to top') }}">
     <i class="fas fa-arrow-up"></i>
 </button>
 
 @endsection
 
 {{-- ============================================
-    MODERN STYLES - COMPACT & CLEAN
+    SHOWCASE STYLES - PREMIUM & RICH
     ============================================ --}}
 @push('styles')
 <style>
 /* ============================================
-   FAITH PAGE - ULTRA MODERN DESIGN
+   FAITH SHOWCASE - PREMIUM EXPERIENCE
    ============================================ */
 
-/* === SECTION === */
-.faith-modern-section {
-    background: var(--gray-50);
-    min-height: 50vh;
-}
-
-/* === CATEGORY MODERN === */
-.faith-category-modern {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: var(--shadow-md);
-}
-
-/* === CATEGORY HEADER COMPACT === */
-.category-header-compact {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    margin-bottom: 2rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 2px solid var(--gray-100);
-}
-
-.category-number-small {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: var(--white);
-    border-radius: 8px;
+/* === HERO ICON === */
+.hero-icon-large {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 900;
-    font-family: var(--font-serif);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
 }
 
-.category-info-compact {
-    flex: 1;
+.hero-icon-large i {
+    font-size: 2.75rem;
+    color: white;
 }
 
-.category-title-compact {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-    font-family: var(--font-serif);
+/* === SECTION === */
+.faith-showcase-section {
+    background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+    min-height: 60vh;
 }
 
-.category-desc-compact {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    margin: 0;
-    line-height: 1.6;
+/* === CATEGORY SHOWCASE BLOCK === */
+.category-showcase-block {
+    margin-bottom: 5rem;
 }
 
-/* === STATEMENTS MODERN GRID (2 columns) === */
-.statements-modern-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-/* === STATEMENT CARD MODERN === */
-.statement-card-modern {
-    background: var(--white);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.statement-card-modern:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
-}
-
-/* === IMAGE COMPACT === */
-.statement-img-compact {
+/* === CATEGORY HERO HEADER === */
+.category-hero-header {
     position: relative;
-    width: 100%;
-    height: 180px;
+    height: 400px;
+    border-radius: 20px;
     overflow: hidden;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-xl);
 }
 
-.statement-img-compact img {
+.category-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background-size: cover;
+    background-position: center;
     transition: transform 0.5s ease;
 }
 
-.statement-card-modern:hover .statement-img-compact img {
+.category-showcase-block:hover .category-hero-bg {
     transform: scale(1.05);
 }
 
-.statement-badge-float {
+.category-hero-overlay {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 40px;
-    height: 40px;
-    background: rgba(139, 69, 19, 0.95);
-    backdrop-filter: blur(10px);
-    color: var(--white);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.875rem;
-    font-weight: 800;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.85), rgba(139, 69, 19, 0.75));
 }
 
-/* === CONTENT COMPACT === */
-.statement-content-compact {
-    padding: 1.5rem;
+.category-hero-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem;
+    color: var(--white);
+}
+
+.category-badge-hero {
+    margin-bottom: 1.5rem;
+}
+
+.badge-number-hero {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    color: var(--white);
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-family: var(--font-serif);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.category-title-hero {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-family: var(--font-serif);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.category-desc-hero {
+    font-size: 1.375rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.category-stats-hero {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.stat-item-hero {
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-item-hero i {
+    color: var(--accent);
+}
+
+/* === STATEMENTS SHOWCASE GRID === */
+.statements-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 2.5rem;
+}
+
+/* === STATEMENT SHOWCASE CARD === */
+.statement-showcase-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.statement-showcase-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-8px);
+}
+
+/* === FEATURED IMAGE === */
+.statement-featured-img {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.statement-featured-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.statement-showcase-card:hover .statement-featured-img img {
+    transform: scale(1.1);
+}
+
+.statement-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.75), rgba(139, 69, 19, 0.75));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.statement-showcase-card:hover .statement-img-overlay {
+    opacity: 1;
+}
+
+.overlay-badge {
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    color: var(--white);
+    border-radius: 50px;
+    font-size: 1.125rem;
+    font-weight: 800;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.overlay-icon {
+    font-size: 3rem;
+    color: var(--white);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* === CONTENT RICH === */
+.statement-content-rich {
+    padding: 2rem;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.statement-title-modern {
-    font-size: 1.25rem;
+.statement-title-showcase {
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     font-family: var(--font-serif);
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
-.statement-text-modern {
-    font-size: 0.9375rem;
-    line-height: 1.7;
+.statement-text-rich {
+    font-size: 1.0625rem;
+    line-height: 1.8;
     color: var(--text-primary);
-    margin-bottom: 1.25rem;
+    margin-bottom: 2rem;
     flex: 1;
 }
 
-.statement-text-modern p {
-    margin-bottom: 0.75rem;
+.statement-text-rich p {
+    margin-bottom: 1rem;
 }
 
-.statement-text-modern p:last-child {
+.statement-text-rich p:last-child {
     margin-bottom: 0;
 }
 
-.statement-text-modern strong {
+.statement-text-rich strong {
     color: var(--primary);
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.statement-text-modern em {
+.statement-text-rich em {
     color: var(--secondary);
+    font-style: italic;
 }
 
-/* === SCRIPTURE COMPACT === */
-.scripture-compact {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--gray-100);
+/* === SCRIPTURE SHOWCASE BOX === */
+.scripture-showcase-box {
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.12), rgba(212, 165, 116, 0.05));
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
 }
 
-.scripture-icon-label {
-    flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(212, 165, 116, 0.1));
-    color: var(--secondary);
-    border-radius: 6px;
+.scripture-header-rich {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 0.875rem;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    font-size: 1.0625rem;
 }
 
-.scripture-tags-compact {
-    flex: 1;
+.scripture-header-rich i {
+    color: var(--secondary);
+    font-size: 1.25rem;
+}
+
+.scripture-pills-rich {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.75rem;
 }
 
-.scripture-tag-modern {
-    padding: 0.375rem 0.875rem;
-    background: var(--gray-50);
+.scripture-pill-showcase {
+    padding: 0.625rem 1.25rem;
+    background: var(--white);
     color: var(--primary);
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 600;
-    border-radius: 20px;
-    border: 1px solid var(--gray-200);
+    border-radius: 50px;
+    border: 2px solid var(--accent);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
-.scripture-tag-modern:hover {
+.scripture-pill-showcase:hover {
     background: var(--secondary);
     color: var(--white);
     border-color: var(--secondary);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
-/* === DIVIDER === */
-.category-divider-modern {
-    height: 1px;
-    background: var(--gray-200);
-    margin: 3rem 0;
+.scripture-pill-showcase i {
+    font-size: 0.75rem;
+}
+
+/* === DIVIDER SHOWCASE === */
+.category-divider-showcase {
+    margin: 5rem 0;
+    text-align: center;
+}
+
+.divider-ornament {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.1), rgba(139, 69, 19, 0.1));
+    border-radius: 50%;
+}
+
+.divider-ornament i {
+    font-size: 1.5rem;
+    color: var(--secondary);
 }
 
 /* === EMPTY STATES === */
-.empty-compact {
+.empty-showcase {
     text-align: center;
-    padding: 2rem;
+    padding: 4rem 2rem;
     background: var(--gray-50);
-    border-radius: 8px;
+    border-radius: 16px;
     color: var(--text-secondary);
-}
-
-.empty-compact i {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    opacity: 0.3;
 }
 
 .empty-state-center {
     background: var(--white);
-    border-radius: 12px;
-    padding: 3rem 2rem;
+    border-radius: 20px;
+    padding: 4rem 2rem;
 }
 
 /* === BACK TO TOP === */
-.btn-back-top {
+.btn-back-top-showcase {
     position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    width: 48px;
-    height: 48px;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: var(--white);
     border: none;
     border-radius: 50%;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     cursor: pointer;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-xl);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 999;
 }
 
-.btn-back-top.show {
+.btn-back-top-showcase.show {
     opacity: 1;
     visibility: visible;
 }
 
-.btn-back-top:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-xl);
+.btn-back-top-showcase:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(30, 58, 95, 0.4);
 }
 
 /* === RESPONSIVE === */
+@media (max-width: 1200px) {
+    .statements-showcase-grid {
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 2rem;
+    }
+}
+
 @media (max-width: 991px) {
-    .statements-modern-grid {
+    .statements-showcase-grid {
         grid-template-columns: 1fr;
-        gap: 1.25rem;
+        gap: 2rem;
+    }
+
+    .category-hero-header {
+        height: 350px;
+    }
+
+    .category-title-hero {
+        font-size: 2.5rem;
+    }
+
+    .category-desc-hero {
+        font-size: 1.25rem;
     }
 }
 
 @media (max-width: 767px) {
-    .faith-category-modern {
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
+    .category-hero-header {
+        height: 300px;
+        margin-bottom: 2rem;
     }
 
-    .category-header-compact {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
+    .category-hero-content {
+        padding: 2rem;
     }
 
-    .category-number-small {
-        width: 40px;
-        height: 40px;
-        font-size: 1.25rem;
+    .badge-number-hero {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
     }
 
-    .category-title-compact {
-        font-size: 1.5rem;
+    .category-title-hero {
+        font-size: 2rem;
     }
 
-    .category-desc-compact {
-        font-size: 0.9375rem;
-    }
-
-    .statements-modern-grid {
-        gap: 1rem;
-    }
-
-    .statement-img-compact {
-        height: 160px;
-    }
-
-    .statement-content-compact {
-        padding: 1.25rem;
-    }
-
-    .statement-title-modern {
+    .category-desc-hero {
         font-size: 1.125rem;
     }
 
-    .statement-text-modern {
-        font-size: 0.875rem;
-    }
-
-    .scripture-compact {
+    .category-stats-hero {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
-    .btn-back-top {
-        width: 44px;
-        height: 44px;
-        bottom: 1.25rem;
-        right: 1.25rem;
+    .statements-showcase-grid {
+        gap: 1.5rem;
+    }
+
+    .statement-featured-img {
+        height: 220px;
+    }
+
+    .statement-content-rich {
+        padding: 1.5rem;
+    }
+
+    .statement-title-showcase {
+        font-size: 1.5rem;
+    }
+
+    .statement-text-rich {
+        font-size: 1rem;
+    }
+
+    .scripture-showcase-box {
+        padding: 1.25rem;
+    }
+
+    .btn-back-top-showcase {
+        width: 50px;
+        height: 50px;
+        bottom: 1.5rem;
+        right: 1.5rem;
     }
 }
 
 @media (max-width: 575px) {
-    .faith-category-modern {
+    .hero-icon-large {
+        width: 70px;
+        height: 70px;
+    }
+
+    .hero-icon-large i {
+        font-size: 2rem;
+    }
+
+    .category-hero-header {
+        height: 260px;
+        border-radius: 12px;
+    }
+
+    .badge-number-hero {
+        width: 50px;
+        height: 50px;
+        font-size: 1.75rem;
+    }
+
+    .category-title-hero {
+        font-size: 1.75rem;
+    }
+
+    .category-desc-hero {
+        font-size: 1rem;
+    }
+
+    .statement-featured-img {
+        height: 200px;
+    }
+
+    .statement-content-rich {
         padding: 1.25rem;
     }
 
-    .statement-img-compact {
-        height: 140px;
+    .statement-title-showcase {
+        font-size: 1.375rem;
     }
 
-    .statement-content-compact {
-        padding: 1rem;
+    .statement-text-rich {
+        font-size: 0.9375rem;
     }
 
-    .statement-title-modern {
-        font-size: 1.0625rem;
-    }
-
-    .statement-text-modern {
-        font-size: 0.8125rem;
-        line-height: 1.6;
-    }
-
-    .scripture-tag-modern {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.75rem;
+    .scripture-pill-showcase {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -547,7 +703,7 @@ html {
 
 /* === PRINT === */
 @media print {
-    .btn-back-top,
+    .btn-back-top-showcase,
     .hero-section,
     .breadcrumb,
     nav,
@@ -555,7 +711,7 @@ html {
         display: none !important;
     }
 
-    .statement-card-modern {
+    .statement-showcase-card {
         page-break-inside: avoid;
     }
 }
@@ -569,9 +725,7 @@ html {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-    // ============================================
-    // SMOOTH SCROLL
-    // ============================================
+    // Smooth Scroll
     document.querySelectorAll('a.smooth-scroll, a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -589,9 +743,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ============================================
-    // BACK TO TOP
-    // ============================================
+    // Back to Top
     const backBtn = document.getElementById('btnBackTop');
     if (backBtn) {
         window.addEventListener('scroll', function() {
@@ -610,19 +762,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ============================================
-    // READING PROGRESS
-    // ============================================
+    // Reading Progress
     const progress = document.createElement('div');
     progress.style.cssText = `
         position: fixed;
         top: 0;
         left: 0;
         width: 0%;
-        height: 3px;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
         z-index: 9999;
         transition: width 0.2s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     `;
     document.body.appendChild(progress);
 
@@ -632,36 +783,36 @@ document.addEventListener('DOMContentLoaded', function() {
         progress.style.width = scrolled + '%';
     });
 
-    // ============================================
-    // SCRIPTURE COPY
-    // ============================================
-    const scriptureTags = document.querySelectorAll('.scripture-tag-modern');
-    scriptureTags.forEach(tag => {
-        tag.addEventListener('click', function() {
+    // Scripture Copy
+    const scripturePills = document.querySelectorAll('.scripture-pill-showcase');
+    scripturePills.forEach(pill => {
+        pill.addEventListener('click', function() {
             const ref = this.getAttribute('data-reference');
 
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(ref).then(() => {
-                    const origText = this.textContent;
+                    const origText = this.innerHTML;
                     const origBg = this.style.background;
                     const origColor = this.style.color;
 
-                    this.textContent = @json(__t('✓', '✓'));
+                    this.innerHTML = '<i class="fas fa-check me-1"></i>' + @json(__t('Đã sao chép!', 'Copied!'));
                     this.style.background = '#28a745';
                     this.style.color = 'white';
+                    this.style.borderColor = '#28a745';
 
                     setTimeout(() => {
-                        this.textContent = origText;
+                        this.innerHTML = origText;
                         this.style.background = origBg;
                         this.style.color = origColor;
-                    }, 1500);
+                        this.style.borderColor = '';
+                    }, 2000);
                 }).catch(err => {
                     console.error('Copy failed:', err);
                 });
             }
         });
 
-        tag.addEventListener('keypress', function(e) {
+        pill.addEventListener('keypress', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 this.click();
