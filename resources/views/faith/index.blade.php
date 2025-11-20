@@ -105,6 +105,28 @@
                             <div class="faith-statements-grid">
                                 @foreach($category->statements as $statementIndex => $statement)
                                 <div class="faith-statement-card" data-aos="fade-up" data-aos-delay="{{ 100 * ($statementIndex % 3) }}">
+                                    {{-- Statement Image --}}
+                                    @php
+                                        // Beautiful Christian imagery for each statement
+                                        $images = [
+                                            'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&q=80', // Open Bible
+                                            'https://images.unsplash.com/photo-1501003878151-d3cb87799705?w=800&q=80', // Cross sunset
+                                            'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800&q=80', // Praying hands
+                                            'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=800&q=80', // Church window
+                                            'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&q=80', // Dove
+                                            'https://images.unsplash.com/photo-1544568104-5b7eb8189dd4?w=800&q=80', // Bible on table
+                                            'https://images.unsplash.com/photo-1520013817300-1f4c1cb245fb?w=800&q=80', // Cross in nature
+                                            'https://images.unsplash.com/photo-1505168125601-4ddfdea4c322?w=800&q=80', // Open Bible with light
+                                        ];
+                                        $imageUrl = $images[($categoryIndex * 10 + $statementIndex) % count($images)];
+                                    @endphp
+                                    <div class="statement-image">
+                                        <img src="{{ $imageUrl }}" alt="{{ $statement->title }}" loading="lazy">
+                                        <div class="statement-image-overlay">
+                                            <i class="fas fa-cross"></i>
+                                        </div>
+                                    </div>
+
                                     {{-- Statement Header --}}
                                     <div class="statement-header-simple">
                                         <span class="statement-badge">{{ $category->order }}.{{ $statement->order }}</span>
@@ -272,9 +294,9 @@
 
 /* === STATEMENT CARD === */
 .faith-statement-card {
-    background: linear-gradient(135deg, rgba(248, 249, 250, 0.5), var(--white));
+    background: var(--white);
     border-radius: var(--radius-md);
-    padding: 2.5rem;
+    overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: all var(--transition);
 }
@@ -284,12 +306,56 @@
     transform: translateY(-4px);
 }
 
+/* === STATEMENT IMAGE === */
+.statement-image {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.statement-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.statement-image:hover img {
+    transform: scale(1.08);
+}
+
+.statement-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.7), rgba(139, 69, 19, 0.7));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.statement-image:hover .statement-image-overlay {
+    opacity: 1;
+}
+
+.statement-image-overlay i {
+    font-size: 3rem;
+    color: var(--white);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 /* === STATEMENT HEADER === */
 .statement-header-simple {
     display: flex;
     align-items: center;
     gap: 1.5rem;
     margin-bottom: 2rem;
+    padding: 2.5rem 2.5rem 0;
 }
 
 .statement-badge {
@@ -324,6 +390,7 @@
     line-height: 1.9;
     color: var(--text-primary);
     margin-bottom: 2rem;
+    padding: 0 2.5rem;
 }
 
 .statement-body p {
@@ -368,8 +435,8 @@
 /* === SCRIPTURE BOX === */
 .scripture-box {
     background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(212, 165, 116, 0.05));
-    padding: 1.5rem;
-    border-radius: var(--radius-md);
+    padding: 1.5rem 2.5rem 2.5rem;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
 }
 
 .scripture-label {
@@ -523,14 +590,15 @@
         gap: 1.5rem;
     }
 
-    .faith-statement-card {
-        padding: 2rem;
+    .statement-image {
+        height: 220px;
     }
 
     .statement-header-simple {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
+        padding: 2rem 2rem 0;
     }
 
     .statement-badge {
@@ -545,6 +613,11 @@
 
     .statement-body {
         font-size: 1.0625rem;
+        padding: 0 2rem;
+    }
+
+    .scripture-box {
+        padding: 1.5rem 2rem 2rem;
     }
 
     .back-to-top-modern {
