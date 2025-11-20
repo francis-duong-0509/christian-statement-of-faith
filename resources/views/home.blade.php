@@ -986,40 +986,47 @@
                 <div class="donate-content-grid">
                     <!-- Left Column: QR Code -->
                     <div class="qr-section">
-                        <div class="qr-code-wrapper">
-                            <img src="https://via.placeholder.com/280x280/1e3a5f/ffffff?text=QR+Banking"
-                                 alt="QR Code for Banking"
-                                 class="qr-code-image">
+                        <h4 class="qr-section-title">
+                            <i class="fas fa-qrcode"></i>
+                            <span data-lang-en="Scan QR Code" data-lang-vi="Quét Mã QR">Scan QR Code</span>
+                        </h4>
+                        <div class="qr-card">
+                            <div class="qr-code-wrapper">
+                                <img src="https://via.placeholder.com/260x260/1e3a5f/ffffff?text=QR+Banking"
+                                     alt="QR Code for Banking"
+                                     class="qr-code-image">
+                            </div>
+                            <p class="qr-caption">
+                                <span data-lang-en="Scan to Give - Any Amount Appreciated" data-lang-vi="Quét Mã Để Dâng Hiến - Mọi Số Tiền Đều Được Trân Trọng">Scan to Give - Any Amount Appreciated</span>
+                            </p>
                         </div>
-                        <p class="qr-caption">
-                            <span data-lang-en="Scan to Give - Any Amount Appreciated" data-lang-vi="Quét Mã Để Dâng Hiến - Mọi Số Tiền Đều Được Trân Trọng">Scan to Give - Any Amount Appreciated</span>
-                        </p>
                     </div>
 
                     <!-- Right Column: Banking Information -->
                     <div class="banking-section">
-                        <h4 class="banking-title">
-                            <span data-lang-en="Banking Information" data-lang-vi="Thông Tin Ngân Hàng">Banking Information</span>
+                        <h4 class="banking-section-title">
+                            <i class="fas fa-university"></i>
+                            <span data-lang-en="Bank Transfer Details" data-lang-vi="Chi Tiết Chuyển Khoản">Bank Transfer Details</span>
                         </h4>
                         <div class="banking-details-panel">
                             <div class="banking-field">
-                                <div class="banking-label" data-lang-en="Bank" data-lang-vi="Ngân hàng">Bank</div>
+                                <div class="banking-label" data-lang-en="BANK" data-lang-vi="NGÂN HÀNG">BANK</div>
                                 <div class="banking-value">Vietcombank (VCB)</div>
                             </div>
                             <div class="banking-field">
-                                <div class="banking-label" data-lang-en="Account Number" data-lang-vi="Số tài khoản">Account Number</div>
-                                <div class="banking-value">1234 5678 9012</div>
+                                <div class="banking-label" data-lang-en="ACCOUNT NUMBER" data-lang-vi="SỐ TÀI KHOẢN">ACCOUNT NUMBER</div>
+                                <div class="banking-value banking-account-number">1234 5678 9012</div>
                             </div>
                             <div class="banking-field">
-                                <div class="banking-label" data-lang-en="Account Holder" data-lang-vi="Chủ tài khoản">Account Holder</div>
+                                <div class="banking-label" data-lang-en="ACCOUNT HOLDER" data-lang-vi="CHỦ TÀI KHOẢN">ACCOUNT HOLDER</div>
                                 <div class="banking-value">STATEMENT OF FAITH</div>
                             </div>
                             <div class="banking-field">
-                                <div class="banking-label" data-lang-en="Branch" data-lang-vi="Chi nhánh">Branch</div>
+                                <div class="banking-label" data-lang-en="BRANCH" data-lang-vi="CHI NHÁNH">BRANCH</div>
                                 <div class="banking-value" data-lang-en="Ho Chi Minh City Branch" data-lang-vi="Chi nhánh TP. Hồ Chí Minh">Ho Chi Minh City Branch</div>
                             </div>
                             <div class="banking-field">
-                                <div class="banking-label" data-lang-en="Transfer Note" data-lang-vi="Nội dung chuyển khoản">Transfer Note</div>
+                                <div class="banking-label" data-lang-en="TRANSFER NOTE" data-lang-vi="NỘI DUNG CHUYỂN KHOẢN">TRANSFER NOTE</div>
                                 <div class="banking-value" data-lang-en="Support Statement of Faith" data-lang-vi="Ung ho Statement of Faith">Support Statement of Faith</div>
                             </div>
                         </div>
