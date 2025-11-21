@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class FaithCategoryResource extends Resource
 {
@@ -39,6 +40,10 @@ class FaithCategoryResource extends Resource
                                     ->live(onBlur: true)
                                     ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
                                         if ($operation === 'create') {
+                                            $set('slug_vi', Str::slug($state));
+                                        }
+
+                                        if ($operation === 'edit') {
                                             $set('slug_vi', Str::slug($state));
                                         }
                                     }),
@@ -68,6 +73,10 @@ class FaithCategoryResource extends Resource
                                         if ($operation === 'create') {
                                             $set('slug_en', Str::slug($state));
                                         }
+
+                                        if ($operation === 'edit') {
+                                            $set('slug_en', Str::slug($state));
+                                        }
                                     }),
 
                                 Forms\Components\TextInput::make('slug_en')
@@ -85,6 +94,33 @@ class FaithCategoryResource extends Resource
                             ])
                     ])
                 ->columnSpanFull(),
+
+                Forms\Components\Section::make('Banner Image')
+                    ->description('Upload a banner image for this category (recommended size: 1400x400px, aspect ratio 21:9 or 16:9)')
+                    ->schema([
+                        Forms\Components\FileUpload::make('banner_image')
+                            ->label('Banner Image')
+                            ->disk('public_uploads')
+                            ->directory('uploads')
+                            ->image()
+                            ->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '21:9',
+                                '16:9',
+                                '3:1',
+                                null,  // Free aspect ratio
+                            ])
+                            ->maxSize(2048)  // 2MB
+                            ->helperText('Recommended: 1400x400px or larger. Max file size: 2MB.')
+                            ->imagePreviewHeight('200')
+                            ->panelLayout('integrated')
+                            ->removeUploadedFileButtonPosition('right')
+                            ->uploadButtonPosition('left')
+                            ->uploadProgressIndicatorPosition('left')
+                            ->columnSpanFull(),
+                    ])
+                    ->collapsible()
+                    ->collapsed(false),
 
                 // SETTINGS
                 Forms\Components\Section::make('Settings')

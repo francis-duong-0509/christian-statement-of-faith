@@ -13,19 +13,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Lấy 4 faith statements mới nhất
-        $statements = FaithStatement::active()
-            ->ordered()
-            ->with('category')
-            ->limit(4)
-            ->get();
-
-        // Lấy tất cả categories
         $categories = FaithCategory::active()
             ->ordered()
+            ->with(['statements' => function ($query) {
+                $query->active()->ordered();
+            }])
             ->withCount('statements')
             ->get();
 
-        return view('home', compact('statements', 'categories'));
+        return view('home', compact('categories'));
     }
 }

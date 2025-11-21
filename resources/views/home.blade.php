@@ -12,10 +12,8 @@
     @include('home_sections._resources')
     @include('home_sections._blog-posts')
     @include('home_sections._newsletter')
-
-    @include('home_sections._modals')
 @endsection
 
-@push('scripts')
-    @include('home_sections._scripts')
-@endpush
+{{--@push('scripts')
+
+@endpush--}}

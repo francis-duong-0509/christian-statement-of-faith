@@ -36,7 +36,6 @@
         setupMobileMenu();
         setupScrollIndicator();
         setupSmoothScroll();
-        setupLanguageSwitcher();
         setupFloatingButtons();
         setupDonateModal();
 
@@ -57,82 +56,6 @@
                 delay: 0
             });
         }
-    }
-
-    // ==================== LANGUAGE SWITCHER ====================
-    /**
-     * Setup multi-language switcher functionality
-     */
-    function setupLanguageSwitcher() {
-        // Load saved language preference from localStorage
-        const savedLang = localStorage.getItem('preferred_language') || 'en';
-        setLanguage(savedLang, false);
-
-        // Add click handlers to language switcher items
-        languageItems.forEach(function(item) {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-                setLanguage(lang, true);
-            });
-        });
-    }
-
-    /**
-     * Set website language
-     * @param {string} lang - Language code ('en' or 'vi')
-     * @param {boolean} savePreference - Whether to save to localStorage
-     */
-    function setLanguage(lang, savePreference) {
-        // Update all elements with language attributes
-        const elementsWithLang = document.querySelectorAll('[data-lang-' + lang + ']');
-
-        elementsWithLang.forEach(function(element) {
-            const translatedText = element.getAttribute('data-lang-' + lang);
-
-            // Check if it's a placeholder attribute
-            if (element.hasAttribute('data-lang-placeholder-' + lang) && element.tagName === 'INPUT') {
-                element.placeholder = element.getAttribute('data-lang-placeholder-' + lang);
-            } else if (translatedText) {
-                // For elements inside donate-message div, preserve paragraph structure
-                if (element.tagName === 'P' && element.closest('.donate-message')) {
-                    element.textContent = translatedText;
-                } else {
-                    element.textContent = translatedText;
-                }
-            }
-        });
-
-        // Update current language display
-        if (currentLangDisplay) {
-            currentLangDisplay.textContent = lang.toUpperCase();
-        }
-
-        // Update active state on language items
-        languageItems.forEach(function(item) {
-            const itemLang = item.getAttribute('data-lang');
-            if (itemLang === lang) {
-                item.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
-        });
-
-        // Update HTML lang attribute
-        document.documentElement.setAttribute('lang', lang);
-
-        // Save preference to localStorage if requested
-        if (savePreference) {
-            localStorage.setItem('preferred_language', lang);
-
-            // Show notification
-            showNotification(
-                lang === 'en' ? 'Language changed to English' : 'Đã chuyển sang Tiếng Việt',
-                'success'
-            );
-        }
-
-        console.log('Language set to:', lang);
     }
 
     // ==================== SCROLL HANDLERS ====================

@@ -4,20 +4,14 @@
             <!-- Section Header -->
             <div class="row text-center mb-5">
                 <div class="col-lg-10 mx-auto">
-                    <h2 class="section-title" data-aos="fade-up"
-                        data-lang-en="Multilingual Biblical Dictionary"
-                        data-lang-vi="Từ Điển Kinh Thánh Đa Ngôn Ngữ">
-                        Multilingual Biblical Dictionary
+                    <h2 class="section-title" data-aos="fade-up">
+                        {{ __t('Từ Điển Kinh Thánh Đa Ngôn Ngữ', 'Multilingual Biblical Dictionary') }}
                     </h2>
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100"
-                       data-lang-en="Hebrew, Greek & English theological terms explained in Vietnamese"
-                       data-lang-vi="Tra cứu từ ngữ thần học từ tiếng Hebrew (Cựu Ước), Greek (Tân Ước), và English với giải nghĩa tiếng Việt chi tiết">
-                        Hebrew, Greek & English theological terms explained in Vietnamese
+                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                        {{ __t('Tra cứu từ ngữ thần học từ tiếng Hebrew (Cựu Ước), Greek (Tân Ước), và English với giải nghĩa tiếng Việt chi tiết', 'Look up theological terms from Hebrew (Old Testament), Greek (New Testament), and English with detailed Vietnamese explanations') }}
                     </p>
-                    <p class="dictionary-intro" data-aos="fade-up" data-aos-delay="200"
-                       data-lang-en="Vietnamese cannot fully express the nuances and context of many Biblical terms. Our dictionary provides original meanings from Hebrew and Greek, helping you understand Scripture with scholarly depth."
-                       data-lang-vi="Tiếng Việt không thể diễn tả đúng ngữ nghĩa và bối cảnh của nhiều từ ngữ trong Kinh Thánh. Từ điển của chúng tôi cung cấp nghĩa gốc từ tiếng Hebrew và Greek, giúp bạn hiểu sâu sắc học thuật Kinh Thánh.">
-                        Vietnamese cannot fully express the nuances and context of many Biblical terms. Our dictionary provides original meanings from Hebrew and Greek, helping you understand Scripture with scholarly depth.
+                    <p class="dictionary-intro" data-aos="fade-up" data-aos-delay="200">
+                        {{ __t('Tiếng Việt không thể diễn tả đúng ngữ nghĩa và bối cảnh của nhiều từ ngữ trong Kinh Thánh. Từ điển của chúng tôi cung cấp nghĩa gốc từ tiếng Hebrew và Greek, giúp bạn hiểu sâu sắc học thuật Kinh Thánh.', 'Vietnamese cannot fully express the nuances and context of many Biblical terms. Our dictionary provides original meanings from Hebrew and Greek, helping you understand Scripture with scholarly depth.') }}
                     </p>
                 </div>
             </div>
@@ -31,13 +25,11 @@
                             <i class="fas fa-scroll"></i>
                             <span class="hebrew-letter">א</span>
                         </div>
-                        <h4 class="feature-title" data-lang-en="Hebrew Terms (Old Testament)" data-lang-vi="Từ Ngữ Hebrew (Cựu Ước)">
-                            Hebrew Terms (Old Testament)
+                        <h4 class="feature-title">
+                            {{ __t('Từ Ngữ Do Thái (Cựu Ước)', 'Hebrew Terms (Old Testament)') }}
                         </h4>
-                        <p class="feature-description"
-                           data-lang-en="Original Old Testament words with Vietnamese meanings and context"
-                           data-lang-vi="Từ ngữ gốc Cựu Ước với nghĩa và bối cảnh tiếng Việt">
-                            Original Old Testament words with Vietnamese meanings and context
+                        <p class="feature-description">
+                            {{ __t('Từ ngữ gốc Cựu Ước với nghĩa và bối cảnh tiếng Việt', 'Original Old Testament words with Vietnamese meanings and context') }}
                         </p>
                     </div>
                 </div>
@@ -49,13 +41,11 @@
                             <i class="fas fa-book-open"></i>
                             <span class="greek-letter">Α</span>
                         </div>
-                        <h4 class="feature-title" data-lang-en="Greek Terms (New Testament)" data-lang-vi="Từ Ngữ Greek (Tân Ước)">
-                            Greek Terms (New Testament)
+                        <h4 class="feature-title">
+                            {{ __t('Từ Ngữ Hy Lạp (Tân Ước)', 'Greek Terms (New Testament)') }}
                         </h4>
-                        <p class="feature-description"
-                           data-lang-en="New Testament Greek with contextual Vietnamese explanations"
-                           data-lang-vi="Từ ngữ Greek Tân Ước với giải thích bối cảnh tiếng Việt">
-                            New Testament Greek with contextual Vietnamese explanations
+                        <p class="feature-description">
+                            {{ __t('Từ ngữ Greek Tân Ước với giải thích bối cảnh tiếng Việt', 'New Testament Greek with contextual Vietnamese explanations') }}
                         </p>
                     </div>
                 </div>
@@ -66,13 +56,11 @@
                         <div class="feature-icon">
                             <i class="fas fa-language"></i>
                         </div>
-                        <h4 class="feature-title" data-lang-en="English Theological Terms" data-lang-vi="Thuật Ngữ Thần Học Tiếng Anh">
-                            English Theological Terms
+                        <h4 class="feature-title">
+                            {{ __t('Thuật Ngữ Thần Học Tiếng Anh', 'English Theological Terms') }}
                         </h4>
-                        <p class="feature-description"
-                           data-lang-en="Key theological concepts explained clearly in Vietnamese"
-                           data-lang-vi="Các khái niệm thần học chủ chốt được giải thích rõ ràng bằng tiếng Việt">
-                            Key theological concepts explained clearly in Vietnamese
+                        <p class="feature-description">
+                            {{ __t('Các khái niệm thần học chủ chốt được giải thích rõ ràng bằng tiếng Việt', 'Key theological concepts explained clearly in Vietnamese') }}
                         </p>
                     </div>
                 </div>
@@ -81,10 +69,8 @@
             <!-- Sample Terms -->
             <div class="row text-center mb-4">
                 <div class="col-12">
-                    <h3 class="sample-terms-title" data-aos="fade-up"
-                        data-lang-en="Sample Dictionary Entries"
-                        data-lang-vi="Mẫu Từ Điển">
-                        Sample Dictionary Entries
+                    <h3 class="sample-terms-title" data-aos="fade-up">
+                        {{ __t('Mẫu Từ Điển', 'Sample Dictionary Entries') }}
                     </h3>
                 </div>
             </div>
@@ -184,8 +170,8 @@
             <!-- CTA Button -->
             <div class="row">
                 <div class="col text-center" data-aos="fade-up" data-aos-delay="700">
-                    <a href="/dictionary" class="btn btn-primary btn-lg">
-                        <span data-lang-en="Explore Full Dictionary" data-lang-vi="Khám Phá Từ Điển Đầy Đủ">Explore Full Dictionary</span>
+                    <a href="#" class="btn btn-primary btn-lg">
+                        <span>{{ __t('Khám Phá Từ Điển Đầy Đủ', 'Explore Full Dictionary') }}</span>
                         <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                 </div>

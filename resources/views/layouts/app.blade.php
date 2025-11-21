@@ -32,6 +32,7 @@
 
     @include('home_sections._footer')
     @include('home_sections._floating-buttons')
+    @include('home_sections._modals')
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -41,6 +42,8 @@
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+    <script src="{{ asset('js/custom.js') }}"></script>
 
     <!-- Custom Scripts -->
     <script>

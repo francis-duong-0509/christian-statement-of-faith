@@ -1,8 +1,3 @@
-{{-- ============================================
-    STATEMENT OF FAITH PAGE - FULL SHOWCASE
-    Premium Experience with Rich Media & Interactions
-    ============================================ --}}
-
 @extends('layouts.app')
 
 @section('title', __t('Tuyên Bố Đức Tin', 'Statement of Faith') . ' - ' . config('app.name'))
@@ -51,14 +46,19 @@
                 {{-- Category Header with Featured Image --}}
                 <div class="category-hero-header">
                     @php
-                        $categoryImages = [
-                            'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1400&q=80', // Bible
-                            'https://images.unsplash.com/photo-1501003878151-d3cb87799705?w=1400&q=80', // Cross
-                            'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=1400&q=80', // Praying
-                            'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=1400&q=80', // Church
-                            'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=1400&q=80', // Dove
+                        $defaultImages = [
+                            asset('uploads/01KAK7WGV6VTG7V43N1YP8N1P5.jpeg'),
+                            asset('uploads/01KAK7Z6VY684T7QQKYVBSNDM3.jpeg'),
+                            asset('uploads/01KAKBQVXQQ5CR7JZTRXPCC2DZ.jpg'),
+                            asset('uploads/01KAKBVDB95QD2ZQA8W9TSW1NW.jpg'),
+                            asset('uploads/01KAKC7E38TZ80DYGVFMTNJSVS.jpg'),
+                            asset('uploads/01KAKCJ46ZMAGBPAPBJ5SS4F8T.jpg'),
+                            asset('uploads/01KAKCQXG7C7DP8W07EG7NDTTN.jpg'),
+                            asset('uploads/01KAKD5ZCM3FPND0TH1KM5AHTW.jpg'),
                         ];
-                        $categoryImageUrl = $categoryImages[$categoryIndex % count($categoryImages)];
+                        $categoryImageUrl = $category->banner_image
+                            ? asset($category->banner_image)
+                            : $defaultImages[$categoryIndex % count($defaultImages)];
                     @endphp
                     <div class="category-hero-bg" style="background-image: url('{{ $categoryImageUrl }}');"></div>
                     <div class="category-hero-overlay"></div>
@@ -211,7 +211,7 @@
 /* === CATEGORY HERO HEADER === */
 .category-hero-header {
     position: relative;
-    height: 400px;
+    min-height: 400px;
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 3rem;
@@ -225,7 +225,8 @@
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    background-repeat: no-repeat;
     transition: transform 0.5s ease;
 }
 
@@ -239,7 +240,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(30, 58, 95, 0.85), rgba(139, 69, 19, 0.75));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.55) 100%);
+
 }
 
 .category-hero-content {
@@ -281,7 +283,7 @@
     color: var(--white);
     margin-bottom: 1rem;
     font-family: var(--font-serif);
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .category-desc-hero {
@@ -290,7 +292,7 @@
     color: rgba(255, 255, 255, 0.95);
     max-width: 800px;
     margin-bottom: 1.5rem;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8), 0 3px 12px rgba(0, 0, 0, 0.5);
 }
 
 .category-stats-hero {
@@ -391,7 +393,7 @@
 .overlay-icon {
     font-size: 3rem;
     color: var(--white);
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8), 0 3px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* === CONTENT RICH === */
@@ -572,7 +574,7 @@
     }
 
     .category-hero-header {
-        height: 350px;
+        min-height: 350px;
     }
 
     .category-title-hero {
@@ -586,7 +588,7 @@
 
 @media (max-width: 767px) {
     .category-hero-header {
-        height: 300px;
+        min-height: 300px;
         margin-bottom: 2rem;
     }
 
@@ -656,7 +658,7 @@
     }
 
     .category-hero-header {
-        height: 260px;
+        min-height: 260px;
         border-radius: 12px;
     }
 

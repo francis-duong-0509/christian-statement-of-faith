@@ -3,15 +3,11 @@
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title" data-aos="fade-up"
-                        data-lang-en="Latest Articles"
-                        data-lang-vi="Bài Viết Mới Nhất">
-                        Latest Articles
+                    <h2 class="section-title" data-aos="fade-up">
+                        {{ __t('Bài Viết Mới Nhất', 'Latest Articles') }}
                     </h2>
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100"
-                       data-lang-en="Discover our most recent theological insights and biblical teachings"
-                       data-lang-vi="Khám phá những hiểu biết thần học và giảng dạy Kinh Thánh mới nhất">
-                        Discover our most recent theological insights and biblical teachings
+                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                        {{ __t('Khám phá những hiểu biết thần học và giảng dạy Kinh Thánh mới nhất', 'Discover our most recent theological insights and biblical teachings') }}
                     </p>
                 </div>
             </div>
@@ -93,8 +89,8 @@
             </div>
             <div class="row mt-5">
                 <div class="col text-center" data-aos="fade-up">
-                    <a href="/blog" class="btn btn-outline-primary btn-lg">
-                        <span data-lang-en="View All Articles" data-lang-vi="Xem Tất Cả Bài Viết">View All Articles</span> <i class="fas fa-arrow-right ms-2"></i>
+                    <a href="#" class="btn btn-outline-primary btn-lg">
+                        <span>{{ __t('Xem Tất Cả Bài Viết', 'View All Articles') }}</span> <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                 </div>
             </div>

@@ -51,6 +51,10 @@ class FaithStatementResource extends Resource
                                         if ($operation === 'create') {
                                             $set('slug_vi', Str::slug($state));
                                         }
+
+                                        if ($operation === 'edit') {
+                                            $set('slug_vi', Str::slug($state));
+                                        }
                                     })
                                     ->columnSpanFull(),
 
@@ -101,6 +105,10 @@ class FaithStatementResource extends Resource
                                     ->live(onBlur: true)
                                     ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
                                         if ($operation === 'create') {
+                                            $set('slug_en', Str::slug($state));
+                                        }
+
+                                        if ($operation === 'edit') {
                                             $set('slug_en', Str::slug($state));
                                         }
                                     })

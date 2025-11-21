@@ -17,6 +17,7 @@ class FaithCategory extends Model
         'slug_en',
         'description_vi',
         'description_en',
+        'banner_image',
         'order',
         'is_active',
     ];
