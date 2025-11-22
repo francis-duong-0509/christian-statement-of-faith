@@ -81,6 +81,32 @@ class FaithStatementResource extends Resource
                                     ])
                                     ->columnSpanFull(),
 
+                                Forms\Components\Repeater::make('scripture_references_vi')
+                                    ->label('Scripture References (Vietnamese)')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('ref')
+                                            ->label('Reference')
+                                            ->placeholder('e.g., Giăng 3:16')
+                                            ->required()
+                                            ->helperText('Format: Book Chapter:Verse (e.g., Giăng 3:16, Romans 8:28-30)')
+                                            ->columnSpan(1),
+
+                                        Forms\Components\Textarea::make('text')
+                                            ->label('Verse Text')
+                                            ->placeholder('Paste the Vietnamese Bible verse here...')
+                                            ->required()
+                                            ->rows(3)
+                                            ->helperText('The actual verse content in Vietnamese')
+                                            ->columnSpan(2),
+                                    ])
+                                    ->columns(3)
+                                    ->defaultItems(0)
+                                    ->collapsible()
+                                    ->itemLabel(fn (array $state): ?string => $state['ref'] ?? 'New Reference')
+                                    ->addActionLabel('Add Scripture Reference')
+                                    ->reorderable()
+                                    ->columnSpanFull(),
+
                                 Forms\Components\Section::make('SEO (Vietnamese)')
                                     ->schema([
                                         Forms\Components\TextInput::make('meta_title_vi')
@@ -137,6 +163,32 @@ class FaithStatementResource extends Resource
                                     ])
                                     ->columnSpanFull(),
 
+                                Forms\Components\Repeater::make('scripture_references_en')
+                                    ->label('Scripture References (English)')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('ref')
+                                            ->label('Reference')
+                                            ->placeholder('e.g., John 3:16')
+                                            ->required()
+                                            ->helperText('Format: Book Chapter:Verse (e.g., John 3:16, Romans 8:28-30)')
+                                            ->columnSpan(1),
+
+                                        Forms\Components\Textarea::make('text')
+                                            ->label('Verse Text')
+                                            ->placeholder('Paste the English Bible verse here...')
+                                            ->required()
+                                            ->rows(3)
+                                            ->helperText('The actual verse content in English')
+                                            ->columnSpan(2),
+                                    ])
+                                    ->columns(3)
+                                    ->defaultItems(0)
+                                    ->collapsible()
+                                    ->itemLabel(fn (array $state): ?string => $state['ref'] ?? 'New Reference')
+                                    ->addActionLabel('Add Scripture Reference')
+                                    ->reorderable()
+                                    ->columnSpanFull(),
+
                                 Forms\Components\Section::make('SEO (Vietnamese)')
                                     ->schema([
                                         Forms\Components\TextInput::make('meta_title_en')
@@ -181,7 +233,6 @@ class FaithStatementResource extends Resource
                     ->collapsible()
                     ->collapsed(false),
 
-                // SCRIPTURE REFERENCES
                 Forms\Components\Section::make('Settings')
                     ->schema([
                         Forms\Components\TextInput::make('order')
