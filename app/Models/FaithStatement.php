@@ -18,6 +18,7 @@ class FaithStatement extends Model
         'slug_en',
         'content_vi',
         'content_en',
+        'image',
         'scripture_references',
         'order',
         'is_active',

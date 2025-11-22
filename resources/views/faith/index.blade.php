@@ -46,19 +46,7 @@
                 {{-- Category Header with Featured Image --}}
                 <div class="category-hero-header">
                     @php
-                        $defaultImages = [
-                            asset('uploads/01KAK7WGV6VTG7V43N1YP8N1P5.jpeg'),
-                            asset('uploads/01KAK7Z6VY684T7QQKYVBSNDM3.jpeg'),
-                            asset('uploads/01KAKBQVXQQ5CR7JZTRXPCC2DZ.jpg'),
-                            asset('uploads/01KAKBVDB95QD2ZQA8W9TSW1NW.jpg'),
-                            asset('uploads/01KAKC7E38TZ80DYGVFMTNJSVS.jpg'),
-                            asset('uploads/01KAKCJ46ZMAGBPAPBJ5SS4F8T.jpg'),
-                            asset('uploads/01KAKCQXG7C7DP8W07EG7NDTTN.jpg'),
-                            asset('uploads/01KAKD5ZCM3FPND0TH1KM5AHTW.jpg'),
-                        ];
-                        $categoryImageUrl = $category->banner_image
-                            ? asset($category->banner_image)
-                            : $defaultImages[$categoryIndex % count($defaultImages)];
+                        $categoryImageUrl = $category->banner_image ? asset($category->banner_image) : null;
                     @endphp
                     <div class="category-hero-bg" style="background-image: url('{{ $categoryImageUrl }}');"></div>
                     <div class="category-hero-overlay"></div>
@@ -85,17 +73,7 @@
 
                             {{-- Featured Image with Overlay Badge --}}
                             @php
-                                $statementImages = [
-                                    'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=700&q=80',
-                                    'https://images.unsplash.com/photo-1501003878151-d3cb87799705?w=700&q=80',
-                                    'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=700&q=80',
-                                    'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=700&q=80',
-                                    'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=700&q=80',
-                                    'https://images.unsplash.com/photo-1544568104-5b7eb8189dd4?w=700&q=80',
-                                    'https://images.unsplash.com/photo-1520013817300-1f4c1cb245fb?w=700&q=80',
-                                    'https://images.unsplash.com/photo-1505168125601-4ddfdea4c322?w=700&q=80',
-                                ];
-                                $statementImageUrl = $statementImages[($categoryIndex * 10 + $statementIndex) % count($statementImages)];
+                                $statementImageUrl = $statement->image ? asset($statement->image) : null;
                             @endphp
                             <div class="statement-featured-img">
                                 <img src="{{ $statementImageUrl }}" alt="{{ $statement->title }}" loading="lazy">

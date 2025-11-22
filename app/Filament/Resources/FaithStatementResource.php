@@ -154,6 +154,33 @@ class FaithStatementResource extends Resource
                     ])
                     ->columnSpanFull(),
 
+                Forms\Components\Section::make('Banner Image')
+                    ->description('Upload a banner image for this statement (recommended size: 1400x400px, aspect ratio 21:9 or 16:9)')
+                    ->schema([
+                        Forms\Components\FileUpload::make('image')
+                            ->label('Banner Image')
+                            ->disk('public_uploads')
+                            ->directory('uploads/statement_of_faith')
+                            ->image()
+                            ->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '21:9',
+                                '16:9',
+                                '3:1',
+                                null,  // Free aspect ratio
+                            ])
+                            ->maxSize(2048)  // 2MB
+                            ->helperText('Recommended: 1400x400px or larger. Max file size: 2MB.')
+                            ->imagePreviewHeight('200')
+                            ->panelLayout('integrated')
+                            ->removeUploadedFileButtonPosition('right')
+                            ->uploadButtonPosition('left')
+                            ->uploadProgressIndicatorPosition('left')
+                            ->columnSpanFull(),
+                    ])
+                    ->collapsible()
+                    ->collapsed(false),
+
                 // SCRIPTURE REFERENCES
                 Forms\Components\Section::make('Settings')
                     ->schema([
@@ -202,6 +229,12 @@ class FaithStatementResource extends Resource
                     ->label('Active')
                     ->boolean()
                     ->sortable(),
+
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Banner Image')
+                    ->getStateUsing(fn ($record) => $record->image ? asset($record->image) : null)
+                    ->height(50)
+                    ->width(100),
 
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Created')

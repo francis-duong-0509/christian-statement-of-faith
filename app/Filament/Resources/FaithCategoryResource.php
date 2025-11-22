@@ -165,6 +165,12 @@ class FaithCategoryResource extends Resource
                     ->boolean()
                     ->sortable(),
 
+                Tables\Columns\ImageColumn::make('banner_image')
+                    ->label('Banner Image')
+                    ->getStateUsing(fn ($record) => $record->banner_image ? asset($record->banner_image) : null)
+                    ->height(50)
+                    ->width(100),
+
                 Tables\Columns\TextColumn::make('statements_count')
                     ->label('Statements')
                     ->counts('statements') // Count related FaithStatements
