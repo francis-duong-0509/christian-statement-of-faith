@@ -5,7 +5,9 @@
                 <!-- About Column -->
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-logo mb-3">
-                        <i class="fas fa-cross"></i>
+                        <a class="navbar-brand" href="/">
+                            <img src="{{ asset('uploads/logo/logo_statement_of_faith.png') }}" alt="Statement of Faith" class="site-logo">
+                        </a>
                         <span class="footer-brand">{{ __t('Tuyên Bố Đức Tin', 'Statement of Faith') }}</span>
                     </div>
                     <p class="footer-text">
@@ -25,8 +27,8 @@
                     <ul class="footer-links">
                         <li><a href="{{ route('home') }}"><span>{{ __t('Trang Chủ', 'Home') }}</span></a></li>
                         <li><a href="{{ route('faith.index') }}"><span>{{ __t('Tuyên Bố Đức Tin', 'Statement of Faith') }}</span></a></li>
-                        <li><a href="/dictionary"><span>{{ __t('Từ Điển', 'Dictionary') }}</span></a></li>
-                        <li><a href="/blog"><span>{{ __t('Blog', 'Blog') }}</span></a></li>
+                        <li><a href="#"><span>{{ __t('Từ Điển', 'Dictionary') }}</span></a></li>
+                        <li><a href="#"><span>{{ __t('Blog', 'Blog') }}</span></a></li>
                     </ul>
                 </div>
 

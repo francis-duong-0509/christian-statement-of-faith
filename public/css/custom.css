@@ -145,7 +145,7 @@ img {
 }
 
 .site-logo {
-    height: 40px;
+    height: 60px;
     width: auto;
 }
 
@@ -1079,8 +1079,8 @@ section {
 .fab-to-top {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     color: var(--white);
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
 }
 
 .fab-to-top.visible {
@@ -2118,7 +2118,7 @@ section {
     }
 
     .site-logo {
-        height: 36px;
+        height: 48px;
     }
 
     .resource-icon-new {

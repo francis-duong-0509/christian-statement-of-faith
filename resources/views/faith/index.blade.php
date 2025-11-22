@@ -162,11 +162,6 @@
     </div>
 </section>
 
-{{-- Back to Top --}}
-<button class="btn-back-top-showcase" id="btnBackTop" aria-label="{{ __t('Lên đầu trang', 'Back to top') }}">
-    <i class="fas fa-arrow-up"></i>
-</button>
-
 @endsection
 
 {{-- ============================================
@@ -177,25 +172,6 @@
 /* ============================================
    FAITH SHOWCASE - PREMIUM EXPERIENCE
    ============================================ */
-
-/* === HERO ICON === */
-.hero-icon-large {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 1.5rem;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.3);
-}
-
-.hero-icon-large i {
-    font-size: 2.75rem;
-    color: white;
-}
 
 /* === SECTION === */
 .faith-showcase-section {
@@ -241,7 +217,6 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.55) 100%);
-
 }
 
 .category-hero-content {
@@ -529,36 +504,6 @@
     padding: 4rem 2rem;
 }
 
-/* === BACK TO TOP === */
-.btn-back-top-showcase {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 56px;
-    height: 56px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: var(--white);
-    border: none;
-    border-radius: 50%;
-    font-size: 1.25rem;
-    cursor: pointer;
-    box-shadow: var(--shadow-xl);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 999;
-}
-
-.btn-back-top-showcase.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.btn-back-top-showcase:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 12px 40px rgba(30, 58, 95, 0.4);
-}
-
 /* === RESPONSIVE === */
 @media (max-width: 1200px) {
     .statements-showcase-grid {
@@ -638,25 +583,9 @@
     .scripture-showcase-box {
         padding: 1.25rem;
     }
-
-    .btn-back-top-showcase {
-        width: 50px;
-        height: 50px;
-        bottom: 1.5rem;
-        right: 1.5rem;
-    }
 }
 
 @media (max-width: 575px) {
-    .hero-icon-large {
-        width: 70px;
-        height: 70px;
-    }
-
-    .hero-icon-large i {
-        font-size: 2rem;
-    }
-
     .category-hero-header {
         min-height: 260px;
         border-radius: 12px;
@@ -705,7 +634,6 @@ html {
 
 /* === PRINT === */
 @media print {
-    .btn-back-top-showcase,
     .hero-section,
     .breadcrumb,
     nav,
@@ -744,25 +672,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Back to Top
-    const backBtn = document.getElementById('btnBackTop');
-    if (backBtn) {
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 400) {
-                backBtn.classList.add('show');
-            } else {
-                backBtn.classList.remove('show');
-            }
-        });
-
-        backBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
 
     // Reading Progress
     const progress = document.createElement('div');

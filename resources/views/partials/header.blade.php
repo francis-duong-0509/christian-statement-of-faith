@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('images/logo.png') }}" alt="Statement of Faith" class="site-logo">
+            <img src="{{ asset('uploads/logo/logo_statement_of_faith.png') }}" alt="Statement of Faith" class="site-logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('dictionary*') ? 'active' : '' }}"
-                       href="/dictionary"
+                       href="#"
                        data-lang-en="Dictionary"
                        data-lang-vi="Từ Điển">
                         {{ __t('Từ Điển', 'Dictionary') }}
@@ -36,7 +36,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('scripture-lectures*') ? 'active' : '' }}"
-                       href="/scripture-lectures"
+                       href="#"
                        data-lang-en="Scripture Lectures"
                        data-lang-vi="Giảng Giải Kinh">
                         {{ __t('Giảng Giải Kinh', 'Scripture Lectures') }}
@@ -44,10 +44,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('blog*') ? 'active' : '' }}"
-                       href="/blog"
-                       data-lang-en="Blog"
-                       data-lang-vi="Blog">
-                        Blog
+                       href="#">
+                        {{ __t('Bài Viết', 'Blog') }}
                     </a>
                 </li>
                 <!-- Language Switcher -->

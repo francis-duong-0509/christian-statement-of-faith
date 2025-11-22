@@ -21,6 +21,6 @@ class HomeController extends Controller
             ->withCount('statements')
             ->get();
 
-        return view('home', compact('categories'));
+        return view('homepage.home', compact('categories'));
     }
 }
