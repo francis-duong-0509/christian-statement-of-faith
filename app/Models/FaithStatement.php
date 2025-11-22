@@ -18,8 +18,9 @@ class FaithStatement extends Model
         'slug_en',
         'content_vi',
         'content_en',
+        'scripture_references_en',
+        'scripture_references_vi',
         'image',
-        'scripture_references',
         'order',
         'is_active',
         'meta_title_vi',
@@ -31,7 +32,8 @@ class FaithStatement extends Model
     protected $casts = [
         'is_active' => 'boolean',
         'order' => 'integer',
-        'scripture_references' => 'array',
+        'scripture_references_en' => 'array',
+        'scripture_references_vi' => 'array',
     ];
 
     // ==========================================================
@@ -94,5 +96,17 @@ class FaithStatement extends Model
     {
         $locale = app()->getLocale(); // 'vi' or 'en'
         return $this->{"meta_description_$locale"};
+    }
+
+    public function getScriptureReferencesAttribute(): ?array
+    {
+        $locale = app()->getLocale();
+        return $this->{"scripture_references_{$locale}"};
+    }
+
+    public function hasScriptureReferences(): bool
+    {
+        $references = $this->scripture_references;
+        return !empty($references) && is_array($references);
     }
 }
