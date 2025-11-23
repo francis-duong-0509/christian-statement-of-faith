@@ -115,18 +115,19 @@
     transform: translateY(0);
 }
 
-/* Custom Tippy Tooltip Styling for Homepage */
+/* Custom Tippy Tooltip Styling for Homepage - Desktop Extra Large */
 .tippy-box[data-theme~='custom-scripture'] {
     background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8a 100%);
     color: #ffffff;
-    font-size: 16px;
-    line-height: 1.8;
-    padding: 20px 24px;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
-                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-    max-width: 500px;
+    font-size: 20px;
+    line-height: 2;
+    padding: 32px 40px;
+    border-radius: 16px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+    max-width: 700px;
     font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
 }
 
 .tippy-box[data-theme~='custom-scripture'] .tippy-content {
@@ -184,12 +185,12 @@ document.addEventListener('DOMContentLoaded', function() {
             arrow: true,
             animation: 'scale',
             duration: [350, 250],
-            maxWidth: 500,
+            maxWidth: 700,
             interactive: false,
             trigger: 'mouseenter focus click',
             hideOnClick: true,
             allowHTML: false,
-            offset: [0, 12],
+            offset: [0, 14],
             zIndex: 9999,
         });
     } else {
