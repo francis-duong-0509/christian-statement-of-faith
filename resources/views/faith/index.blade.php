@@ -92,21 +92,26 @@
                                 </div>
 
                                 {{-- Scripture References Rich --}}
-                                @if($statement->scripture_references && count($statement->scripture_references) > 0)
-                                <div class="scripture-showcase-box">
-                                    <div class="scripture-header-rich">
-                                        <i class="fas fa-book-bible"></i>
-                                        <strong>{{ __t('Kinh Thánh Tham Khảo', 'Scripture References') }}</strong>
+                                @if($statement->hasScriptureReferences())
+                                    <div class="scripture-showcase-box">
+                                        <div class="scripture-header-rich">
+                                            <i class="fas fa-book-bible"></i>
+                                            <strong>{{ __t('Kinh Thánh Tham Khảo', 'Scripture References') }}</strong>
+                                        </div>
+                                        <div class="scripture-pills-rich">
+                                            @foreach($statement->scripture_references as $scripture)
+                                                <button
+                                                    class="scripture-pill-showcase"
+                                                    type="button"
+                                                    data-tippy-content="{{ $scripture['text'] ?? '' }}"
+                                                    data-ref="{{ $scripture['ref'] ?? '' }}" >
+                                                    <i class="fas fa-bookmark me-1"></i>{{ $scripture['ref'] ?? '' }}
+                                                </button>
+                                            @endforeach
+                                        </div>
                                     </div>
-                                    <div class="scripture-pills-rich">
-                                        @foreach($statement->scripture_references as $reference)
-                                            <button class="scripture-pill-showcase" type="button" data-reference="{{ $reference }}" title="{{ __t('Nhấn để sao chép', 'Click to copy') }}">
-                                                <i class="fas fa-bookmark me-1"></i>{{ $reference }}
-                                            </button>
-                                        @endforeach
-                                    </div>
-                                </div>
                                 @endif
+
                             </div>
                         </div>
                         @endforeach
@@ -428,7 +433,7 @@
     font-weight: 600;
     border-radius: 50px;
     border: 2px solid var(--accent);
-    cursor: pointer;
+    cursor: help !important;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -445,6 +450,9 @@
 .scripture-pill-showcase i {
     font-size: 0.75rem;
 }
+
+/* Scripture Reference Buttons - Enhanced (Homepage specific handled separately) */
+
 
 /* === DIVIDER SHOWCASE === */
 .category-divider-showcase {
@@ -610,6 +618,55 @@ html {
     scroll-behavior: smooth;
 }
 
+/* === TIPPY.JS CUSTOM STYLING FOR SCRIPTURE TOOLTIPS === */
+.tippy-box[data-theme~='custom-scripture-pills'] {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8a 100%);
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.8;
+    padding: 24px 28px;
+    border-radius: 14px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35),
+                0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+    max-width: 550px;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.tippy-box[data-theme~='custom-scripture-pills'] .tippy-content {
+    font-style: normal;
+    text-align: left;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.tippy-box[data-theme~='custom-scripture-pills'] .tippy-arrow {
+    color: #1e3a5f;
+}
+
+.tippy-box[data-theme~='custom-scripture-pills'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: #1e3a5f;
+}
+
+.tippy-box[data-theme~='custom-scripture-pills'][data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: #1e3a5f;
+}
+
+.tippy-box[data-theme~='custom-scripture-pills'][data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: #1e3a5f;
+}
+
+.tippy-box[data-theme~='custom-scripture-pills'][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: #1e3a5f;
+}
+
+/* Responsive - Optimized tooltips on mobile */
+@media (max-width: 767px) {
+    .tippy-box[data-theme~='custom-scripture-pills'] {
+        font-size: 15px;
+        padding: 18px 22px;
+        max-width: calc(100vw - 40px);
+    }
+}
+
 /* === PRINT === */
 @media print {
     .hero-section,
@@ -632,6 +689,29 @@ html {
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Initialize Tippy.js for scripture pills with enhanced custom theme
+    if (typeof tippy !== 'undefined') {
+        tippy('.scripture-pill-showcase', {
+            theme: 'custom-scripture-pills',
+            placement: 'top',
+            arrow: true,
+            animation: 'scale',
+            duration: [350, 250],
+            maxWidth: 550,
+            interactive: false,
+            trigger: 'mouseenter focus click',
+            hideOnClick: true,
+            allowHTML: false,
+            offset: [0, 14],
+            zIndex: 9999,
+            onShow(instance) {
+                instance.popper.classList.add('scripture-tooltip');
+            }
+        });
+    } else {
+        console.warn('Tippy.js not loaded. Scripture tooltips will not work.');
+    }
 
     // Smooth Scroll
     document.querySelectorAll('a.smooth-scroll, a[href^="#"]').forEach(anchor => {

@@ -27,10 +27,10 @@ class FaithCategoryResource extends Resource
     {
         return $form
             ->schema([
-                // TAB for 2 languages
+                // LANGUAGE TABS
                 Forms\Components\Tabs::make('Language')
                     ->tabs([
-                        // TAB Vietnamese
+                        // VIETNAMESE TAB
                         Forms\Components\Tabs\Tab::make('Vietnamese')
                             ->schema([
                                 Forms\Components\TextInput::make('name_vi')
@@ -68,7 +68,7 @@ class FaithCategoryResource extends Resource
                                             ->label('Reference')
                                             ->placeholder('e.g., Giăng 3:16')
                                             ->required()
-                                            ->helperText('Format: Book Chapter:Verse (e.g., Giăng 3:16, Romans 8:28-30)')
+                                            ->helperText('Format: Book Chapter:Verse (e.g., Giăng 3:16, Rô-ma 8:28-30)')
                                             ->columnSpan(1),
 
                                         Forms\Components\Textarea::make('text')
@@ -88,7 +88,8 @@ class FaithCategoryResource extends Resource
                                     ->columnSpanFull(),
 
                             ]),
-                        // TAB English
+
+                        // ENGLISH TAB
                         Forms\Components\Tabs\Tab::make('English')
                             ->schema([
                                 Forms\Components\TextInput::make('name_en')
@@ -147,8 +148,9 @@ class FaithCategoryResource extends Resource
 
                             ])
                     ])
-                ->columnSpanFull(),
+                    ->columnSpanFull(),
 
+                // BANNER IMAGE
                 Forms\Components\Section::make('Banner Image')
                     ->description('Upload a banner image for this category (recommended size: 1400x400px, aspect ratio 21:9 or 16:9)')
                     ->schema([
@@ -189,7 +191,7 @@ class FaithCategoryResource extends Resource
                         Forms\Components\Toggle::make('is_active')
                             ->label('Active')
                             ->default(true)
-                            ->helperText('Only active categories are visible on frontend.')
+                            ->helperText('Only active categories are visible on frontend.'),
                     ])
                     ->columns(2),
             ]);
@@ -220,14 +222,14 @@ class FaithCategoryResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\ImageColumn::make('banner_image')
-                    ->label('Banner Image')
+                    ->label('Banner')
                     ->getStateUsing(fn ($record) => $record->banner_image ? asset($record->banner_image) : null)
                     ->height(50)
                     ->width(100),
 
                 Tables\Columns\TextColumn::make('statements_count')
                     ->label('Statements')
-                    ->counts('statements') // Count related FaithStatements
+                    ->counts('statements')
                     ->alignCenter()
                     ->sortable(),
 

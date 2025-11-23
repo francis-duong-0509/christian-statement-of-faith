@@ -18,6 +18,11 @@ import { initLazyLoading } from './modules/lazy-loading';
 import { initSearch } from './modules/search';
 import { initScriptureTooltips } from './modules/scripture-tooltips';
 import { initTableOfContents } from './modules/table-of-contents';
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/themes/light.css';
+
+window.tippy = tippy;
 
 // Make Alpine available globally
 window.Alpine = Alpine;
