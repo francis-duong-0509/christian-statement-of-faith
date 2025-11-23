@@ -17,6 +17,8 @@ class FaithCategory extends Model
         'slug_en',
         'description_vi',
         'description_en',
+        'scripture_references_vi',
+        'scripture_references_en',
         'banner_image',
         'order',
         'is_active',
@@ -25,6 +27,8 @@ class FaithCategory extends Model
     protected $casts = [
         'is_active' => 'boolean',
         'order' => 'integer',
+        'scripture_references_en' => 'array',
+        'scripture_references_vi' => 'array',
     ];
 
     // ==========================================================
@@ -70,5 +74,17 @@ class FaithCategory extends Model
     {
         $locale = app()->getLocale(); // 'vi' or 'en'
         return $this->{"description_$locale"} ?? $this->description_en;
+    }
+
+    public function getScriptureReferencesAttribute(): ?array
+    {
+        $locale = app()->getLocale();
+        return $this->{"scripture_references_{$locale}"};
+    }
+
+    public function hasScriptureReferences(): bool
+    {
+        $references = $this->scripture_references;
+        return !empty($references) && is_array($references);
     }
 }

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description"
-          content="@yield('meta_description', 'Biblical Theology - Comprehensive resources on biblical doctrine, theological dictionary, and insightful biblical teachings rooted in Scripture alone.')">
+    <meta name="description" content="@yield('meta_description', 'Biblical Theology - Comprehensive resources on biblical doctrine, theological dictionary, and insightful biblical teachings rooted in Scripture alone.')">
     <title>@yield('title', config('app.name'))</title>
+    <link rel="icon" type="image/jpg" sizes="32x32" href="{{ asset('favicon_main.png') }}">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,6 +16,10 @@
 
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tippy.js for Scripture Tooltips -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
@@ -34,6 +38,7 @@
 @include('partials.footer')
 @include('partials.floating-buttons')
 @include('partials.donate-modal')
+@include('partials.scripture-modal')
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -43,6 +48,10 @@
 
 <!-- Alpine.js -->
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<!-- Tippy.js Library -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
 
 <script src="{{ asset('js/custom.js') }}"></script>
 

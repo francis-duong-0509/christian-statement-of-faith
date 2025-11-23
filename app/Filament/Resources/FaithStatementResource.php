@@ -62,7 +62,8 @@ class FaithStatementResource extends Resource
                                     ->label('Slug (Vietnamese)')
                                     ->required()
                                     ->maxLength(255)
-                                    ->unique(FaithStatement::class, 'slug_vi', ignoreRecord: true),
+                                    ->unique(FaithStatement::class, 'slug_vi', ignoreRecord: true)
+                                    ->helperText('URL-friendly version. Ex: chua-cha-chua-con-chua-thanh-than'),
 
                                 Forms\Components\RichEditor::make('content_vi')
                                     ->label('Content (Vietnamese)')
@@ -81,20 +82,50 @@ class FaithStatementResource extends Resource
                                     ])
                                     ->columnSpanFull(),
 
+                                Forms\Components\Repeater::make('scripture_references_vi')
+                                    ->label('Scripture References (Vietnamese)')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('ref')
+                                            ->label('Reference')
+                                            ->placeholder('e.g., Giăng 3:16')
+                                            ->required()
+                                            ->helperText('Format: Book Chapter:Verse (e.g., Giăng 3:16, Rô-ma 8:28-30)')
+                                            ->columnSpan(1),
+
+                                        Forms\Components\Textarea::make('text')
+                                            ->label('Verse Text')
+                                            ->placeholder('Paste the Vietnamese Bible verse here...')
+                                            ->required()
+                                            ->rows(3)
+                                            ->helperText('The actual verse content in Vietnamese')
+                                            ->columnSpan(2),
+                                    ])
+                                    ->columns(3)
+                                    ->defaultItems(0)
+                                    ->collapsible()
+                                    ->itemLabel(fn (array $state): ?string => $state['ref'] ?? 'New Reference')
+                                    ->addActionLabel('Add Scripture Reference')
+                                    ->reorderable()
+                                    ->columnSpanFull(),
+
                                 Forms\Components\Section::make('SEO (Vietnamese)')
                                     ->schema([
                                         Forms\Components\TextInput::make('meta_title_vi')
                                             ->label('Meta Title')
-                                            ->helperText('For SEO.'),
+                                            ->maxLength(60)
+                                            ->helperText('For SEO. Recommended: 50-60 characters.'),
 
                                         Forms\Components\Textarea::make('meta_description_vi')
                                             ->label('Meta Description')
                                             ->rows(3)
-                                            ->helperText('For SEO.'),
+                                            ->maxLength(160)
+                                            ->helperText('For SEO. Recommended: 150-160 characters.'),
                                     ])
                                     ->columns(1)
-                                    ->collapsible(),
+                                    ->collapsible()
+                                    ->collapsed(true),
                             ]),
+
                         // ENGLISH TAB
                         Forms\Components\Tabs\Tab::make('English')
                             ->schema([
@@ -118,7 +149,8 @@ class FaithStatementResource extends Resource
                                     ->label('Slug (English)')
                                     ->required()
                                     ->maxLength(255)
-                                    ->unique(FaithStatement::class, 'slug_en', ignoreRecord: true),
+                                    ->unique(FaithStatement::class, 'slug_en', ignoreRecord: true)
+                                    ->helperText('URL-friendly version. Ex: the-father-son-and-holy-spirit'),
 
                                 Forms\Components\RichEditor::make('content_en')
                                     ->label('Content (English)')
@@ -137,23 +169,53 @@ class FaithStatementResource extends Resource
                                     ])
                                     ->columnSpanFull(),
 
-                                Forms\Components\Section::make('SEO (Vietnamese)')
+                                Forms\Components\Repeater::make('scripture_references_en')
+                                    ->label('Scripture References (English)')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('ref')
+                                            ->label('Reference')
+                                            ->placeholder('e.g., John 3:16')
+                                            ->required()
+                                            ->helperText('Format: Book Chapter:Verse (e.g., John 3:16, Romans 8:28-30)')
+                                            ->columnSpan(1),
+
+                                        Forms\Components\Textarea::make('text')
+                                            ->label('Verse Text')
+                                            ->placeholder('Paste the English Bible verse here...')
+                                            ->required()
+                                            ->rows(3)
+                                            ->helperText('The actual verse content in English')
+                                            ->columnSpan(2),
+                                    ])
+                                    ->columns(3)
+                                    ->defaultItems(0)
+                                    ->collapsible()
+                                    ->itemLabel(fn (array $state): ?string => $state['ref'] ?? 'New Reference')
+                                    ->addActionLabel('Add Scripture Reference')
+                                    ->reorderable()
+                                    ->columnSpanFull(),
+
+                                Forms\Components\Section::make('SEO (English)')
                                     ->schema([
                                         Forms\Components\TextInput::make('meta_title_en')
                                             ->label('Meta Title')
-                                            ->helperText('For SEO.'),
+                                            ->maxLength(60)
+                                            ->helperText('For SEO. Recommended: 50-60 characters.'),
 
                                         Forms\Components\Textarea::make('meta_description_en')
                                             ->label('Meta Description')
                                             ->rows(3)
-                                            ->helperText('For SEO.'),
+                                            ->maxLength(160)
+                                            ->helperText('For SEO. Recommended: 150-160 characters.'),
                                     ])
                                     ->columns(1)
-                                    ->collapsible(),
+                                    ->collapsible()
+                                    ->collapsed(true),
                             ])
                     ])
                     ->columnSpanFull(),
 
+                // BANNER IMAGE
                 Forms\Components\Section::make('Banner Image')
                     ->description('Upload a banner image for this statement (recommended size: 1400x400px, aspect ratio 21:9 or 16:9)')
                     ->schema([
@@ -181,11 +243,11 @@ class FaithStatementResource extends Resource
                     ->collapsible()
                     ->collapsed(false),
 
-                // SCRIPTURE REFERENCES
+                // SETTINGS
                 Forms\Components\Section::make('Settings')
                     ->schema([
                         Forms\Components\TextInput::make('order')
-                            ->label('Order')
+                            ->label('Display Order')
                             ->numeric()
                             ->default(0)
                             ->required()
@@ -193,7 +255,8 @@ class FaithStatementResource extends Resource
 
                         Forms\Components\Toggle::make('is_active')
                             ->label('Active')
-                            ->default(true),
+                            ->default(true)
+                            ->helperText('Only active statements are visible on frontend.'),
                     ])
                     ->columns(2),
             ]);
@@ -231,7 +294,7 @@ class FaithStatementResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\ImageColumn::make('image')
-                    ->label('Banner Image')
+                    ->label('Banner')
                     ->getStateUsing(fn ($record) => $record->image ? asset($record->image) : null)
                     ->height(50)
                     ->width(100),
