@@ -1,0 +1,163 @@
+// ============================================
+// MODALS
+// ============================================
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $zindex-modal-backdrop;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $zindex-modal;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+
+  &.fade {
+    opacity: 0;
+    transition: opacity 0.15s linear;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 1.75rem auto;
+  max-width: 500px;
+  pointer-events: none;
+
+  @include respond-above(sm) {
+    max-width: 500px;
+  }
+
+  &.modal-lg {
+    max-width: 800px;
+  }
+
+  &.modal-xl {
+    max-width: 1140px;
+  }
+
+  &.modal-fullscreen {
+    max-width: 100%;
+    margin: 0;
+    height: 100%;
+  }
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: $white;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-xl;
+  outline: 0;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid $border-color;
+
+  .modal-title {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    font-weight: $font-weight-bold;
+  }
+
+  .btn-close {
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: $text-muted;
+    opacity: 0.5;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border-top: 1px solid $border-color;
+}
+
+// Search Modal
+.search-modal {
+  .modal-dialog {
+    margin-top: 5rem;
+    max-width: 600px;
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  .search-results {
+    max-height: 400px;
+    overflow-y: auto;
+    @include scrollbar-custom;
+  }
+
+  .search-result-item {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid $border-color;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &.active {
+      background-color: $gray-50;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .search-result-title {
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: 0.25rem;
+  }
+
+  .search-result-description {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+  }
+}

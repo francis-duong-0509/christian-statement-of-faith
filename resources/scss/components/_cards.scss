@@ -1,0 +1,255 @@
+// ============================================
+// CARDS
+// ============================================
+
+.card {
+  @include card-base;
+  transition: $transition-base;
+
+  &:hover {
+    @include card-shadow;
+  }
+}
+
+.card-header {
+  padding: $card-padding;
+  border-bottom: 1px solid $border-color;
+  background-color: $gray-50;
+  border-radius: $card-border-radius $card-border-radius 0 0;
+  margin: -#{$card-padding} -#{$card-padding} $card-padding;
+}
+
+.card-body {
+  padding: $card-padding;
+}
+
+.card-footer {
+  padding: $card-padding;
+  border-top: 1px solid $border-color;
+  background-color: $gray-50;
+  border-radius: 0 0 $card-border-radius $card-border-radius;
+  margin: $card-padding -#{$card-padding} -#{$card-padding};
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin-bottom: 0.75rem;
+}
+
+.card-subtitle {
+  font-size: 0.9375rem;
+  color: $text-secondary;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-secondary;
+  margin-bottom: 0;
+}
+
+.card-img-top {
+  width: 100%;
+  border-radius: $card-border-radius $card-border-radius 0 0;
+  margin: -#{$card-padding} -#{$card-padding} $card-padding;
+}
+
+// Feature Card
+.feature-card {
+  @include card-base;
+  text-align: center;
+  transition: $transition-base;
+
+  &:hover {
+    @include card-shadow;
+  }
+
+  .feature-icon {
+    @include center-flex;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: $primary;
+    background-color: rgba($primary, 0.1);
+    border-radius: $border-radius-xl;
+  }
+
+  .feature-title {
+    @extend .card-title;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-description {
+    @extend .card-text;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Blog Card
+.blog-card {
+  @include card-base;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .blog-card-image {
+    position: relative;
+    width: calc(100% + #{$card-padding * 2});
+    height: 200px;
+    margin: -#{$card-padding} -#{$card-padding} $card-padding;
+    overflow: hidden;
+    border-radius: $card-border-radius $card-border-radius 0 0;
+
+    img {
+      @include image-cover;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-category-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+  }
+
+  &:hover .blog-card-image img {
+    transform: scale(1.05);
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: $font-size-sm;
+    color: $text-muted;
+
+    .blog-author {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .author-avatar {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+    }
+  }
+
+  .blog-title {
+    @extend .card-title;
+    @include line-clamp(2);
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-excerpt {
+    @include line-clamp(3);
+    color: $text-secondary;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .blog-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid $border-color;
+  }
+}
+
+// Statement Card
+.statement-card {
+  @include card-base;
+  display: flex;
+  gap: 1.5rem;
+  transition: $transition-base;
+
+  &:hover {
+    border-color: $gray-400;
+    box-shadow: $box-shadow-md;
+  }
+
+  .statement-number {
+    flex-shrink: 0;
+    @include center-flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.125rem;
+    font-weight: $font-weight-bold;
+    color: $white;
+    background-color: $primary;
+    border-radius: $border-radius;
+  }
+
+  .statement-content {
+    flex: 1;
+  }
+
+  .statement-title {
+    font-size: 1.1875rem;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+
+  .statement-excerpt {
+    color: $text-secondary;
+    line-height: 1.6;
+  }
+
+  @include respond-below(md) {
+    flex-direction: column;
+  }
+}
+
+// Category Card
+.category-card {
+  @include card-base;
+  position: relative;
+  padding-top: 2rem;
+  transition: $transition-base;
+
+  &:hover {
+    @include card-shadow;
+  }
+
+  .category-number {
+    position: absolute;
+    top: -0.75rem;
+    right: 1.5rem;
+    @include center-flex;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    font-weight: $font-weight-bold;
+    color: $white;
+    background-color: $primary;
+    border-radius: 50%;
+    box-shadow: $box-shadow-md;
+  }
+
+  .category-title {
+    font-size: 1.375rem;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: 0.75rem;
+  }
+
+  .category-description {
+    color: $text-secondary;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .category-count {
+    font-size: $font-size-sm;
+    color: $text-muted;
+    margin-bottom: 0;
+  }
+}

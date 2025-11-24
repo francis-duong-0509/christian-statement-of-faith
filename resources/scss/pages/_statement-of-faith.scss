@@ -1,0 +1,301 @@
+// ============================================
+// STATEMENT OF FAITH PAGES
+// ============================================
+
+.statement-of-faith-page {
+  .page-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $border-color;
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .page-intro {
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: $text-secondary;
+      max-width: 800px;
+    }
+  }
+
+  // Categories Grid
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    @include respond-below(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Individual Statement Page
+.statement-page {
+  .statement-header {
+    margin-bottom: 3rem;
+
+    .statement-category {
+      display: inline-block;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-semibold;
+      color: $primary;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+    }
+
+    .statement-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: $font-size-sm;
+      color: $text-muted;
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+      }
+    }
+  }
+
+  // Content Area
+  .statement-content {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: $text-primary;
+
+    > * + * {
+      margin-top: 1.5rem;
+    }
+
+    h2 {
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid $primary;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h4, h5, h6 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    // Numbered lists for key points
+    ol {
+      list-style: decimal;
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+
+      li {
+        padding-left: 0.5rem;
+        margin-bottom: 0.75rem;
+
+        &::marker {
+          color: $primary;
+          font-weight: $font-weight-bold;
+        }
+      }
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+
+      li {
+        padding-left: 0.5rem;
+        margin-bottom: 0.75rem;
+
+        &::marker {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  // Scripture References Section
+  .scripture-section {
+    background-color: $scripture-highlight-bg;
+    border-left: 4px solid $scripture-highlight-border;
+    padding: 1.5rem;
+    border-radius: $border-radius;
+    margin: 2rem 0;
+
+    h4 {
+      font-size: 1.0625rem;
+      font-weight: $font-weight-bold;
+      color: $text-primary;
+      margin-bottom: 1rem;
+    }
+
+    .scripture-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .scripture-ref {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.375rem 0.875rem;
+      font-size: 0.9375rem;
+      font-weight: $font-weight-medium;
+      color: $text-primary;
+      background-color: $white;
+      border: 1px solid $border-color;
+      border-radius: $border-radius-pill;
+      text-decoration: none;
+      transition: $transition-fast;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $primary;
+        color: $white;
+        border-color: $primary;
+        transform: translateY(-2px);
+        box-shadow: $box-shadow-sm;
+      }
+    }
+  }
+
+  // Sidebar Navigation
+  .sidebar {
+    .toc-widget {
+      @include card-base;
+      position: sticky;
+      top: calc(#{$navbar-height} + 2rem);
+
+      .toc-title {
+        font-size: 0.9375rem;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: $text-primary;
+        margin-bottom: 1rem;
+      }
+
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          margin-bottom: 0.5rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        a {
+          display: block;
+          padding: 0.5rem 0.75rem;
+          font-size: 0.9375rem;
+          color: $text-secondary;
+          text-decoration: none;
+          border-radius: $border-radius-sm;
+          transition: $transition-fast;
+
+          &:hover {
+            background-color: $gray-50;
+            color: $primary;
+          }
+
+          &.active {
+            background-color: rgba($primary, 0.1);
+            color: $primary;
+            font-weight: $font-weight-semibold;
+          }
+        }
+
+        // Nested items
+        ul {
+          list-style: none;
+          padding-left: 1rem;
+          margin-top: 0.5rem;
+
+          a {
+            font-size: $font-size-sm;
+          }
+        }
+      }
+    }
+
+    .related-statements {
+      @include card-base;
+      margin-top: 1.5rem;
+
+      .related-title {
+        font-size: 0.9375rem;
+        font-weight: $font-weight-bold;
+        margin-bottom: 1rem;
+      }
+
+      .related-item {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid $border-color;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        a {
+          color: $text-primary;
+          text-decoration: none;
+          font-weight: $font-weight-medium;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+
+        .related-category {
+          display: block;
+          font-size: $font-size-sm;
+          color: $text-muted;
+          margin-top: 0.25rem;
+        }
+      }
+    }
+  }
+}
+
+// Print Styles for Statement of Faith
+@media print {
+  .main-header,
+  .breadcrumb,
+  .sidebar,
+  .main-footer,
+  .btn,
+  .share-buttons {
+    display: none !important;
+  }
+
+  .statement-content {
+    max-width: 100%;
+
+    h2 {
+      page-break-after: avoid;
+    }
+
+    .scripture-section {
+      page-break-inside: avoid;
+    }
+  }
+}

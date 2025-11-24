@@ -1,0 +1,681 @@
+// ============================================
+// Faith Statements Page - Clean & Modern Design
+// Matching Homepage Style
+// ============================================
+
+// Main Section
+// ============================================
+.statements-full-section {
+    background: $white;
+    min-height: 60vh;
+}
+
+// Category Section Wrapper with Christian Imagery
+// ============================================
+.category-section-wrapper {
+    margin-bottom: 6rem;
+    position: relative;
+
+    // Decorative cross icon as watermark
+    &::before {
+        content: '\f654'; // FontAwesome cross
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        font-size: 180px;
+        color: rgba($primary, 0.02);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    @include respond-below(lg) {
+        margin-bottom: 5rem;
+
+        &::before {
+            font-size: 150px;
+        }
+    }
+
+    @include respond-below(md) {
+        margin-bottom: 4rem;
+
+        &::before {
+            font-size: 120px;
+            top: -10px;
+            right: -10px;
+        }
+    }
+}
+
+// Category Header - Clean Style
+// ============================================
+.category-header-clean {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba($primary, 0.08) 0%, rgba($secondary, 0.08) 100%);
+    border-radius: 20px;
+    border-left: 6px solid $primary;
+    margin-bottom: 3.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        background: linear-gradient(to bottom, $primary, $secondary);
+        transition: width 0.4s ease;
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+
+        &::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+    }
+
+    @include respond-below(md) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2.5rem;
+        gap: 1.5rem;
+    }
+}
+
+.category-number-large {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, $primary 0%, darken($primary, 8%) 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-family: $font-family-serif;
+    box-shadow: 0 4px 16px rgba($primary, 0.25);
+    flex-shrink: 0;
+
+    @include respond-below(md) {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+}
+
+.category-info-clean {
+    flex: 1;
+}
+
+.category-title-clean {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: $primary;
+    font-family: $font-family-serif;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+
+    @include respond-below(lg) {
+        font-size: 2rem;
+    }
+
+    @include respond-below(md) {
+        font-size: 1.75rem;
+    }
+}
+
+.category-description-clean {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: $text-secondary;
+    margin-bottom: 1rem;
+
+    @include respond-below(md) {
+        font-size: 1rem;
+    }
+}
+
+.category-meta-clean {
+    .meta-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background: white;
+        border: 2px solid $primary;
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: $primary;
+
+        i {
+            color: $secondary;
+        }
+    }
+}
+
+// Statements List
+// ============================================
+.statements-list-clean {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+// Statement Card - Full Content Display with Bible Imagery
+// ============================================
+.statement-card-full {
+    background: white;
+    border: 1px solid $gray-200;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    // Left gradient accent
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 0;
+        background: linear-gradient(to bottom, $primary, $secondary);
+        transition: height 0.4s ease;
+    }
+
+    // Bible icon watermark
+    &::after {
+        content: '\f647'; // FontAwesome bible
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 70px;
+        color: rgba($secondary, 0.03);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+        border-color: rgba($primary, 0.3);
+
+        &::before {
+            height: 100%;
+        }
+
+        &::after {
+            color: rgba($secondary, 0.06);
+        }
+    }
+
+    @include respond-below(md) {
+        padding: 2.5rem;
+
+        &::after {
+            font-size: 60px;
+        }
+    }
+
+    @include respond-below(sm) {
+        padding: 2rem;
+
+        &::after {
+            font-size: 50px;
+            top: 15px;
+            right: 15px;
+        }
+    }
+}
+
+// Statement Header
+// ============================================
+.statement-header-full {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid $gray-200;
+
+    @include respond-below(sm) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+.statement-number-clean {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, $primary 0%, darken($primary, 8%) 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: $font-family-serif;
+    box-shadow: 0 4px 12px rgba($primary, 0.2);
+    flex-shrink: 0;
+
+    @include respond-below(md) {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+}
+
+.statement-title-clean {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $primary;
+    font-family: $font-family-serif;
+    margin: 0;
+    line-height: 1.3;
+    flex: 1;
+
+    @include respond-below(md) {
+        font-size: 1.5rem;
+    }
+
+    @include respond-below(sm) {
+        font-size: 1.35rem;
+    }
+}
+
+// Statement Full Content
+// ============================================
+.statement-content-full {
+    font-size: 1.125rem;
+    line-height: 1.9;
+    color: $text-primary;
+    margin-bottom: 2.5rem;
+    font-family: $font-family-sans;
+    letter-spacing: 0.01em;
+
+    @include respond-below(md) {
+        font-size: 1.0625rem;
+        line-height: 1.8;
+    }
+
+    // Typography inside content
+    p {
+        margin-bottom: 1.5rem;
+        text-align: justify;
+        hyphens: auto;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:first-of-type {
+            font-size: 1.1875rem;
+            font-weight: 500;
+            color: darken($text-primary, 5%);
+            line-height: 1.85;
+
+            @include respond-below(md) {
+                font-size: 1.125rem;
+            }
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: $primary;
+        font-weight: 700;
+        font-family: $font-family-serif;
+        margin-top: 1.75rem;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 1.625rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid $gray-200;
+    }
+
+    h3 {
+        font-size: 1.375rem;
+    }
+
+    h4 {
+        font-size: 1.125rem;
+    }
+
+    // Lists
+    ul, ol {
+        margin: 1.25rem 0;
+        padding-left: 1.75rem;
+
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+
+            &::marker {
+                color: $primary;
+                font-weight: 600;
+            }
+        }
+
+        ul, ol {
+            margin-top: 0.5rem;
+        }
+    }
+
+    // Blockquotes
+    blockquote {
+        border-left: 4px solid $secondary;
+        padding: 1.25rem 1.75rem;
+        margin: 1.5rem 0;
+        background: linear-gradient(135deg, rgba($primary, 0.03) 0%, rgba($secondary, 0.03) 100%);
+        border-radius: 8px;
+        font-style: italic;
+        color: $text-secondary;
+        font-size: 1.0625rem;
+
+        @include respond-below(md) {
+            padding: 1rem 1.25rem;
+        }
+    }
+
+    // Text formatting
+    strong, b {
+        color: $primary;
+        font-weight: 700;
+    }
+
+    em, i {
+        color: $text-secondary;
+    }
+
+    // Links
+    a {
+        color: $primary;
+        text-decoration: underline;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $secondary;
+        }
+    }
+
+    // Code
+    code {
+        background: $gray-100;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.9em;
+        color: $text-primary;
+    }
+
+    pre {
+        background: $gray-100;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 1.25rem 0;
+
+        code {
+            background: none;
+            padding: 0;
+        }
+    }
+}
+
+// Scripture References - Clean Style
+// ============================================
+.scripture-references-clean {
+    padding: 2rem;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border-radius: 12px;
+    border-left: 5px solid $secondary;
+    box-shadow: 0 4px 12px rgba($secondary, 0.15);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '\f518'; // Font Awesome bible icon
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 50%;
+        right: 1.5rem;
+        transform: translateY(-50%);
+        font-size: 4rem;
+        color: rgba($secondary, 0.08);
+        pointer-events: none;
+    }
+}
+
+.scripture-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: $primary;
+
+    i {
+        color: $secondary;
+        font-size: 1.125rem;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+}
+
+.scripture-tags-clean {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.scripture-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 2px solid $secondary;
+    border-radius: 50px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: $primary;
+    transition: all 0.25s ease;
+    cursor: pointer;
+
+    &:hover {
+        background: $secondary;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($secondary, 0.25);
+    }
+
+    @include respond-below(sm) {
+        padding: 0.4rem 0.85rem;
+        font-size: 0.875rem;
+    }
+}
+
+// Category Divider
+// ============================================
+.category-divider-clean {
+    margin: 4rem 0;
+
+    @include respond-below(md) {
+        margin: 3rem 0;
+    }
+}
+
+.divider-line-clean {
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, $gray-300 25%, $gray-300 75%, transparent 100%);
+}
+
+// Empty States
+// ============================================
+.empty-state-simple {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: $gray-50;
+    border-radius: 10px;
+}
+
+.empty-state-main {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, rgba($primary, 0.03) 0%, rgba($secondary, 0.03) 100%);
+    border-radius: 16px;
+    border: 2px dashed $gray-300;
+
+    @include respond-below(md) {
+        padding: 4rem 1.5rem;
+    }
+}
+
+.empty-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba($primary, 0.1) 0%, rgba($secondary, 0.1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+        font-size: 3rem;
+        color: $primary;
+    }
+
+    @include respond-below(md) {
+        width: 80px;
+        height: 80px;
+
+        i {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+.empty-state-main {
+    h3 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: $primary;
+        font-family: $font-family-serif;
+        margin-bottom: 1rem;
+
+        @include respond-below(md) {
+            font-size: 1.75rem;
+        }
+    }
+
+    p {
+        font-size: 1.125rem;
+        color: $text-secondary;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+
+        @include respond-below(md) {
+            font-size: 1rem;
+        }
+    }
+}
+
+// Back to Top Button
+// ============================================
+.back-to-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $primary 0%, darken($primary, 8%) 100%);
+    border: none;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba($primary, 0.25);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba($primary, 0.35);
+        background: linear-gradient(135deg, $secondary 0%, darken($secondary, 8%) 100%);
+    }
+
+    &:active {
+        transform: translateY(-2px);
+    }
+
+    @include respond-below(md) {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.125rem;
+    }
+}
+
+// Reading Progress Bar
+// ============================================
+.reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, $primary 0%, $secondary 100%);
+    z-index: 9999;
+    transition: width 0.2s ease;
+}
+
+// Print Styles
+// ============================================
+@media print {
+    .back-to-top-btn,
+    .reading-progress-bar,
+    .breadcrumb,
+    .main-header,
+    .main-footer {
+        display: none !important;
+    }
+
+    .statement-card-full {
+        page-break-inside: avoid;
+        border: 1px solid $gray-300;
+        box-shadow: none;
+    }
+
+    .category-header-clean {
+        page-break-after: avoid;
+    }
+}
