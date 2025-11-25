@@ -1,8 +1,8 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="/">
-            <img src="{{ asset('uploads/logo/logo_statement_of_faith.png') }}" alt="Statement of Faith" class="site-logo">
+        <a class="navbar-brand" href="/" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 700; background: linear-gradient(135deg, #141827 0%, #334AFF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -0.02em;">Only by Grace</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

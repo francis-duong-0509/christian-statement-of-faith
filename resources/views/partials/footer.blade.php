@@ -5,10 +5,9 @@
                 <!-- About Column -->
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-logo mb-3">
-                        <a class="navbar-brand" href="/">
-                            <img src="{{ asset('uploads/logo/logo_statement_of_faith.png') }}" alt="Statement of Faith" class="site-logo">
+                        <a class="navbar-brand" href="/" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                            <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 700; color: white; letter-spacing: -0.02em;">Only by Grace</span>
                         </a>
-                        <span class="footer-brand">{{ __t('Tuyên Bố Đức Tin', 'Statement of Faith') }}</span>
                     </div>
                     <p class="footer-text">
                         {{ __t('Vì Đức Chúa Trời yêu-thương thế-gian, đến nỗi đã ban Con một của Ngài, hầu cho hễ ai tin Con ấy không bị hư-mất mà được sự sống đời đời.',
@@ -52,7 +51,7 @@
             <div class="row mt-5 pt-4 border-top">
                 <div class="col-md-6 text-center text-md-start">
                     <p class="copyright mb-0">
-                        &copy; 2025 <span>{{ __t('Statement of Faith. Mọi quyền được bảo lưu.', 'Statement of Faith. All rights reserved.') }}</span>
+                        &copy; 2025 <span>{{ __t('Only by Grace. Mọi quyền được bảo lưu.', 'Only by Grace. All rights reserved.') }}</span>
                     </p>
                 </div>
             </div>
