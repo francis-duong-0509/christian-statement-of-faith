@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\BlogCategory;
+use App\Models\BlogPost;
 use App\Models\FaithCategory;
 use App\Models\FaithStatement;
 use Illuminate\Foundation\Application;
@@ -31,6 +33,22 @@ return Application::configure(basePath: dirname(__DIR__))
                 return FaithStatement::active()
                     ->where($slugField, $slug)
                     ->with('category')
+                    ->firstOrFail();
+            });
+
+            // Blog Category Model Binding
+            Route::bind('blogCategory', function (string $slug) {
+                return BlogCategory::active()
+                    ->where('slug', $slug)
+                    ->with(['category', 'author'])
+                    ->firstOrFail();
+            });
+
+            // Blog Post Model Binding
+            Route::bind('blogPost', function (string $slug) {
+                return BlogPost::active()
+                    ->where('slug', $slug)
+                    ->with(['category', 'author'])
                     ->firstOrFail();
             });
         }

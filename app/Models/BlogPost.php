@@ -94,7 +94,7 @@ class BlogPost extends Model
         return $query->where('is_outstanding', true);
     }
 
-    public function scopeOrder($query)
+    public function scopeOrdered($query)
     {
         return $query->orderBy('order', 'asc');
     }

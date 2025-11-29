@@ -43,8 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('blog*') ? 'active' : '' }}"
-                       href="#">
+                    <a href="{{ route('blog.index') }}" class="nav-link {{ request()->is('blog*') ? 'active' : '' }}" >
                         {{ __t('Bài Viết', 'Blog') }}
                     </a>
                 </li>
@@ -54,7 +53,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-globe me-1"></i>
                         <span id="currentLang">{{ strtoupper(app()->getLocale()) }}</span>
-                    </a>
+                    </a>    
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
                         <li>
                             <a class="dropdown-item {{ app()->getLocale() == 'en' ? 'active' : '' }}"
