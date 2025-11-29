@@ -29,101 +29,65 @@
         --white: #ffffff;
     }
 
-    /* Post Hero Section */
-    .post-hero {
-        position: relative;
-        min-height: 600px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10rem 0 6rem;
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        overflow: hidden;
-    }
-
-    .post-hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(180deg, rgba(30, 58, 95, 0.7) 0%, rgba(139, 69, 19, 0.8) 100%);
-        z-index: 1;
-    }
-
-    .post-hero-content {
-        position: relative;
-        z-index: 2;
-        color: var(--white);
-        text-align: center;
-        max-width: 900px;
-        margin: 0 auto;
+    /* Post Header */
+    .post-header {
+        padding: 8rem 0 3rem;
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     }
 
     .post-category-badge {
         display: inline-block;
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(10px);
+        background: var(--secondary);
         color: var(--white);
-        padding: 0.5rem 1.5rem;
+        padding: 0.5rem 1.25rem;
         border-radius: 50px;
         font-size: 0.875rem;
         font-weight: 600;
         margin-bottom: 1.5rem;
-        border: 2px solid rgba(255, 255, 255, 0.3);
         transition: all 0.3s ease;
+        text-decoration: none;
     }
 
     .post-category-badge:hover {
-        background: rgba(255, 255, 255, 0.3);
+        background: #a55a1a;
         text-decoration: none;
         color: var(--white);
+        transform: translateY(-2px);
     }
 
-    .post-hero h1 {
-        font-size: 4rem;
+    .post-title {
+        font-size: 3.5rem;
         font-weight: 900;
+        color: var(--primary);
         margin-bottom: 1.5rem;
         line-height: 1.2;
-        text-shadow: 0 4px 20px rgba(0,0,0,0.5);
         letter-spacing: -0.02em;
     }
 
     .post-meta {
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         gap: 2rem;
         font-size: 1rem;
-        margin-top: 2rem;
+        color: var(--gray-600);
+        margin-top: 1.5rem;
     }
 
     .post-meta-item {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        color: rgba(255, 255, 255, 0.95);
     }
 
     .post-meta-item i {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 1.125rem;
-    }
-
-    /* Breadcrumb */
-    .post-breadcrumb {
-        background: var(--gray-50);
-        padding: 1.5rem 0;
-        border-bottom: 1px solid #e5e7eb;
+        color: var(--secondary);
+        font-size: 1rem;
     }
 
     .breadcrumb {
         background: transparent;
-        margin-bottom: 0;
+        margin-bottom: 2rem;
         padding: 0;
     }
 
@@ -142,10 +106,23 @@
         color: var(--gray-600);
     }
 
+    /* Featured Image */
+    .post-featured-image {
+        margin-bottom: 3rem;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .post-featured-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
     /* Post Content */
     .post-content-wrapper {
-        background: var(--white);
-        padding: 4rem 0;
+        padding: 3rem 0 4rem;
     }
 
     .post-content {
@@ -207,19 +184,6 @@
 
     .post-content a:hover {
         color: #a55a1a;
-    }
-
-    /* Featured Image in Content */
-    .featured-image-wrapper {
-        margin: -4rem 0 4rem;
-        position: relative;
-        z-index: 10;
-    }
-
-    .featured-image-wrapper img {
-        width: 100%;
-        border-radius: 16px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.2);
     }
 
     /* Social Sharing */
@@ -423,13 +387,12 @@
 
     /* Responsive */
     @media (max-width: 991px) {
-        .post-hero {
-            min-height: 500px;
-            padding: 8rem 0 5rem;
+        .post-header {
+            padding: 6rem 0 2rem;
         }
 
-        .post-hero h1 {
-            font-size: 3rem;
+        .post-title {
+            font-size: 2.5rem;
         }
 
         .post-sidebar {
@@ -443,21 +406,16 @@
     }
 
     @media (max-width: 767px) {
-        .post-hero {
-            min-height: 450px;
-            padding: 6rem 0 4rem;
+        .post-header {
+            padding: 5rem 0 2rem;
         }
 
-        .post-hero h1 {
-            font-size: 2.25rem;
+        .post-title {
+            font-size: 2rem;
         }
 
         .post-meta {
             gap: 1rem;
-        }
-
-        .featured-image-wrapper {
-            margin: -2rem 0 3rem;
         }
 
         .post-content {
@@ -491,61 +449,69 @@
 <!-- Reading Progress Bar -->
 <div class="reading-progress" id="readingProgress"></div>
 
-<!-- Post Hero -->
-<section class="post-hero" style="background-image: url('{{ $post->featured_image ? asset('storage/' . $post->featured_image) : 'https://images.unsplash.com/photo-1501003878151-d3cb87799705?w=1920&q=80' }}');">
+<!-- Post Header -->
+<section class="post-header">
     <div class="container">
-        <div class="post-hero-content">
-            <a href="{{ route('blog.category', $post->category->slug) }}" class="post-category-badge" data-aos="fade-up">
-                <i class="fas fa-folder-open me-2"></i>{{ $post->category->name }}
-            </a>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" data-aos="fade-up">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __t('Trang chủ', 'Home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('blog.index') }}">{{ __t('Bài viết', 'Blog') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('blog.category', $post->category->slug) }}">{{ $post->category->name }}</a></li>
+                        <li class="breadcrumb-item active">{{ $post->title }}</li>
+                    </ol>
+                </nav>
 
-            <h1 data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                {{ $post->title }}
-            </h1>
+                <!-- Category Badge -->
+                <a href="{{ route('blog.category', $post->category->slug) }}" class="post-category-badge" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-folder-open me-2"></i>{{ $post->category->name }}
+                </a>
 
-            <div class="post-meta" data-aos="fade-up" data-aos-delay="200">
-                <div class="post-meta-item">
-                    <i class="fas fa-calendar"></i>
-                    <span>{{ $post->formatted_date }}</span>
-                </div>
-                <div class="post-meta-item">
-                    <i class="fas fa-clock"></i>
-                    <span>{{ $post->reading_time }}</span>
-                </div>
-                <div class="post-meta-item">
-                    <i class="fas fa-eye"></i>
-                    <span>{{ number_format($post->views_count) }} {{ __t('lượt xem', 'views') }}</span>
-                </div>
-                @if($post->author)
+                <!-- Title -->
+                <h1 class="post-title" data-aos="fade-up" data-aos-delay="200">
+                    {{ $post->title }}
+                </h1>
+
+                <!-- Meta -->
+                <div class="post-meta" data-aos="fade-up" data-aos-delay="300">
                     <div class="post-meta-item">
-                        <i class="fas fa-user"></i>
-                        <span>{{ $post->author->name }}</span>
+                        <i class="fas fa-calendar"></i>
+                        <span>{{ $post->formatted_date }}</span>
                     </div>
-                @endif
+                    <div class="post-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>{{ $post->reading_time }}</span>
+                    </div>
+                    <div class="post-meta-item">
+                        <i class="fas fa-eye"></i>
+                        <span>{{ number_format($post->views_count) }} {{ __t('lượt xem', 'views') }}</span>
+                    </div>
+                    @if($post->author)
+                        <div class="post-meta-item">
+                            <i class="fas fa-user"></i>
+                            <span>{{ $post->author->name }}</span>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
 </section>
-
-<!-- Breadcrumb -->
-<div class="post-breadcrumb">
-    <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __t('Trang chủ', 'Home') }}</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('blog.index') }}">{{ __t('Bài viết', 'Blog') }}</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('blog.category', $post->category->slug) }}">{{ $post->category->name }}</a></li>
-                <li class="breadcrumb-item active">{{ $post->title }}</li>
-            </ol>
-        </nav>
-    </div>
-</div>
 
 <!-- Post Content -->
 <div class="post-content-wrapper">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
+                <!-- Featured Image -->
+                @if($post->featured_image)
+                    <div class="post-featured-image" data-aos="fade-up">
+                        <img src="{{ asset('storage/' . $post->featured_image) }}" alt="{{ $post->title }}" loading="lazy">
+                    </div>
+                @endif
+
                 <!-- Post Content -->
                 <article class="post-content" data-aos="fade-up">
                     {!! $post->content !!}
