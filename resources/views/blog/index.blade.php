@@ -435,7 +435,7 @@
 
 @section('content')
 <!-- Blog Hero - With Image Background -->
-<section class="blog-hero" style="background-image: url('https://images.unsplash.com/photo-1501003878151-d3cb87799705?w=1920&q=80');">
+<section class="hero-section hero-reduced" style="background-image: url({{ asset('uploads/images/blog_image.jpg') }});">
     <div class="container">
         <div class="blog-hero-content">
             <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">

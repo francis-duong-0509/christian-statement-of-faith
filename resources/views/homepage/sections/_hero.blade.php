@@ -1,5 +1,5 @@
 <!-- Hero Section - Reduced Height with Image Background -->
-<section class="hero-section hero-reduced" style="background-image: url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1920&q=80');">
+<section class="hero-section hero-reduced" style="background-image: url({{ asset('uploads/images/homepage_banner.jpeg') }});">
     <div class="hero-overlay"></div>
     <div class="container">
         <div class="row justify-content-center">

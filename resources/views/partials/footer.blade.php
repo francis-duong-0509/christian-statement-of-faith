@@ -1,5 +1,5 @@
     <!-- Footer -->
-    <footer class="footer py-5">
+    <footer class="footer py-5 mt-5">
         <div class="container">
             <div class="row g-4">
                 <!-- About Column -->

@@ -459,13 +459,13 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __t('Trang chủ', 'Home') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('blog.index') }}">{{ __t('Bài viết', 'Blog') }}</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('blog.category', $post->category->slug) }}">{{ $post->category->name }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('blog.index', ['category_id' => $post->category->id]) }}">{{ $post->category->name }}</a></li>
                         <li class="breadcrumb-item active">{{ $post->title }}</li>
                     </ol>
                 </nav>
 
                 <!-- Category Badge -->
-                <a href="{{ route('blog.category', $post->category->slug) }}" class="post-category-badge" data-aos="fade-up" data-aos-delay="100">
+                <a href="{{ route('blog.index', ['category_id' => $post->category->id]) }}" class="post-category-badge" data-aos="fade-up" data-aos-delay="100">
                     <i class="fas fa-folder-open me-2"></i>{{ $post->category->name }}
                 </a>
 
