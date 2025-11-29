@@ -95,13 +95,13 @@ class BlogPostResource extends Resource
                     ->schema([
                         Forms\Components\FileUpload::make('featured_image')
                             ->image()
-                            ->directory('blog/posts')
+                            ->directory('uploads/blog/post')
                             ->maxSize(2048)
                             ->helperText('Recommended: 1200x630px'),
 
                         Forms\Components\FileUpload::make('og_image')
                             ->image()
-                            ->directory('blog/og-images')
+                            ->directory('uploads/blog/post')
                             ->maxSize(2048)
                             ->helperText('For social media sharing (leave empty to use featured image)'),
                     ])

@@ -18,26 +18,36 @@
                 @foreach($foundationCategories as $index => $category)
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ 100 * ($index + 1) }}">
                         <div class="foundation-card h-100">
-                            <!-- Card Header with Icon -->
-                            <div class="foundation-card-header">
-                                <div class="foundation-icon-wrapper">
-                                    @if($index === 0)
-                                        <i class="fas fa-crown"></i>
-                                    @elseif($index === 1)
-                                        <i class="fas fa-book-bible"></i>
-                                    @else
-                                        <i class="fa-solid fa-cross"></i>
-                                    @endif
+                            <!-- Card Image (if exists, otherwise show gradient header) -->
+                            @if($category->image)
+                                <div class="foundation-card-image">
+                                    <img src="{{ asset($category->image_url) }}" alt="{{ $category->name }}" loading="lazy">
+                                    <div class="foundation-badge">
+                                        {{ $category->order + 1 }}
+                                    </div>
                                 </div>
-                                <div class="foundation-badge">
-                                    {{ $category->order + 1 }}
+                            @else
+                                <!-- Fallback: Gradient header if no image -->
+                                <div class="foundation-card-header">
+                                    <div class="foundation-icon-wrapper">
+                                        @if($index === 0)
+                                            <i class="fas fa-crown"></i>
+                                        @elseif($index === 1)
+                                            <i class="fas fa-book-bible"></i>
+                                        @else
+                                            <i class="fa-solid fa-cross"></i>
+                                        @endif
+                                    </div>
+                                    <div class="foundation-badge">
+                                        {{ $category->order + 1 }}
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
 
                             <!-- Card Content -->
                             <div class="foundation-card-body">
                                 <h3 class="foundation-card-title">
-                                    {{ $category->name }}
+                                    <a href="{{ route('blog.index', ['category_id' => $category->id]) }}">{{ $category->name }}</a>
                                 </h3>
                                 <p class="foundation-card-description">
                                     {{ Str::limit($category->description, 150) }}
@@ -84,7 +94,45 @@
         box-shadow: 0 12px 40px rgba(30, 58, 95, 0.15);
     }
 
-    /* Card Header with Gradient Background */
+    /* Card Image */
+    .foundation-card-image {
+        position: relative;
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+    }
+
+    .foundation-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .foundation-card:hover .foundation-card-image img {
+        transform: scale(1.1);
+    }
+
+    /* Image Overlay */
+    .foundation-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(30, 58, 95, 0.3) 0%, rgba(45, 90, 138, 0.2) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .foundation-overlay .foundation-icon-wrapper {
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Card Header with Gradient Background (Fallback when no image) */
     .foundation-card-header {
         background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8a 100%);
         padding: 40px 30px;
@@ -118,11 +166,11 @@
 
     .foundation-badge {
         position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.2);
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.25);
         backdrop-filter: blur(10px);
         border-radius: 50%;
         display: flex;
@@ -131,7 +179,9 @@
         font-size: 18px;
         font-weight: 700;
         color: #ffffff;
-        border: 2px solid rgba(255, 255, 255, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 2;
     }
 
     /* Card Body */

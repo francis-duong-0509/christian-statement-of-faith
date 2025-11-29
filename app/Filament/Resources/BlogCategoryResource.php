@@ -55,7 +55,7 @@ class BlogCategoryResource extends Resource
                     ->schema([
                         Forms\Components\FileUpload::make('image')
                             ->image()
-                            ->directory('blog/categories')
+                            ->directory('uploads/blog/category')
                             ->maxSize(2048)
                             ->helperText('Recommended size: 800x600px'),
                     ]),

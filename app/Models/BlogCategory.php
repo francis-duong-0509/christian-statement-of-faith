@@ -77,6 +77,30 @@ class BlogCategory extends Model
     }
 
     // ==========================================================
+    // ACCESSORS
+    // ==========================================================
+
+    /**
+     * Get the image URL with storage prefix
+     */
+    public function getImageUrlAttribute(): ?string
+    {
+        if (!$this->attributes['image'] ?? null) {
+            return null;
+        }
+
+        $value = $this->attributes['image'];
+
+        // If already has storage/ prefix, return as-is
+        if (str_starts_with($value, 'storage/')) {
+            return $value;
+        }
+
+        // Otherwise prepend storage/
+        return 'storage/' . $value;
+    }
+
+    // ==========================================================
     // HELPER METHODS
     // ==========================================================
 
