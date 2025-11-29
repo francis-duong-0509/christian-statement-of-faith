@@ -503,10 +503,6 @@
                 </p>
             </div>
         </div>
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="800">
-            <i class="fas fa-chevron-down"></i>
-        </div>
     </section>
 @endif
 
@@ -562,7 +558,7 @@
                     @elseif(request('category'))
                         {{ $categories->firstWhere('id', request('category'))->name ?? __t('Danh mục', 'Category') }}
                     @else
-                        {{ __t('Bài viết mới nhất', 'Latest Articles') }}
+                        {{ __t('Danh Sách Bài Viết', 'Latest Articles') }}
                     @endif
                 </h2>
 

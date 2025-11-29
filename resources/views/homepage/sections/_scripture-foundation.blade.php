@@ -65,6 +65,17 @@
                     </div>
                 @endforeach
             </div>
+            <!-- CTA Button -->
+            <div class="row mt-5">
+                <div class="col text-center" data-aos="fade-up" data-aos-delay="700">
+                    <a href="{{ route('blog.index') }}" class="btn btn-primary btn-lg">
+                        <span>
+                            {{ __t('Khám Phá Tất Cả Danh Mục', 'Explore All Categories') }}
+                        </span>
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
