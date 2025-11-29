@@ -55,7 +55,7 @@ class BlogController extends Controller
         return view('blog.show', $data);
     }
 
-    /* public function category(string $slug)
+    public function category(string $slug)
     {
         $category = $this->categoryService->getBySlugWithPosts($slug);
 
@@ -68,5 +68,5 @@ class BlogController extends Controller
         $categories = $this->categoryService->getAllWithPostsCount();
 
         return view('blog.category', compact('category', 'posts', 'categories'));
-    } */
+    }
 }

@@ -1,71 +1,231 @@
-    <!-- Our Foundation: Scripture Alone Section -->
+    <!-- Our Foundation: Core Beliefs Section -->
     <section class="scripture-foundation-section py-5 bg-light">
         <div class="container">
-            <div class="row align-items-center">
-                <!-- Left Column: Image -->
-                <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
-                    <div class="foundation-image-wrapper">
-                        <img src="{{ asset('uploads/images/prayer_1.jpeg') }}"
-                             alt="Open Bible"
-                             class="foundation-image img-fluid">
-                    </div>
-                </div>
-
-                <!-- Right Column: Content -->
-                <div class="col-lg-7" data-aos="fade-left">
-                    <h2 class="section-title mb-4">
-                        {{ __t('Nền Tảng Của Chúng Ta: Chỉ Kinh Thánh', 'Our Foundation: Scripture Alone') }}
+            <!-- Section Header -->
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title" data-aos="fade-up">
+                        {{ __t('Lời Sống và Linh Nghiệm', 'Living and Effective Words') }}
                     </h2>
+                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                        {{ __t('Lời sống và linh nghiệm từ những người đã trải qua và sống qua những trải nghiệm của họ', 'Living and effective words from people who have lived and experienced their experiences') }}
+                    </p>
+                </div>
+            </div>
 
-                    <div class="foundation-points">
-                        <div class="foundation-point">
-                            <div class="point-icon">
-                                <i class="fas fa-crown"></i>
+            <!-- Foundation Cards Grid -->
+            <div class="row g-4">
+                @foreach($foundationCategories as $index => $category)
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ 100 * ($index + 1) }}">
+                        <div class="foundation-card h-100">
+                            <!-- Card Header with Icon -->
+                            <div class="foundation-card-header">
+                                <div class="foundation-icon-wrapper">
+                                    @if($index === 0)
+                                        <i class="fas fa-crown"></i>
+                                    @elseif($index === 1)
+                                        <i class="fas fa-book-bible"></i>
+                                    @else
+                                        <i class="fa-solid fa-cross"></i>
+                                    @endif
+                                </div>
+                                <div class="foundation-badge">
+                                    {{ $category->order + 1 }}
+                                </div>
                             </div>
-                            <div class="point-content">
-                                <h4 class="point-title">
-                                    {{ __t('Thẩm Quyền Tối Cao', 'Supreme Authority') }}
-                                </h4>
-                                <p class="point-text">
-                                    {{ __t('Chúng tôi tin rằng Kinh Thánh là thẩm quyền tối cao và cuối cùng cho mọi vấn đề về đức tin và đời sống.',
-                                        'We believe the Bible is the supreme and final authority for all matters of faith and practice.') }}
-                                </p>
-                            </div>
-                        </div>
 
-                        <div class="foundation-point">
-                            <div class="point-icon">
-                                <i class="fas fa-book-bible"></i>
-                            </div>
-                            <div class="point-content">
-                                <h4 class="point-title"
-                                    data-lang-en="God's Inspired Word"
-                                    data-lang-vi="Lời Được Soi Dẫn">
-                                    {{ __t('Lời Được Soi Dẫn', 'God\'s Inspired Word') }}
-                                </h4>
-                                <p class="point-text">
-                                    {{ __t('Mọi lời trong Kinh Thánh đều được Đức Chúa Trời soi dẫn và hữu ích cho sự dạy dỗ và sửa trách.',
-                                    'Every word of Scripture is inspired by God and profitable for teaching and correction.') }}
+                            <!-- Card Content -->
+                            <div class="foundation-card-body">
+                                <h3 class="foundation-card-title">
+                                    {{ $category->name }}
+                                </h3>
+                                <p class="foundation-card-description">
+                                    {{ Str::limit($category->description, 150) }}
                                 </p>
-                            </div>
-                        </div>
 
-                        <div class="foundation-point">
-                            <div class="point-icon">
-                                <i class="fa-solid fa-hands-praying"></i>
-                            </div>
-                            <div class="point-content">
-                                <h4 class="point-title">
-                                    {{ __t('Đủ Cho Cuộc Sống', 'Sufficient for Life') }}
-                                </h4>
-                                <p class="point-text">
-                                    {{ __t('Kinh Thánh cung cấp mọi điều chúng ta cần để biết Đức Chúa Trời và sống trung tín cho vinh hiển Ngài.',
-                                    'Scripture provides everything we need to know God and live faithfully for His glory.') }}
-                                </p>
+                                <!-- Posts Count -->
+                                <div class="foundation-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-file-alt me-2"></i>
+                                        <span>{{ $category->published_posts_count }} {{ __t('bài viết', 'articles') }}</span>
+                                    </div>
+                                </div>
+
+                                <!-- Read More Link -->
+                                <a href="{{ route('blog.category', $category->slug) }}" class="foundation-link">
+                                    <span>{{ __t('Xem Bài Viết', 'View Articles') }}</span>
+                                    <i class="fas fa-arrow-right ms-2"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+
+    {{-- Modern Foundation Card Styles --}}
+    @push('styles')
+    <style>
+    /* Foundation Card - Modern Design */
+    .foundation-card {
+        background: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .foundation-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(30, 58, 95, 0.15);
+    }
+
+    /* Card Header with Gradient Background */
+    .foundation-card-header {
+        background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8a 100%);
+        padding: 40px 30px;
+        text-align: center;
+        position: relative;
+    }
+
+    .foundation-icon-wrapper {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 10px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .foundation-card:hover .foundation-icon-wrapper {
+        transform: scale(1.1) rotate(5deg);
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .foundation-icon-wrapper i {
+        font-size: 36px;
+        color: #ffffff;
+    }
+
+    .foundation-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 700;
+        color: #ffffff;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    /* Card Body */
+    .foundation-card-body {
+        padding: 30px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .foundation-card-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1e3a5f;
+        margin-bottom: 15px;
+        line-height: 1.3;
+        font-family: 'Merriweather', serif;
+    }
+
+    .foundation-card-description {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 20px;
+        flex-grow: 1;
+    }
+
+    /* Meta Section */
+    .foundation-meta {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1e3a5f;
+    }
+
+    .meta-item i {
+        color: #0c63d4;
+    }
+
+    /* Read More Link */
+    .foundation-link {
+        display: inline-flex;
+        align-items: center;
+        color: #1e3a5f;
+        font-weight: 600;
+        font-size: 15px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-top: auto;
+    }
+
+    .foundation-link:hover {
+        color: #0c63d4;
+        transform: translateX(5px);
+    }
+
+    .foundation-link i {
+        transition: transform 0.3s ease;
+    }
+
+    .foundation-link:hover i {
+        transform: translateX(5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+        .foundation-card-header {
+            padding: 30px 20px;
+        }
+
+        .foundation-icon-wrapper {
+            width: 60px;
+            height: 60px;
+        }
+
+        .foundation-icon-wrapper i {
+            font-size: 28px;
+        }
+
+        .foundation-card-body {
+            padding: 20px;
+        }
+
+        .foundation-card-title {
+            font-size: 20px;
+        }
+    }
+    </style>
+    @endpush
