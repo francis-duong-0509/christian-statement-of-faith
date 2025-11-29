@@ -28,7 +28,7 @@
         <div class="col-md-4">
             <select class="form-select" onchange="window.location.href='{{ route('blog.index') }}?category=' + this.value">
                 <option value="">{{ __t('Tất cả danh mục', 'All Categories') }}</option>
-                @foreach($data['categories'] as $cat)
+                @foreach($categories as $cat)
                     <option value="{{ $cat->id }}" {{ request('category') == $cat->id ? 'selected' : '' }}>
                         {{ $cat->name }} ({{ $cat->published_posts_count }})
                     </option>
@@ -41,11 +41,11 @@
         {{-- Main Content --}}
         <div class="col-lg-8">
             {{-- Featured Posts --}}
-            @if($data['featured_posts']->isNotEmpty() && !request('search') && !request('category'))
+            @if($featured_posts->isNotEmpty() && !request('search') && !request('category'))
                 <div class="mb-5">
                     <h2 class="h4 mb-4">{{ __t('Bài viết nổi bật', 'Featured Articles') }}</h2>
                     <div class="row">
-                        @foreach($data['featured_posts'] as $post)
+                        @foreach($featured_posts as $post)
                             <div class="col-md-6 mb-4">
                                 <x-blog-card :post="$post" featured />
                             </div>
@@ -60,16 +60,16 @@
                     @if(request('search'))
                         {{ __t('Kết quả tìm kiếm cho', 'Search Results for') }} "{{ request('search') }}"
                     @elseif(request('category'))
-                        {{ $data['categories']->firstWhere('id', request('category'))->name ?? 'Category' }}
+                        {{ $categories->firstWhere('id', request('category'))->name ?? 'Category' }}
                     @else
                         {{ __t('Bài viết mới nhất', 'Latest Articles') }}
                     @endif
                 </h2>
             </div>
 
-            @if($data['posts']->count() > 0)
+            @if($posts->count() > 0)
                 <div class="row">
-                    @foreach($data['posts'] as $post)
+                    @foreach($posts as $post)
                         <div class="col-md-6 mb-4">
                             <x-blog-card :post="$post" />
                         </div>
@@ -78,7 +78,7 @@
 
                 {{-- Pagination --}}
                 <div class="mt-4">
-                    {{ $data['posts']->links() }}
+                    {{ $posts->links() }}
                 </div>
             @else
                 <div class="alert alert-info">
@@ -89,7 +89,7 @@
 
         {{-- Sidebar --}}
         <div class="col-lg-4">
-            <x-blog-sidebar :categories="$data['categories']" :popular-posts="$data['popular_posts']" />
+            <x-blog-sidebar :categories="$categories" :popular-posts="$popular_posts" />
         </div>
     </div>
 </div>
