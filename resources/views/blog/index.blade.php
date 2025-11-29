@@ -502,7 +502,7 @@
                     @if(request('search'))
                         {{ __t('Kết quả tìm kiếm cho', 'Search Results for') }} "{{ request('search') }}"
                     @elseif(request('category'))
-                        {{ $categories->firstWhere('id', request('category'))->name ?? 'Category' }}
+                        {{ $categories->firstWhere('id', request('category'))->name ?? __t('Danh mục', 'Category') }}
                     @else
                         {{ __t('Bài viết mới nhất', 'Latest Articles') }}
                     @endif
