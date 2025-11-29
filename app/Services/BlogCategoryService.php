@@ -36,6 +36,19 @@ class BlogCategoryService
     }
 
     /**
+     * Get blog category by ID
+     *
+     * @param int $id
+     * @return BlogCategory|null
+     */
+    public function getById(int $id): ?BlogCategory
+    {
+        return BlogCategory::active()
+            ->where('id', $id)
+            ->first();
+    }
+
+    /**
      * Get blog category by slug with posts
      *
      * @param string $slug

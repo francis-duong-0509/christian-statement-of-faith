@@ -22,9 +22,6 @@
                             @if($category->image)
                                 <div class="foundation-card-image">
                                     <img src="{{ asset($category->image_url) }}" alt="{{ $category->name }}" loading="lazy">
-                                    <div class="foundation-badge">
-                                        {{ $category->order + 1 }}
-                                    </div>
                                 </div>
                             @else
                                 <!-- Fallback: Gradient header if no image -->
@@ -37,9 +34,6 @@
                                         @else
                                             <i class="fa-solid fa-cross"></i>
                                         @endif
-                                    </div>
-                                    <div class="foundation-badge">
-                                        {{ $category->order + 1 }}
                                     </div>
                                 </div>
                             @endif
