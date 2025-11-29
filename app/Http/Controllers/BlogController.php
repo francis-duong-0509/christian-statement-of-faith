@@ -54,19 +54,4 @@ class BlogController extends Controller
 
         return view('blog.show', $data);
     }
-
-    public function category(string $slug)
-    {
-        $category = $this->categoryService->getBySlugWithPosts($slug);
-
-        if (!$category) {
-            abort(404, 'Danh mục không tồn tại');
-        }
-
-        $posts = $this->blogService->getPublishedPosts(categoryId: $category->id);
-
-        $categories = $this->categoryService->getAllWithPostsCount();
-
-        return view('blog.category', compact('category', 'posts', 'categories'));
-    }
 }

@@ -26,6 +26,5 @@ Route::prefix('statement-of-faith')->name('faith.')->group(function () {
 // BLOG
 Route::prefix('blog')->name('blog.')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('index');
-    Route::get('/category/{slug}', [BlogController::class, 'category'])->name('category');
     Route::get('/{slug}', [BlogController::class, 'show'])->name('show');
 });

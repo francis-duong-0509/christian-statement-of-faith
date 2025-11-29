@@ -20,7 +20,7 @@
           {{-- Category Badge --}}
           <div class="mb-2">
               <a
-                  href="{{ route('blog.category', $post->category->slug) }}"
+                  href="{{ route('blog.index', ['category_id' => $post->category->id]) }}"
                   class="badge bg-primary text-decoration-none" >
                   {{ $post->category->name }}
               </a>

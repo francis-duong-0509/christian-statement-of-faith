@@ -52,7 +52,7 @@
                                 </div>
 
                                 <!-- Read More Link -->
-                                <a href="{{ route('blog.category', $category->slug) }}" class="foundation-link">
+                                <a href="{{ route('blog.index', ['category_id' => $category->id]) }}" class="foundation-link">
                                     <span>{{ __t('Xem Bài Viết', 'View Articles') }}</span>
                                     <i class="fas fa-arrow-right ms-2"></i>
                                 </a>
