@@ -19,8 +19,6 @@ Cung cấp một nền tảng để:
 - Xuất bản các bài viết thần học và tài liệu học tập
 - Hỗ trợ cả tiếng Việt và tiếng Anh để tiếp cận đa dạng đối tượng
 
-## 🛠️ Công Nghệ Sử Dụng
-
 ### Backend
 - **Laravel 12** - PHP Framework hiện đại
 - **PHP 8.2+** - Ngôn ngữ lập trình
