@@ -32,10 +32,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('dictionary*') ? 'active' : '' }}"
-                       href="#"
-                       data-lang-en="Dictionary"
-                       data-lang-vi="Từ Điển">
+                    <a href="{{ route('dictionary.index') }}" class="nav-link {{ request()->is('dictionary*') ? 'active' : '' }}" >
                         {{ __t('Từ Điển', 'Dictionary') }}
                     </a>
                 </li>
