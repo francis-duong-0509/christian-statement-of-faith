@@ -4,7 +4,7 @@
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto">
                     <h2 class="section-title" data-aos="fade-up">
-                        {{ __t('Bài Viết Mới Nhất', 'Latest Articles') }}
+                        {{ __t('Lời Lẽ Thật', 'Word of Truth') }}
                     </h2>
                     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
                         {{ __t('Đọc các bài viết và chia sẻ của chúng tôi về chủ đề thần học Kinh Thánh', 'Discover our most recent theological insights and biblical teachings') }}

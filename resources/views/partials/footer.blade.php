@@ -14,9 +14,9 @@
                            'For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.') }}
                     </p>
                     <div class="social-links mt-3">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Threads"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/francis.duong.0509" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.threads.com/@francis.duong.0509" aria-label="Threads" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/francis.duong.0509/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 

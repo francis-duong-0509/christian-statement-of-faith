@@ -16,7 +16,7 @@
                 </li>
                 @foreach($categories as $category)
                     <li class="category-item {{ request('category') == $category->id ? 'active' : '' }}">
-                        <a href="{{ route('blog.index', ['category' => $category->id]) }}">
+                        <a href="{{ route('blog.index', ['category_id' => $category->id]) }}">
                             <span>{{ $category->name }}</span>
                             <span class="category-count">{{ $category->published_posts_count }}</span>
                         </a>

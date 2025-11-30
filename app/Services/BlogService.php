@@ -251,11 +251,17 @@ class BlogService
      */
     public function getBlogIndexData(?int $categoryId = null, ?string $search = null): array
     {
+        $selectedCategory = null;
+        if ($categoryId) {
+            $selectedCategory = app(BlogCategoryService::class)->getById($categoryId);
+        }
+
         return [
             'posts' => $this->getPublishedPosts($categoryId, $search),
             'categories' => app(BlogCategoryService::class)->getAllWithPostsCount(),
             'featured_posts' => $this->getFeaturedPosts(3),
             'popular_posts' => $this->getPopularPosts(5),
+            'selectedCategory' => $selectedCategory,
         ];
     }
 

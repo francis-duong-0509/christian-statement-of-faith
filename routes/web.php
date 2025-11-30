@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\DictionaryController;
 use App\Http\Controllers\FaithStatementController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
@@ -27,4 +28,10 @@ Route::prefix('statement-of-faith')->name('faith.')->group(function () {
 Route::prefix('blog')->name('blog.')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('index');
     Route::get('/{slug}', [BlogController::class, 'show'])->name('show');
+});
+
+// DICTIONARY
+Route::prefix('dictionary')->name('dictionary.')->group(function () {
+    Route::get('/', [DictionaryController::class, 'index'])->name('index');
+    Route::post('/lookup', [DictionaryController::class,'lookup'])->name('lookup');
 });

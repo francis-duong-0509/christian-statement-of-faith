@@ -1,61 +1,422 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Christian Statement of Faith - Tín Lý Cơ Đốc
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://img.shields.io/badge/Laravel-12-red?style=for-the-badge&logo=laravel" alt="Laravel 12">
+  <img src="https://img.shields.io/badge/PHP-8.2+-blue?style=for-the-badge&logo=php" alt="PHP 8.2+">
+  <img src="https://img.shields.io/badge/Filament-3.0-orange?style=for-the-badge" alt="Filament 3.0">
+  <img src="https://img.shields.io/badge/Bootstrap-5.3.8-purple?style=for-the-badge&logo=bootstrap" alt="Bootstrap 5.3.8">
 </p>
 
-## About Laravel
+## 📖 Giới Thiệu
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Christian Statement of Faith** là một ứng dụng web song ngữ (Tiếng Việt/Tiếng Anh) dành cho việc trình bày các tuyên bố đức tin thần học với tham chiếu Kinh Thánh. Dự án được xây dựng bằng Laravel 12 và Filament 3 cho trang quản trị, với giao diện người dùng hiện đại sử dụng Bootstrap 5 + SCSS tùy chỉnh.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🎯 Mục Đích
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Cung cấp một nền tảng để:
+- Chia sẻ tín lý Cơ Đốc giáo nguyên chất và chính xác
+- Tra cứu và giảng giải Kinh Thánh theo phương pháp Expository Preaching
+- Xuất bản các bài viết thần học và tài liệu học tập
+- Hỗ trợ cả tiếng Việt và tiếng Anh để tiếp cận đa dạng đối tượng
 
-## Learning Laravel
+### Backend
+- **Laravel 12** - PHP Framework hiện đại
+- **PHP 8.2+** - Ngôn ngữ lập trình
+- **Filament 3.0** - Trang quản trị (Admin Panel)
+- **MySQL 8.0** - Cơ sở dữ liệu
+- **Redis 7.2** - Cache và Queue
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Frontend
+- **Bootstrap 5.3.8** - CSS Framework
+- **Alpine.js 3.14** - JavaScript Framework nhẹ
+- **SCSS** - CSS Preprocessor tùy chỉnh
+- **Vite 7** - Build Tool hiện đại
+- **AOS (Animate On Scroll)** - Thư viện animation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### DevOps
+- **Docker** - Container hóa ứng dụng
+- **Docker Compose** - Quản lý nhiều container
+- **Nginx** - Web server
+- **Supervisor** - Quản lý process
 
-## Laravel Sponsors
+### API & Dịch Vụ Bên Ngoài
+- **Bolls.life API** - Lấy văn bản Kinh Thánh (VI1934, WLC, TISCH)
+- **OpenAI GPT-4o-mini** - Tạo giảng giải thần học
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🎨 Các Module Chính
 
-### Premium Partners
+### 1. 📜 Tín Lý (Statement of Faith)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Module trình bày các tuyên bố đức tin thần học có hệ thống.
 
-## Contributing
+**Tính năng:**
+- **Danh mục tín lý** (Faith Categories):
+  - Các chủ đề thần học: Đức Chúa Trời, Kinh Thánh, Sự Cứu Rỗi, v.v.
+  - Mô tả chi tiết với tham chiếu Kinh Thánh
+  - Ảnh banner cho mỗi danh mục
+  - Hỗ trợ song ngữ (Tiếng Việt/English)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Tuyên bố tín lý** (Faith Statements):
+  - Nội dung tuyên bố chi tiết cho từng danh mục
+  - Rich text editor với hỗ trợ định dạng
+  - Tham chiếu Kinh Thánh (JSON array)
+  - Ảnh minh họa và metadata SEO
+  - Slug tự động cho URL thân thiện
 
-## Code of Conduct
+**Routes:**
+```
+GET  /statement-of-faith              # Danh sách các danh mục
+GET  /statement-of-faith/{category}   # Chi tiết danh mục + tuyên bố
+GET  /statement-of-faith/{category}/{statement}  # Chi tiết tuyên bố
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Database:**
+- `faith_categories`: Lưu các danh mục tín lý
+- `faith_statements`: Lưu các tuyên bố chi tiết
 
-## Security Vulnerabilities
+### 2. 📝 Blog (Blog Posts)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Module quản lý và xuất bản bài viết thần học.
 
-## License
+**Tính năng:**
+- **Quản lý bài viết**:
+  - Tiêu đề và nội dung song ngữ
+  - Rich text editor với hỗ trợ markdown
+  - Ảnh đại diện và ảnh banner
+  - Trích dẫn (excerpt) tự động hoặc tùy chỉnh
+  - Thời gian đọc ước tính
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# christian-statement-of-faith
-# christian-statement-of-faith
+- **Danh mục bài viết**:
+  - Phân loại bài viết theo chủ đề
+  - Icon và màu sắc tùy chỉnh cho mỗi danh mục
+  - Đếm số bài viết trong mỗi danh mục
+
+- **Tính năng nâng cao**:
+  - SEO metadata (title, description)
+  - Tags/keywords
+  - Trạng thái xuất bản (draft/published)
+  - Lịch xuất bản tự động
+  - Reading progress bar
+  - Table of contents tự động từ H2/H3
+
+**Routes:**
+```
+GET  /blog                  # Danh sách bài viết
+GET  /blog/{slug}           # Chi tiết bài viết
+GET  /blog/category/{slug}  # Bài viết theo danh mục
+```
+
+**Database:**
+- `blog_categories`: Danh mục bài viết
+- `blog_posts`: Nội dung bài viết
+
+### 3. 📖 Giảng Giải Kinh (Scripture Exegesis)
+
+Module tra cứu và phân tích chi tiết các đoạn Kinh Thánh với giảng giải thần học từ ngôn ngữ gốc.
+
+**Tính năng:**
+- **Tra cứu đa dạng**:
+  - Tra cứu cả chương (ví dụ: "Ma-thi-ơ 5")
+  - Tra cứu đoạn câu (ví dụ: "Giăng 3:16-21")
+  - Hỗ trợ Cựu Ước (39 sách) và Tân Ước (27 sách)
+  - Tự động điều chỉnh số câu thực tế (ví dụ: Ma-thi-ơ 5 = 48 câu)
+
+- **Phân tích chuyên sâu**:
+  - Văn bản tiếng Việt từ bản dịch 1925
+  - Phân tích từ ngôn ngữ gốc (Tiếng Do Thái/Hy Lạp)
+  - Giảng giải theo phương pháp Expository Preaching
+  - AI-generated exegesis từ GPT-4o-mini
+
+- **Nội dung giảng giải**:
+  - **Ngữ cảnh lịch sử và văn hóa**: Tác giả, người nhận, hoàn cảnh
+  - **Phân tích từng câu**: Từ ngữ quan trọng từ ngôn ngữ gốc
+  - **Ý nghĩa thần học**: Các điểm thần học chính
+  - **Kết luận**: Tóm tắt và ứng dụng thực tế
+
+- **Thần học thuần túy**:
+  - 100% ân điển Đức Chúa Trời (Sola Gratia)
+  - Con người hoàn toàn sa ngã (Total Depravity)
+  - Đức Chúa Trời chủ quyền tuyệt đối
+  - Tránh Pelagian và Semi-Pelagian
+  - Lấy ý từ Kinh Thánh, không từ triết học
+
+- **Tối ưu hóa hiệu năng**:
+  - Dynamic token scaling (6000-12000 tokens)
+  - Timeout điều chỉnh theo độ dài (180-240s)
+  - Logging chi tiết cho debug
+  - Không lưu cache (theo yêu cầu người dùng)
+
+**Routes:**
+```
+GET   /dictionary         # Trang tra cứu
+POST  /dictionary/lookup  # Xử lý tra cứu
+```
+
+**APIs sử dụng:**
+- **Bolls.life API**: Lấy văn bản Kinh Thánh
+  - VI1934: Bản dịch Việt 1925
+  - WLC: Tiếng Do Thái gốc (Cựu Ước)
+  - TISCH: Tiếng Hy Lạp gốc (Tân Ước)
+
+- **OpenAI GPT-4o-mini**: Tạo giảng giải
+  - Model: `gpt-4o-mini`
+  - Temperature: 0.7
+  - Max tokens: 6000-12000 (tùy độ dài)
+
+**Services:**
+- `ScriptureReferenceParser`: Parse và validate tham chiếu
+- `BibleApiService`: Lấy văn bản từ Bolls.life
+- `OpenAiExegesisService`: Tạo giảng giải thần học
+- `DictionaryService`: Điều phối toàn bộ quy trình
+
+## 🌐 Hệ Thống Song Ngữ
+
+### Cơ chế hoạt động:
+
+1. **Phát hiện ngôn ngữ**: Middleware `SetLocale`
+   - Lấy locale từ session hoặc mặc định 'en'
+   - Áp dụng cho tất cả routes
+
+2. **Lưu trữ dữ liệu**:
+   - Mỗi field có 2 cột: `field_vi` và `field_en`
+   - Ví dụ: `name_vi`, `name_en`, `slug_vi`, `slug_en`
+
+3. **Helper functions**:
+   - `__t($vi, $en)`: Dịch nhanh inline
+   - `current_locale_field($field)`: Lấy tên field theo locale
+
+4. **Model accessors**:
+   ```php
+   $category->name  // Tự động trả về name_vi hoặc name_en
+   ```
+
+5. **Route binding**:
+   - Routes tự động resolve model theo slug locale-specific
+   - Ví dụ: `/statement-of-faith/than-hoc` → `slug_vi`
+
+6. **Chuyển đổi ngôn ngữ**:
+   - Route: `/language/{locale}` (vi|en)
+   - Lưu trong session
+
+## 🚀 Cài Đặt
+
+### Yêu Cầu
+
+- Docker & Docker Compose
+- Git
+
+### Các Bước Cài Đặt
+
+1. **Clone repository:**
+   ```bash
+   git clone <repository-url>
+   cd christian-statement-of-faith
+   ```
+
+2. **Cấu hình môi trường:**
+   ```bash
+   # Copy file cấu hình Docker
+   cp devops/local/.env.example devops/local/.env
+
+   # Copy file cấu hình Laravel
+   cp .env.example .env
+   ```
+
+3. **Cấu hình API keys trong `.env`:**
+   ```env
+   OPENAI_API_KEY=your_openai_api_key_here
+   ```
+
+4. **Khởi động Docker:**
+   ```bash
+   cd devops/local
+   ./start.sh
+   ```
+
+5. **Truy cập ứng dụng:**
+   - Frontend: http://localhost:8100
+   - Admin: http://localhost:8100/admin
+   - Vite Dev Server: http://localhost:8109
+
+### Cấu Hình Ports (tùy chỉnh trong `devops/local/.env`)
+
+- `DOCKER_NGINX_PORT`: 8100 (HTTP)
+- `DOCKER_MYSQL_PORT`: 8101 (MySQL)
+- `DOCKER_REDIS_PORT`: 8103 (Redis)
+- `DOCKER_VITE_PORT`: 8109 (Vite HMR)
+
+## 💻 Development
+
+### Làm việc với Docker
+
+```bash
+# Vào container
+cd devops/local
+docker compose exec app bash
+
+# Chạy lệnh trong container
+docker compose exec app php artisan migrate
+docker compose exec app composer install
+docker compose exec app npm install
+docker compose exec app npm run dev
+
+# Dừng containers
+docker compose down
+```
+
+### Commands Laravel Thông Dụng
+
+```bash
+# Migration
+php artisan migrate
+php artisan db:seed
+
+# Clear cache
+php artisan cache:clear
+php artisan view:clear
+php artisan config:clear
+
+# Testing
+composer test
+php artisan test --coverage
+
+# Code formatting
+./vendor/bin/pint
+```
+
+### Frontend Development
+
+```bash
+# Development mode (HMR)
+npm run dev
+
+# Production build
+npm run build
+
+# Full dev environment (server + queue + logs + vite)
+composer dev
+```
+
+## 🎨 Hệ Thống Thiết Kế
+
+### Màu Sắc
+
+- **Primary**: `#1e3a5f` (Navy Blue) - Màu chủ đạo
+- **Secondary**: `#8b4513` (Saddle Brown) - Màu phụ
+
+### Typography
+
+- **Sans-serif**: Inter - Văn bản thông thường
+- **Serif**: Merriweather - Tiêu đề và trích dẫn
+- **Base font size**: 18px
+- **Container max-width**: 1176px
+
+### Breakpoints (Bootstrap 5)
+
+- `xs`: < 576px
+- `sm`: ≥ 576px
+- `md`: ≥ 768px
+- `lg`: ≥ 992px
+- `xl`: ≥ 1200px
+- `xxl`: ≥ 1400px
+
+## 📁 Cấu Trúc Thư Mục
+
+```
+.
+├── app/
+│   ├── Filament/Resources/    # Admin panel resources
+│   ├── Http/Controllers/      # Controllers
+│   ├── Models/               # Eloquent models
+│   ├── Services/             # Business logic services
+│   └── View/Components/      # Blade components
+├── config/
+│   └── bible_books.php       # Mapping tên sách Kinh Thánh
+├── database/
+│   ├── migrations/           # Database migrations
+│   ├── seeders/             # Data seeders
+│   └── factories/           # Model factories
+├── devops/local/            # Docker configuration
+├── resources/
+│   ├── js/
+│   │   └── modules/         # JavaScript modules
+│   ├── scss/                # SCSS files
+│   │   ├── base/           # Reset, typography
+│   │   ├── components/     # UI components
+│   │   ├── layout/         # Header, footer
+│   │   ├── pages/          # Page-specific styles
+│   │   └── utilities/      # Utility classes
+│   └── views/              # Blade templates
+├── routes/
+│   └── web.php             # Web routes
+├── CLAUDE.md               # Project documentation for AI
+└── README.md               # This file
+```
+
+## 🔒 Bảo Mật
+
+- CSRF protection (Laravel default)
+- XSS protection qua Blade escaping
+- SQL injection protection qua Eloquent ORM
+- Rate limiting cho API calls
+- Environment variables cho sensitive data
+
+## 📊 Database Schema
+
+### faith_categories
+- Danh mục tín lý với nội dung song ngữ
+- Tham chiếu Kinh Thánh (JSON)
+- Banner image, order, is_active
+
+### faith_statements
+- Tuyên bố tín lý chi tiết
+- Liên kết với faith_categories
+- SEO metadata, images
+
+### blog_categories
+- Danh mục blog với icon và màu sắc
+- Slug, order, is_active
+
+### blog_posts
+- Bài viết blog đầy đủ
+- Liên kết với blog_categories
+- Publish date, SEO, tags
+
+## 🧪 Testing
+
+```bash
+# Chạy tất cả tests
+composer test
+
+# Chạy test cụ thể
+php artisan test tests/Feature/DictionaryTest.php
+
+# Test với coverage
+php artisan test --coverage
+```
+
+## 📈 Performance
+
+- **Vite HMR**: Hot Module Replacement cho development
+- **SCSS compilation**: CSS được tối ưu hóa
+- **Lazy loading**: Images được lazy load
+- **AOS animations**: Smooth scroll animations
+- **Route caching**: Production caching enabled
+
+## 🤝 Đóng Góp
+
+Hiện tại dự án này là private project. Nếu bạn có đề xuất hoặc phát hiện lỗi, vui lòng liên hệ qua email.
+
+## 📝 License
+
+Dự án này được phát triển cho mục đích cá nhân và phi thương mại.
+
+## 📧 Liên Hệ
+
+Nếu có thắc mắc về dự án, vui lòng liên hệ qua:
+- Email: [your-email@example.com]
+- GitHub Issues: [repository-url]/issues
+
+---
+
+**Được xây dựng với ❤️ và Sola Scriptura**

@@ -14,13 +14,11 @@
                             <div class="input-group">
                                 <input type="email"
                                        class="form-control"
-                                       placeholder="Enter your email address"
-                                       data-lang-placeholder-en="Enter your email address"
-                                       data-lang-placeholder-vi="Nhập địa chỉ email của bạn"
+                                       placeholder="{{ __t('Nhập Địa Chỉ Email Của Bạn', 'Enter your email address') }}"
                                        aria-label="Email address"
                                        required>
                                 <button class="btn btn-primary" type="submit">
-                                    <span class="btn-text">{{ __t('Đăng Ký', 'Subscribe') }}</span>
+                                    <span class="btn-text">{{ __t('Kết Nối', 'Subscribe') }}</span>
                                     <span class="btn-loading d-none">
                                         <i class="fas fa-spinner fa-spin"></i>
                                     </span>

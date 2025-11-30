@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __t('Bài Viết - Thần Học Cơ Đốc', 'Blog - Christian Statement of Faith'))
-@section('meta_description', __t('Bài Viết - Thần Học Cơ Đốc', 'Explore articles about faith, theology, and Christian living.'))
+@section('title', __t('Lời Lẽ Thật - Thần Học Cơ Đốc', 'Word of Truth - Christian Statement of Faith'))
+@section('meta_description', __t('Lời Lẽ Thật - Thần Học Cơ Đốc', 'Explore articles about faith, theology, and Christian living.'))
 
 @push('styles')
 <style>
@@ -36,7 +36,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(30, 58, 95, 0.85) 0%, rgba(139, 69, 19, 0.75) 100%);
+        background: linear-gradient(135deg, rgba(30, 58, 95, 0.4) 0%, rgba(139, 69, 19, 0.3) 100%);
         z-index: 1;
     }
 
@@ -62,6 +62,36 @@
         margin: 0 auto;
         line-height: 1.6;
         text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Category Badge in Hero */
+    .category-badge-hero {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        color: #ffffff;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Category Meta in Hero */
+    .category-meta-hero {
+        margin-top: 25px;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 600;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .category-meta-hero i {
+        opacity: 0.9;
     }
 
     /* Scroll Indicator */
@@ -434,23 +464,47 @@
 @endpush
 
 @section('content')
-<!-- Blog Hero - With Image Background -->
-<section class="hero-section hero-reduced" style="background-image: url({{ asset('uploads/images/blog_image.jpg') }});">
-    <div class="container">
-        <div class="blog-hero-content">
-            <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
-                {{ __t('Bài Viết', 'Blog') }}
-            </h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                {{ __t('Khám phá các bài viết về đức tin, thần học và đời sống Cơ Đốc', 'Explore articles about faith, theology, and Christian living') }}
-            </p>
+@if($selectedCategory)
+    <!-- Category Hero - With Category Image Background -->
+    <section class="hero-section hero-reduced" style="background-image: url({{ $selectedCategory->image_url ? asset($selectedCategory->image_url) : asset('uploads/images/blog_image.jpg') }});">
+        <div class="container">
+            <div class="blog-hero-content">
+                <div class="category-badge-hero" data-aos="fade-up" data-aos-duration="800">
+                    <i class="fas fa-folder-open me-2"></i>
+                    {{ __t('Danh Mục', 'Category') }}
+                </div>
+                <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    {{ $selectedCategory->name }}
+                </h1>
+                @if($selectedCategory->description)
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        {{ $selectedCategory->description }}
+                    </p>
+                @endif
+                <div class="category-meta-hero" data-aos="fade-up" data-aos-delay="300">
+                    <span>
+                        <i class="fas fa-file-alt me-2"></i>
+                        {{ $posts->total() }} {{ __t('bài viết', 'articles') }}
+                    </span>
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="800">
-        <i class="fas fa-chevron-down"></i>
-    </div>
-</section>
+    </section>
+@else
+    <!-- Blog Hero - With Image Background -->
+    <section class="hero-section hero-reduced" style="background-image: url({{ asset('uploads/images/blog_image.jpg') }});">
+        <div class="container">
+            <div class="blog-hero-content">
+                <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
+                    {{ __t('Lời Lẽ Thật', 'Word of Truth') }}
+                </h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    {{ __t('Khám phá các bài viết về đức tin, thần học và đời sống Cơ Đốc', 'Explore articles about faith, theology, and Christian living') }}
+                </p>
+            </div>
+        </div>
+    </section>
+@endif
 
 <!-- Search & Filter -->
 <div class="container">
@@ -504,7 +558,7 @@
                     @elseif(request('category'))
                         {{ $categories->firstWhere('id', request('category'))->name ?? __t('Danh mục', 'Category') }}
                     @else
-                        {{ __t('Bài viết mới nhất', 'Latest Articles') }}
+                        {{ __t('Danh Sách Bài Viết', 'Latest Articles') }}
                     @endif
                 </h2>
 

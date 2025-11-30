@@ -115,6 +115,63 @@ class BlogPost extends Model
     }
 
     // ==========================================================
+    // ACCESSORS
+    // ==========================================================
+
+    /**
+     * Get the featured image URL with storage prefix
+     */
+    public function getFeaturedImageUrlAttribute(): ?string
+    {
+        if (!$this->attributes['featured_image'] ?? null) {
+            return null;
+        }
+
+        $value = $this->attributes['featured_image'];
+
+        // If already has storage/ prefix, return as-is
+        if (str_starts_with($value, 'storage/')) {
+            return $value;
+        }
+
+        // Otherwise prepend storage/
+        return 'storage/' . $value;
+    }
+
+    /**
+     * Get the OG image URL with storage prefix
+     */
+    public function getOgImageUrlAttribute(): ?string
+    {
+        if (!$this->attributes['og_image'] ?? null) {
+            return null;
+        }
+
+        $value = $this->attributes['og_image'];
+
+        // If already has storage/ prefix, return as-is
+        if (str_starts_with($value, 'storage/')) {
+            return $value;
+        }
+
+        // Otherwise prepend storage/
+        return 'storage/' . $value;
+    }
+
+    public function getFormattedDateAttribute(): string
+    {
+        return $this->published_at?->format('F d, Y') ?? 'Not Published';
+    }
+
+    public function getReadingTimeAttribute(): string
+    {
+        $wordCount = str_word_count(strip_tags($this->content));
+        $minutes = ceil($wordCount / 200);
+
+        return $minutes . ' phút đọc';
+    }
+
+    // ==========================================================
     // HELPER METHODS
     // ==========================================================
 
@@ -131,18 +188,5 @@ class BlogPost extends Model
         DB::table('blog_posts')
             ->where('id', $this->id)
             ->increment('views_count');
-    }
-
-    public function getFormattedDateAttribute(): string
-    {
-        return $this->published_at?->format('F d, Y') ?? 'Not Published';
-    }
-
-    public function getReadingTimeAttribute(): string
-    {
-        $wordCount = str_word_count(strip_tags($this->content));
-        $minutes = ceil($wordCount / 200);
-
-        return $minutes . ' phút đọc';
     }
 }

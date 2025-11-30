@@ -28,25 +28,22 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('blog.index') }}" class="nav-link {{ request()->is('blog*') ? 'active' : '' }}" >
-                        {{ __t('Bài Viết', 'Blog') }}
+                        {{ __t('Lời Lẽ Thật', 'Word of Truth') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('dictionary*') ? 'active' : '' }}"
-                       href="#"
-                       data-lang-en="Dictionary"
-                       data-lang-vi="Từ Điển">
-                        {{ __t('Từ Điển', 'Dictionary') }}
+                    <a href="{{ route('dictionary.index') }}" class="nav-link {{ request()->is('dictionary*') ? 'active' : '' }}" >
+                        {{ __t('Giảng Giải Kinh', 'Scripture Lectures') }}
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ request()->is('scripture-lectures*') ? 'active' : '' }}"
                        href="#"
                        data-lang-en="Scripture Lectures"
                        data-lang-vi="Giảng Giải Kinh">
                         {{ __t('Giảng Giải Kinh', 'Scripture Lectures') }}
                     </a>
-                </li>                
+                </li> --}}
                 <!-- Language Switcher -->
                 <li class="nav-item dropdown language-switcher">
                     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
