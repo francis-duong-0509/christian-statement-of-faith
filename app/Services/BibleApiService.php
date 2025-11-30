@@ -62,13 +62,18 @@ class BibleApiService
         }
     }
 
-    public function getVietnameseText(int $bookId, int $chapter, int $verseStart, int $verseEnd): string
+    public function getVietnameseText(int $bookId, int $chapter, int $verseStart, int $verseEnd): array
     {
         $verses = $this->fetchVerses($bookId, $chapter, $verseStart, $verseEnd, self::VIETNAMESE_TRANSLATION);
 
         // Combine verses into single text
         // Example format: "12 [verse text] 13 [verse text] 14 [verse text]"
-        return $this->formatVerses($verses, true);
+        return [
+            'text' => $this->formatVerses($verses, true),
+            'verse_count' => count($verses),
+            'actual_start' => $verses[0]['verse'] ?? $verseStart,
+            'actual_end' => $verses[count($verses) - 1]['verse'] ?? $verseEnd,
+        ];
     }
 
     public function getOriginalText(string $testament, int $bookId, int $chapter, int $verseStart, int $verseEnd): string

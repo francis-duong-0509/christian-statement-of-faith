@@ -75,15 +75,25 @@ class DictionaryService
             // ============================================
             // STEP 2: Fetch Vietnamese Bible text
             // ============================================
-            $vietnameseText = $this->bibleApi->getVietnameseText(
+            $vietnameseResult = $this->bibleApi->getVietnameseText(
                 $parsed['book_id'],
                 $parsed['chapter'],
                 $parsed['verse_start'],
                 $parsed['verse_end']
             );
 
+            $vietnameseText = $vietnameseResult['text'];
+            $actualVerseCount = $vietnameseResult['verse_count'];
+            $actualVerseEnd = $vietnameseResult['actual_end'];
+
+            // Update parsed reference with actual verse count from API
+            $parsed['verse_end'] = $actualVerseEnd;
+            $parsed['verse_count'] = $actualVerseCount;
+
             Log::info('Vietnamese Text Fetched', [
                 'length' => strlen($vietnameseText),
+                'actual_verse_count' => $actualVerseCount,
+                'actual_verse_end' => $actualVerseEnd,
             ]);
 
             // ============================================

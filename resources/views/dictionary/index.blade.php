@@ -70,70 +70,6 @@
         color: #4b5563;
     }
 
-    .testament-selector {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    .testament-option {
-        flex: 1;
-        position: relative;
-    }
-
-    .testament-option input[type="radio"] {
-        position: absolute;
-        opacity: 0;
-    }
-
-    .testament-option label {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 1.75rem 1.5rem;
-        background: #f8f9fa;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-align: center;
-    }
-
-    .testament-option label:hover {
-        background: #e9ecef;
-    }
-
-    .testament-option input[type="radio"]:checked + label {
-        background: var(--primary);
-        box-shadow: 0 4px 16px rgba(30, 58, 95, 0.2);
-    }
-
-    .testament-icon {
-        font-size: 2.5rem;
-        margin-bottom: 0.75rem;
-        color: var(--secondary);
-    }
-
-    .testament-option input[type="radio"]:checked + label .testament-icon {
-        color: var(--white);
-    }
-
-    .testament-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #1f2937;
-        margin-bottom: 0.25rem;
-    }
-
-    .testament-subtitle {
-        font-size: 0.875rem;
-        color: #6b7280;
-    }
-
-    .testament-option input[type="radio"]:checked + label .testament-title,
-    .testament-option input[type="radio"]:checked + label .testament-subtitle {
-        color: var(--white);
-    }
-
     /* Reference Input */
     .reference-input-group {
         position: relative;
@@ -152,6 +88,14 @@
         border-color: var(--primary);
         box-shadow: 0 0 0 4px rgba(30, 58, 95, 0.1);
         outline: none;
+    }
+
+    .reference-input:disabled,
+    select:disabled {
+        background-color: #f3f4f6;
+        color: #9ca3af;
+        cursor: not-allowed;
+        opacity: 0.6;
     }
 
     .reference-icon {
@@ -337,20 +281,8 @@
             padding: 2rem 1.5rem;
         }
 
-        .testament-selector {
-            flex-direction: column;
-        }
-
-        .testament-option label {
-            flex-direction: row;
-            justify-content: start;
-            padding: 1.25rem;
-        }
-
-        .testament-icon {
-            font-size: 2rem;
-            margin-bottom: 0;
-            margin-right: 1rem;
+        .row .col-md-4 {
+            margin-bottom: 1rem;
         }
     }
 </style>
@@ -381,15 +313,17 @@
             @csrf
 
             <!-- Error Display -->
-            @if($errors->has('lookup_error'))
+            @if($errors->any())
                 <div class="alert alert-danger mb-4" role="alert" style="background: linear-gradient(135deg, #fee2e2, #fecaca); border-left: 4px solid #dc2626; border-radius: 12px; padding: 1.25rem;">
                     <div style="display: flex; align-items: start; gap: 1rem;">
                         <i class="fas fa-exclamation-triangle" style="color: #dc2626; font-size: 1.5rem; margin-top: 0.25rem;"></i>
                         <div style="flex: 1;">
                             <strong style="color: #991b1b; font-size: 1.125rem;">Lỗi Tra Cứu</strong>
-                            <p style="color: #7f1d1d; margin: 0.5rem 0 0 0; line-height: 1.6;">
-                                {{ $errors->first('lookup_error') }}
-                            </p>
+                            @foreach($errors->all() as $error)
+                                <p style="color: #7f1d1d; margin: 0.5rem 0 0 0; line-height: 1.6;">
+                                    {{ $error }}
+                                </p>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -410,66 +344,85 @@
 
             <!-- Testament Selector -->
             <div class="mb-4">
-                <label class="form-label">
+                <label for="testament" class="form-label">
                     <i class="fas fa-book-open me-2"></i>
                     Chọn Giao Ước
                 </label>
-                <div class="testament-selector">
-                    <div class="testament-option">
-                        <input type="radio" name="testament" id="testament-old" value="old" checked>
-                        <label for="testament-old">
-                            <div class="testament-icon">
-                                <i class="fas fa-scroll"></i>
-                            </div>
-                            <div class="testament-title">Cựu Ước</div>
-                            <div class="testament-subtitle">Tiếng Do Thái</div>
-                        </label>
-                    </div>
-                    <div class="testament-option">
-                        <input type="radio" name="testament" id="testament-new" value="new">
-                        <label for="testament-new">
-                            <div class="testament-icon">
-                                <i class="fas fa-cross"></i>
-                            </div>
-                            <div class="testament-title">Tân Ước</div>
-                            <div class="testament-subtitle">Tiếng Hy Lạp</div>
-                        </label>
-                    </div>
-                </div>
+                <select class="form-control reference-input" id="testament" name="testament" required>
+                    <option value="old" selected>Cựu Ước (Tiếng Do Thái)</option>
+                    <option value="new">Tân Ước (Tiếng Hy Lạp)</option>
+                </select>
             </div>
 
-            <!-- Scripture Reference Input -->
-            <div class="mb-3">
-                <label for="reference" class="form-label">
-                    <i class="fas fa-map-marker-alt me-2"></i>
-                    Nhập Câu Kinh Thánh
+            <!-- Book Selector -->
+            <div class="mb-4">
+                <label for="book" class="form-label">
+                    <i class="fas fa-bible me-2"></i>
+                    Chọn Sách
                 </label>
-                <div class="reference-input-group">
-                    <input 
-                        type="text" 
-                        class="form-control reference-input" 
-                        id="reference" 
-                        name="reference" 
-                        placeholder="Ví dụ: Giăng 3:12-16"
+                <select class="form-control reference-input" id="book" name="book" required>
+                    <option value="">-- Chọn sách --</option>
+                </select>
+            </div>
+
+            <!-- Chapter and Verse Inputs -->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="chapter" class="form-label">
+                        <i class="fas fa-bookmark me-2"></i>
+                        Chương
+                    </label>
+                    <input
+                        type="number"
+                        class="form-control reference-input"
+                        id="chapter"
+                        name="chapter"
+                        min="1"
+                        placeholder="Vd: 3"
+                        autocomplete="off"
                         required
                     >
-                    <i class="fas fa-bible reference-icon"></i>
+                </div>
+                <div class="col-md-4">
+                    <label for="verse_start" class="form-label">
+                        <i class="fas fa-arrow-right me-2"></i>
+                        Câu bắt đầu (tùy chọn)
+                    </label>
+                    <input
+                        type="number"
+                        class="form-control reference-input"
+                        id="verse_start"
+                        name="verse_start"
+                        min="1"
+                        placeholder="Bỏ trống = cả chương"
+                        autocomplete="off"
+                    >
+                </div>
+                <div class="col-md-4">
+                    <label for="verse_end" class="form-label">
+                        <i class="fas fa-arrow-left me-2"></i>
+                        Câu kết thúc (tùy chọn)
+                    </label>
+                    <input
+                        type="number"
+                        class="form-control reference-input"
+                        id="verse_end"
+                        name="verse_end"
+                        min="1"
+                        placeholder="Bỏ trống = cả chương"
+                        autocomplete="off"
+                    >
                 </div>
             </div>
 
-            <!-- Help Text -->
-            <div class="help-text">
-                <div class="help-text-content">
-                    <strong>Lưu ý quan trọng:</strong>
-                    <p>
-                        Vui lòng nhập ít nhất <strong>4-6 câu</strong> để đảm bảo ngữ cảnh đầy đủ và ý nghĩa thần học chính xác.
-                        Tra cứu từng câu riêng lẻ có thể dẫn đến hiểu sai nghĩa.
-                    </p>
-                    <div class="help-examples">
-                        <span class="help-example">Giăng 3:12-16</span>
-                        <span class="help-example">Sáng Thế Ký 1:1-5</span>
-                        <span class="help-example">Rô-ma 8:28-32</span>
-                    </div>
+            <!-- Hidden field for the formatted reference -->
+            <input type="hidden" id="reference" name="reference">
+
+            <!-- Reference Preview -->
+            <div class="mb-3" id="referencePreview" style="display: none;">
+                <div style="background: #f0f9ff; border-left: 4px solid #0ea5e9; border-radius: 8px; padding: 1rem;">
+                    <small style="color: #0369a1; font-weight: 600;">Tham chiếu sẽ tra cứu:</small>
+                    <div style="color: #0c4a6e; font-weight: 700; font-size: 1.125rem; margin-top: 0.25rem;" id="referencePreviewText"></div>
                 </div>
             </div>
 
@@ -492,6 +445,101 @@
 @push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Bible books data
+        const bibleBooks = @json(config('bible_books'));
+
+        // Form elements
+        const testamentSelect = document.getElementById('testament');
+        const bookSelect = document.getElementById('book');
+        const chapterInput = document.getElementById('chapter');
+        const verseStartInput = document.getElementById('verse_start');
+        const verseEndInput = document.getElementById('verse_end');
+        const referenceInput = document.getElementById('reference');
+        const form = document.getElementById('lookupForm');
+        const btnLookup = document.getElementById('btnLookup');
+
+        // Populate book dropdown based on testament
+        function populateBooks(testament) {
+            // Clear current options
+            bookSelect.innerHTML = '<option value="">-- Chọn sách --</option>';
+
+            // Filter and add books for selected testament
+            Object.keys(bibleBooks).forEach(bookName => {
+                if (bibleBooks[bookName].testament === testament) {
+                    const option = document.createElement('option');
+                    option.value = bookName;
+                    option.textContent = bookName;
+                    bookSelect.appendChild(option);
+                }
+            });
+        }
+
+        // Build reference string from form fields
+        function buildReference() {
+            const book = bookSelect.value.trim();
+            const chapter = chapterInput.value.trim();
+            const verseStart = verseStartInput.value.trim();
+            const verseEnd = verseEndInput.value.trim();
+
+            if (!book || !chapter) {
+                return '';
+            }
+
+            // If no verses specified, just "Book Chapter" (entire chapter)
+            if (verseStart === '' && verseEnd === '') {
+                return `${book} ${chapter}`;
+            }
+
+            // If only start verse, "Book Chapter:Start"
+            if (verseStart !== '' && verseEnd === '') {
+                return `${book} ${chapter}:${verseStart}`;
+            }
+
+            // If both verses, "Book Chapter:Start-End"
+            if (verseStart !== '' && verseEnd !== '') {
+                return `${book} ${chapter}:${verseStart}-${verseEnd}`;
+            }
+
+            // Edge case: only end verse specified (treat as start-end with same value)
+            if (verseStart === '' && verseEnd !== '') {
+                return `${book} ${chapter}:${verseEnd}`;
+            }
+
+            return '';
+        }
+
+        // Testament change handler
+        testamentSelect.addEventListener('change', function() {
+            populateBooks(this.value);
+            bookSelect.value = '';
+            updateReference();
+        });
+
+        // Update reference when any field changes
+        function updateReference() {
+            const ref = buildReference();
+            referenceInput.value = ref;
+
+            // Update preview
+            const previewDiv = document.getElementById('referencePreview');
+            const previewText = document.getElementById('referencePreviewText');
+
+            if (ref) {
+                previewText.textContent = ref;
+                previewDiv.style.display = 'block';
+            } else {
+                previewDiv.style.display = 'none';
+            }
+        }
+
+        bookSelect.addEventListener('change', updateReference);
+        chapterInput.addEventListener('input', updateReference);
+        verseStartInput.addEventListener('input', updateReference);
+        verseEndInput.addEventListener('input', updateReference);
+
+        // Initialize with Old Testament books
+        populateBooks('old');
+
         // Smooth scroll to lookup card on page load if there's an error
         @if($errors->has('lookup_error') || old('reference'))
             setTimeout(function() {
@@ -502,31 +550,60 @@
             }, 100);
         @endif
 
-        // Form validation and smooth scroll on submit
-        const form = document.getElementById('lookupForm');
-        const btnLookup = document.getElementById('btnLookup');
-
+        // Form validation and submission
         form.addEventListener('submit', function(e) {
-            const reference = document.getElementById('reference').value.trim();
+            // Build final reference
+            updateReference();
+
+            const reference = referenceInput.value.trim();
+            const book = bookSelect.value;
+            const chapter = chapterInput.value;
+
+            // Debug logging
+            console.log('Form submission:', {
+                testament: testamentSelect.value,
+                book: book,
+                chapter: chapter,
+                verseStart: verseStartInput.value,
+                verseEnd: verseEndInput.value,
+                reference: reference
+            });
+
+            if (!book) {
+                e.preventDefault();
+                alert('Vui lòng chọn sách Kinh Thánh.');
+                return false;
+            }
+
+            if (!chapter) {
+                e.preventDefault();
+                alert('Vui lòng nhập số chương.');
+                return false;
+            }
 
             if (!reference) {
                 e.preventDefault();
-                alert('Vui lòng nhập câu Kinh Thánh cần tra cứu.');
+                alert('Có lỗi khi tạo tham chiếu Kinh Thánh. Vui lòng thử lại.\n\nDebug: Book=' + book + ', Chapter=' + chapter);
                 return false;
             }
 
-            // Basic format validation
-            if (reference.length < 3) {
-                e.preventDefault();
-                alert('Vui lòng nhập câu Kinh Thánh hợp lệ (ví dụ: Giăng 3:12-16).');
-                return false;
-            }
-
-            // Show loading state
+            // Show loading state and disable only button (disabled inputs won't be submitted!)
             btnLookup.classList.add('loading');
             btnLookup.disabled = true;
 
-            // Form will submit normally (no scrolling needed)
+            // Visual feedback - make inputs readonly instead of disabled
+            testamentSelect.style.opacity = '0.6';
+            testamentSelect.style.pointerEvents = 'none';
+            bookSelect.style.opacity = '0.6';
+            bookSelect.style.pointerEvents = 'none';
+            chapterInput.readOnly = true;
+            chapterInput.style.opacity = '0.6';
+            verseStartInput.readOnly = true;
+            verseStartInput.style.opacity = '0.6';
+            verseEndInput.readOnly = true;
+            verseEndInput.style.opacity = '0.6';
+
+            // Form will submit normally
         });
     });
 </script>
