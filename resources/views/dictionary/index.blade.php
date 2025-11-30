@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Tra Cứu Kinh Thánh - Biblical Dictionary')
-@section('meta_description', 'Tra cứu ý nghĩa gốc của Kinh Thánh từ tiếng Do Thái (Cựu Ước) và tiếng Hy Lạp (Tân Ước)')
+@section('title', 'Giảng Giải Kinh - Biblical Dictionary')
+@section('meta_description', 'Giảng Giải Kinh - Biblical Dictionary')
 
 @push('styles')
 <style>
@@ -223,16 +223,49 @@
         transition: all 0.3s ease;
         width: 100%;
         margin-top: 2rem;
+        position: relative;
     }
 
-    .btn-lookup:hover {
+    .btn-lookup:hover:not(:disabled) {
         transform: translateY(-2px);
         box-shadow: 0 8px 24px rgba(30, 58, 95, 0.25);
         background: #2d5a8a;
     }
 
+    .btn-lookup:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
     .btn-lookup i {
         margin-right: 0.5rem;
+    }
+
+    .btn-lookup .spinner {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin-right: 0.5rem;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    .btn-text-loading {
+        display: none;
+    }
+
+    .btn-lookup.loading .btn-text-normal {
+        display: none;
+    }
+
+    .btn-lookup.loading .btn-text-loading {
+        display: inline;
     }
 
     /* Info Cards */
@@ -328,10 +361,10 @@
     <div class="container">
         <div class="blog-hero-content">
             <h1 class="hero-title text-center" data-aos="fade-up" data-aos-duration="1000">
-                {{ __t('Tra Cứu Kinh Thánh', 'Research the meaning of the Bible') }}
+                {{ __t('Giảng Giải Kinh', 'Scripture Lectures') }}
             </h1>
             <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                {{ __t('Tìm hiểu ý nghĩa gốc của Kinh Thánh từ tiếng Do Thái (Cựu Ước) và tiếng Hy Lạp (Tân Ước). Hiểu đúng ngữ cảnh và ý nghĩa thần học của Lời Chúa.', 'Discover the original meaning of the Bible from the Old Testament (Hebrew) and the New Testament (Greek). Understand the true context and theological meaning of the Lord’s Word.') }}
+                {{ __t('Mục tiêu của chúng tôi là thực hiện Đại Mạng Lệnh của Đức Chúa Jesus bằng cách chia sẻ phúc âm nguyên chất và giảng dạy Kinh Thánh theo phương pháp giảng giải kinh', 'Our goal is to implement God’s Great Commission by sharing the original meaning of Scripture and teaching the Bible through the method of Scripture lectures.') }}
             </p>
         </div>
     </div>
@@ -441,9 +474,15 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="btn btn-lookup">
-                <i class="fas fa-search"></i>
-                Tra Cứu Ngay
+            <button type="submit" class="btn btn-lookup" id="btnLookup">
+                <span class="btn-text-normal">
+                    <i class="fas fa-search"></i>
+                    {{ __t('Giảng kinh', 'dictionary') }}
+                </span>
+                <span class="btn-text-loading">
+                    <span class="spinner"></span>
+                    {{ __t('Đang giảng kinh, tùy vào phân đoạn. Nếu ít tầm 30s - 1 phút, nếu nhiều có thể từ 2 - 3 phút', 'Exploring...') }}
+                </span>
             </button>
         </form>
     </div>
@@ -464,7 +503,10 @@
         @endif
 
         // Form validation and smooth scroll on submit
-        document.getElementById('lookupForm').addEventListener('submit', function(e) {
+        const form = document.getElementById('lookupForm');
+        const btnLookup = document.getElementById('btnLookup');
+
+        form.addEventListener('submit', function(e) {
             const reference = document.getElementById('reference').value.trim();
 
             if (!reference) {
@@ -480,8 +522,11 @@
                 return false;
             }
 
-            // Smooth scroll to top before form submission
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Show loading state
+            btnLookup.classList.add('loading');
+            btnLookup.disabled = true;
+
+            // Form will submit normally (no scrolling needed)
         });
     });
 </script>

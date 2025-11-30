@@ -553,7 +553,7 @@
                     <i class="fas fa-book-open"></i>
                 </div>
                 <h2 class="card-title">Bản Dịch Tiếng Việt</h2>
-                <span class="card-label" style="color: #1E3A5F;">Kinh Thánh 1934</span>
+                <span class="card-label">Kinh Thánh 1925</span>
             </div>
             <div class="scripture-text" id="vietnameseText">
                 {{ $vietnameseText }}
