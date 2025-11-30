@@ -82,7 +82,7 @@ class FaithCategoryResource extends Resource
                                     ->columns(3)
                                     ->defaultItems(0)
                                     ->collapsible()
-                                    ->itemLabel(fn (array $state): ?string => $state['ref'] ?? 'New Reference')
+                                    ->itemLabel(fn(array $state): ?string => $state['ref'] ?? 'New Reference')
                                     ->addActionLabel('Add Scripture Reference')
                                     ->reorderable()
                                     ->columnSpanFull(),
@@ -141,7 +141,7 @@ class FaithCategoryResource extends Resource
                                     ->columns(3)
                                     ->defaultItems(0)
                                     ->collapsible()
-                                    ->itemLabel(fn (array $state): ?string => $state['ref'] ?? 'New Reference')
+                                    ->itemLabel(fn(array $state): ?string => $state['ref'] ?? 'New Reference')
                                     ->addActionLabel('Add Scripture Reference')
                                     ->reorderable()
                                     ->columnSpanFull(),
@@ -223,7 +223,7 @@ class FaithCategoryResource extends Resource
 
                 Tables\Columns\ImageColumn::make('banner_image')
                     ->label('Banner')
-                    ->getStateUsing(fn ($record) => $record->banner_image ? asset($record->banner_image) : null)
+                    ->getStateUsing(fn($record) => $record->banner_image ? asset($record->banner_image) : null)
                     ->height(50)
                     ->width(100),
 

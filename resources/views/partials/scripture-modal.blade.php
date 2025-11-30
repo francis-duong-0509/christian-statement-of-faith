@@ -404,9 +404,9 @@
                                 <h6>{{ __t('Bản Chất Tội Lỗi Của Con Người Là Họ Đã Phạm 2 Điều Trên', 'The Sinful Nature of Man') }}</h6>
                                 <p>
                                     @if(app()->getLocale() === 'vi')
-                                        <span>Bản cáo trạng của kẻ Tử Tù <span style="color: #0c63d4; font-weight: 600;">Roma 1:18 - 3:20</span>, miêu tả bản chất tội lỗi của con người mà họ đã phạm, và chỉ có đức tin + sự ăn năn là ân điển của Đức Chúa Trời ban cho để được cứu rỗi.</span>
+                                        <span><a target="_blank" href="https://vietchristian.com/kinhthanh/tim.asp?btt/44/1:18-3:20" style="color: #0c63d4; font-weight: 600; text-decoration: underline; font-size: 20px;">Roma 1:18-3:20</a> là hồ sơ của kẻ Tử Tù, miêu tả bản chất tội lỗi của con người mà họ đã liên tục phạm (hành dâm 5 7 lần, giết người,...), và chỉ có đức tin + sự ăn năn là ân điển của Đức Chúa Trời ban cho để được cứu rỗi.</span>
                                     @else
-                                        <span>Humanity has committed real sin by forsaking God, the fountain of living water, and digging their own cisterns that cannot hold water. This illustrates the folly and tragedy of sin.</span>
+                                        <span><a target="_blank" href="https://www.biblegateway.com/passage/?search=Romans%201%3A18-3%3A20&version=NIV" style="color: #0c63d4; font-weight: 600; text-decoration: underline; font-size: 20px;">Roma 1:18-3:20</a> is a summary of the sinful nature of man, describing the essence of sin that they have committed, and only faith + repentance are the gift of God to save.</span>
                                     @endif
                                 </p>
                             </div>

@@ -35,4 +35,18 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | OpenAI Service Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Configuration for OpenAI API used in the Dictionary module for
+    | generating biblical exegesis from original Hebrew/Greek texts.
+    |
+    */
+    'openai' => [
+        'api_key' => env('OPENAI_API_KEY'),
+        'model' => env('OPENAI_MODEL', 'gpt-4o-mini'), // gpt-4o-mini for cost efficiency
+        'organization' => env('OPENAI_ORGANIZATION', null), // Optional: if you have org ID
+    ],
 ];

@@ -9,7 +9,7 @@
     @include('homepage.sections._statement-overview')
     @include('homepage.sections._scripture-foundation')
     @include('homepage.sections._dictionary-showcase')
-    @include('homepage.sections._resources')
+    {{-- @include('homepage.sections._resources') --}}
     @include('homepage.sections._blog-posts')
     @include('homepage.sections._newsletter')
 @endsection
