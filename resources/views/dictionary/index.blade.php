@@ -14,52 +14,31 @@
         --white: #ffffff;
     }
 
-    /* Dictionary Hero Section */
+    /* Dictionary Hero Section - Compact and Modern */
     .dictionary-hero {
-        background: linear-gradient(135deg, var(--primary) 0%, #2d5a8a 100%);
-        padding: 8rem 0 5rem;
+        background: var(--primary);
+        padding: 4rem 0 3rem;
         margin-bottom: 3rem;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .dictionary-hero::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -20%;
-        width: 600px;
-        height: 600px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 50%;
     }
 
     .dictionary-hero-content {
-        position: relative;
-        z-index: 2;
         color: var(--white);
         text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
     }
 
     .dictionary-hero h1 {
-        font-size: 3.5rem;
-        font-weight: 900;
-        margin-bottom: 1.5rem;
-        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.3;
     }
 
     .dictionary-hero p {
-        font-size: 1.25rem;
-        opacity: 0.95;
-        max-width: 700px;
-        margin: 0 auto;
-        line-height: 1.8;
-    }
-
-    .dictionary-hero .icon {
-        font-size: 4rem;
-        margin-bottom: 1.5rem;
+        font-size: 1.125rem;
         opacity: 0.9;
+        line-height: 1.7;
     }
 
     /* Lookup Card */
@@ -67,19 +46,15 @@
         background: var(--white);
         border-radius: 16px;
         padding: 3rem;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        margin-top: -5rem;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
         margin-bottom: 4rem;
-        position: relative;
-        z-index: 10;
     }
 
     .lookup-card-title {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         font-weight: 700;
         color: var(--primary);
         margin-bottom: 2rem;
-        text-align: center;
     }
 
     /* Form Styling */
@@ -115,8 +90,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 2rem 1.5rem;
-        border: 3px solid #e5e7eb;
+        padding: 1.75rem 1.5rem;
+        background: #f8f9fa;
         border-radius: 12px;
         cursor: pointer;
         transition: all 0.3s ease;
@@ -124,36 +99,39 @@
     }
 
     .testament-option label:hover {
-        border-color: var(--primary);
-        background: #f9fafb;
+        background: #e9ecef;
     }
 
     .testament-option input[type="radio"]:checked + label {
-        border-color: var(--primary);
-        background: linear-gradient(135deg, rgba(30, 58, 95, 0.05), rgba(30, 58, 95, 0.1));
-        box-shadow: 0 4px 16px rgba(30, 58, 95, 0.15);
+        background: var(--primary);
+        box-shadow: 0 4px 16px rgba(30, 58, 95, 0.2);
     }
 
     .testament-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
         color: var(--secondary);
     }
 
     .testament-option input[type="radio"]:checked + label .testament-icon {
-        color: var(--primary);
+        color: var(--white);
     }
 
     .testament-title {
         font-size: 1.25rem;
         font-weight: 700;
         color: #1f2937;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
     }
 
     .testament-subtitle {
         font-size: 0.875rem;
         color: #6b7280;
+    }
+
+    .testament-option input[type="radio"]:checked + label .testament-title,
+    .testament-option input[type="radio"]:checked + label .testament-subtitle {
+        color: var(--white);
     }
 
     /* Reference Input */
@@ -191,19 +169,10 @@
 
     /* Help Text */
     .help-text {
-        display: flex;
-        align-items: start;
-        gap: 0.75rem;
         margin-top: 1rem;
-        padding: 1rem;
-        background: #fef3c7;
-        border-left: 4px solid #f59e0b;
-        border-radius: 8px;
-    }
-
-    .help-text i {
-        color: #f59e0b;
-        margin-top: 0.25rem;
+        padding: 1.25rem;
+        background: #f8f9fa;
+        border-radius: 12px;
     }
 
     .help-text-content {
@@ -211,42 +180,44 @@
     }
 
     .help-text strong {
-        color: #92400e;
+        color: var(--primary);
         display: block;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
     }
 
     .help-text p {
         margin: 0;
         font-size: 0.9375rem;
-        color: #78350f;
-        line-height: 1.6;
+        color: #4b5563;
+        line-height: 1.7;
     }
 
     .help-examples {
         display: flex;
-        gap: 1rem;
-        margin-top: 0.75rem;
+        gap: 0.75rem;
+        margin-top: 1rem;
         flex-wrap: wrap;
     }
 
     .help-example {
-        background: #fbbf24;
-        color: #78350f;
-        padding: 0.375rem 0.875rem;
-        border-radius: 6px;
+        background: var(--white);
+        color: var(--primary);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
         font-size: 0.875rem;
         font-weight: 600;
         font-family: 'Courier New', monospace;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     /* Submit Button */
     .btn-lookup {
-        background: linear-gradient(135deg, var(--primary), #2d5a8a);
+        background: var(--primary);
         border: none;
-        padding: 1.125rem 3rem;
+        padding: 1rem 2rem;
         border-radius: 12px;
-        font-size: 1.125rem;
+        font-size: 1.0625rem;
         font-weight: 700;
         color: var(--white);
         transition: all 0.3s ease;
@@ -256,12 +227,12 @@
 
     .btn-lookup:hover {
         transform: translateY(-2px);
-        box-shadow: 0 12px 32px rgba(30, 58, 95, 0.3);
-        background: linear-gradient(135deg, #2d5a8a, var(--primary));
+        box-shadow: 0 8px 24px rgba(30, 58, 95, 0.25);
+        background: #2d5a8a;
     }
 
     .btn-lookup i {
-        margin-right: 0.75rem;
+        margin-right: 0.5rem;
     }
 
     /* Info Cards */
@@ -277,7 +248,6 @@
         border-radius: 12px;
         padding: 2rem;
         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-        border-left: 4px solid var(--secondary);
         transition: all 0.3s ease;
     }
 
@@ -287,23 +257,23 @@
     }
 
     .info-card-icon {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, var(--primary), #2d5a8a);
+        width: 56px;
+        height: 56px;
+        background: var(--primary);
         border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
     }
 
     .info-card-icon i {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         color: var(--white);
     }
 
     .info-card h3 {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         font-weight: 700;
         color: var(--primary);
         margin-bottom: 0.75rem;
@@ -313,25 +283,25 @@
         color: #6b7280;
         line-height: 1.7;
         margin: 0;
+        font-size: 0.9375rem;
     }
 
     /* Responsive */
     @media (max-width: 767px) {
         .dictionary-hero {
-            padding: 6rem 0 4rem;
+            padding: 3rem 0 2rem;
         }
 
         .dictionary-hero h1 {
-            font-size: 2.25rem;
+            font-size: 2rem;
         }
 
         .dictionary-hero p {
-            font-size: 1.125rem;
+            font-size: 1rem;
         }
 
         .lookup-card {
             padding: 2rem 1.5rem;
-            margin-top: -3rem;
         }
 
         .testament-selector {
@@ -349,28 +319,19 @@
             margin-bottom: 0;
             margin-right: 1rem;
         }
-
-        .help-examples {
-            flex-direction: column;
-        }
     }
 </style>
 @endpush
 
 @section('content')
-<!-- Hero Section -->
-<section class="dictionary-hero">
+<section class="hero-section hero-reduced" style="background-image: url({{ asset('uploads/images/blog_image.jpg') }});">
     <div class="container">
-        <div class="dictionary-hero-content">
-            <div class="icon" data-aos="fade-down">
-                <i class="fas fa-book-bible"></i>
-            </div>
-            <h1 data-aos="fade-up" data-aos-duration="1000">
-                Tra Cứu Kinh Thánh
+        <div class="blog-hero-content">
+            <h1 class="hero-title text-center" data-aos="fade-up" data-aos-duration="1000">
+                {{ __t('Tra Cứu Kinh Thánh', 'Research the meaning of the Bible') }}
             </h1>
-            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                Khám phá ý nghĩa gốc của Kinh Thánh từ tiếng Do Thái (Cựu Ước) và tiếng Hy Lạp (Tân Ước).<br>
-                Hiểu đúng ngữ cảnh và ý nghĩa thần học thuần túy của Lời Chúa.
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                {{ __t('Tìm hiểu ý nghĩa gốc của Kinh Thánh từ tiếng Do Thái (Cựu Ước) và tiếng Hy Lạp (Tân Ước). Hiểu đúng ngữ cảnh và ý nghĩa thần học của Lời Chúa.', 'Discover the original meaning of the Bible from the Old Testament (Hebrew) and the New Testament (Greek). Understand the true context and theological meaning of the Lord’s Word.') }}
             </p>
         </div>
     </div>
@@ -378,9 +339,8 @@
 
 <!-- Lookup Form -->
 <div class="container">
-    <div class="lookup-card" data-aos="fade-up">
+    <div class="lookup-card" data-aos="fade-up" id="lookupCard">
         <h2 class="lookup-card-title">
-            <i class="fas fa-search me-2"></i>
             Bắt Đầu Tra Cứu
         </h2>
 
@@ -466,7 +426,6 @@
 
             <!-- Help Text -->
             <div class="help-text">
-                <i class="fas fa-info-circle"></i>
                 <div class="help-text-content">
                     <strong>Lưu ý quan trọng:</strong>
                     <p>
@@ -493,22 +452,37 @@
 
 @push('scripts')
 <script>
-    // Form validation
-    document.getElementById('lookupForm').addEventListener('submit', function(e) {
-        const reference = document.getElementById('reference').value.trim();
-        
-        if (!reference) {
-            e.preventDefault();
-            alert('Vui lòng nhập câu Kinh Thánh cần tra cứu.');
-            return false;
-        }
-        
-        // Basic format validation (will improve later)
-        if (reference.length < 3) {
-            e.preventDefault();
-            alert('Vui lòng nhập câu Kinh Thánh hợp lệ (ví dụ: Giăng 3:12-16).');
-            return false;
-        }
+    document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scroll to lookup card on page load if there's an error
+        @if($errors->has('lookup_error') || old('reference'))
+            setTimeout(function() {
+                document.getElementById('lookupCard').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }, 100);
+        @endif
+
+        // Form validation and smooth scroll on submit
+        document.getElementById('lookupForm').addEventListener('submit', function(e) {
+            const reference = document.getElementById('reference').value.trim();
+
+            if (!reference) {
+                e.preventDefault();
+                alert('Vui lòng nhập câu Kinh Thánh cần tra cứu.');
+                return false;
+            }
+
+            // Basic format validation
+            if (reference.length < 3) {
+                e.preventDefault();
+                alert('Vui lòng nhập câu Kinh Thánh hợp lệ (ví dụ: Giăng 3:12-16).');
+                return false;
+            }
+
+            // Smooth scroll to top before form submission
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     });
 </script>
 @endpush
