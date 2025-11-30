@@ -12,12 +12,13 @@
         --gray-100: #f3f4f6;
         --gray-600: #4b5563;
         --white: #ffffff;
+        --verse-number: #3b82f6;
     }
 
-    /* Result Hero */
+    /* Result Hero - Compact and Modern */
     .result-hero {
         background: linear-gradient(135deg, var(--primary) 0%, #2d5a8a 100%);
-        padding: 6rem 0 4rem;
+        padding: 4rem 0 3rem;
         margin-bottom: 3rem;
         position: relative;
         overflow: hidden;
@@ -50,21 +51,21 @@
         border-radius: 50px;
         font-size: 0.875rem;
         font-weight: 600;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         border: 2px solid rgba(255, 255, 255, 0.3);
     }
 
     .result-hero h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 900;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
         text-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
     .verse-range-display {
-        font-size: 1.125rem;
+        font-size: 1rem;
         opacity: 0.95;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .verse-count-badge {
@@ -72,9 +73,9 @@
         align-items: center;
         gap: 0.5rem;
         background: rgba(255, 255, 255, 0.15);
-        padding: 0.625rem 1.25rem;
+        padding: 0.5rem 1rem;
         border-radius: 8px;
-        font-size: 0.9375rem;
+        font-size: 0.875rem;
     }
 
     /* Breadcrumb */
@@ -105,62 +106,54 @@
         color: #6b7280;
     }
 
-    /* Content Cards */
-    .content-section {
-        margin-bottom: 2rem;
-    }
-
-    .section-card {
+    /* Modern Card Design - NO BORDERS */
+    .content-card {
         background: var(--white);
-        border-radius: 16px;
+        border-radius: 20px;
         padding: 2.5rem;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        border-left: 6px solid var(--primary);
+        box-shadow: 0 4px 24px rgba(0,0,0,0.06);
         margin-bottom: 2rem;
+        transition: all 0.3s ease;
     }
 
-    .section-card.original-text {
-        border-left-color: var(--secondary);
+    .content-card:hover {
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
     }
 
-    .section-card.exegesis {
-        border-left-color: #059669;
-    }
-
-    .section-header {
+    /* Card Header - Clean Design */
+    .card-header-custom {
         display: flex;
         align-items: center;
         gap: 1rem;
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid #e5e7eb;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 3px solid var(--gray-100);
     }
 
-    .section-icon {
-        width: 50px;
-        height: 50px;
-        background: linear-gradient(135deg, var(--primary), #2d5a8a);
-        border-radius: 12px;
+    .card-icon {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, var(--primary), #3b82f6);
+        border-radius: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
     }
 
-    .section-card.original-text .section-icon {
+    .card-icon.exegesis-icon {
         background: linear-gradient(135deg, var(--secondary), #a55a1a);
+        box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
     }
 
-    .section-card.exegesis .section-icon {
-        background: linear-gradient(135deg, #059669, #10b981);
-    }
-
-    .section-icon i {
+    .card-icon i {
         font-size: 1.5rem;
         color: var(--white);
     }
 
-    .section-title {
+    .card-title {
         font-size: 1.5rem;
         font-weight: 700;
         color: #1f2937;
@@ -168,40 +161,39 @@
         flex: 1;
     }
 
-    .language-label {
-        background: #e5e7eb;
-        color: #4b5563;
-        padding: 0.375rem 1rem;
-        border-radius: 6px;
+    .card-label {
+        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+        color: #1e40af;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
         font-size: 0.875rem;
         font-weight: 600;
     }
 
-    .section-card.original-text .language-label {
-        background: #fef3c7;
-        color: #92400e;
-    }
-
-    /* Text Content */
+    /* Vietnamese Text with Colored Verse Numbers */
     .scripture-text {
         font-size: 1.125rem;
-        line-height: 1.9;
+        line-height: 2;
         color: #1f2937;
         font-family: 'Merriweather', serif;
     }
 
-    .original-scripture-text {
-        font-size: 1.25rem;
-        line-height: 2;
-        color: #1f2937;
-        direction: ltr;
-        font-family: 'Times New Roman', serif;
-        background: #fafafa;
-        padding: 1.5rem;
-        border-radius: 12px;
-        border: 2px solid #f3f4f6;
+    /* VERSE NUMBER STYLING - Blue Gradient */
+    .verse-number {
+        display: inline-block;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: white;
+        padding: 0.125rem 0.5rem;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        margin-right: 0.5rem;
+        font-family: 'Inter', sans-serif;
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        vertical-align: baseline;
     }
 
+    /* Exegesis Content - Beautiful Typography */
     .exegesis-content {
         font-size: 1.0625rem;
         line-height: 1.9;
@@ -209,7 +201,7 @@
     }
 
     .exegesis-content p {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1.5rem;
     }
 
     .exegesis-content p:last-child {
@@ -231,66 +223,16 @@
         margin-bottom: 0.75rem;
     }
 
-    /* Action Buttons */
-    .action-buttons {
-        display: flex;
-        gap: 1rem;
-        margin-top: 3rem;
-        flex-wrap: wrap;
-    }
-
-    .btn-new-lookup {
-        background: linear-gradient(135deg, var(--primary), #2d5a8a);
-        border: none;
-        padding: 1rem 2.5rem;
-        border-radius: 12px;
-        font-size: 1.0625rem;
-        font-weight: 700;
-        color: var(--white);
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
-
-    .btn-new-lookup:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(30, 58, 95, 0.3);
-        color: var(--white);
-    }
-
-    .btn-share {
-        background: var(--white);
-        border: 2px solid var(--primary);
-        padding: 1rem 2.5rem;
-        border-radius: 12px;
-        font-size: 1.0625rem;
-        font-weight: 700;
-        color: var(--primary);
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
-
-    .btn-share:hover {
-        background: var(--primary);
-        color: var(--white);
-        transform: translateY(-2px);
-    }
-
-    /* Info Alert */
+    /* Info Alert - Soft Design */
     .info-alert {
         background: linear-gradient(135deg, #eff6ff, #dbeafe);
-        border-left: 4px solid #3b82f6;
-        border-radius: 12px;
+        border-radius: 16px;
         padding: 1.5rem;
         margin-bottom: 2rem;
         display: flex;
         align-items: start;
         gap: 1rem;
+        box-shadow: 0 2px 12px rgba(59, 130, 246, 0.1);
     }
 
     .info-alert i {
@@ -316,21 +258,72 @@
         line-height: 1.7;
     }
 
+    /* Action Buttons - Modern Design */
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-new-lookup {
+        background: linear-gradient(135deg, var(--primary), #2d5a8a);
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 12px;
+        font-size: 1.0625rem;
+        font-weight: 700;
+        color: var(--white);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        box-shadow: 0 4px 16px rgba(30, 58, 95, 0.3);
+    }
+
+    .btn-new-lookup:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(30, 58, 95, 0.4);
+        color: var(--white);
+    }
+
+    .btn-share {
+        background: var(--white);
+        border: 2px solid var(--primary);
+        padding: 1rem 2.5rem;
+        border-radius: 12px;
+        font-size: 1.0625rem;
+        font-weight: 700;
+        color: var(--primary);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .btn-share:hover {
+        background: var(--primary);
+        color: var(--white);
+        transform: translateY(-2px);
+    }
+
     /* Responsive */
     @media (max-width: 767px) {
         .result-hero {
-            padding: 5rem 0 3rem;
+            padding: 3rem 0 2rem;
         }
 
         .result-hero h1 {
-            font-size: 2rem;
+            font-size: 1.75rem;
         }
 
-        .section-card {
+        .content-card {
             padding: 1.75rem;
         }
 
-        .section-header {
+        .card-header-custom {
             flex-direction: column;
             align-items: flex-start;
         }
@@ -343,6 +336,10 @@
         .btn-share {
             width: 100%;
             justify-content: center;
+        }
+
+        .scripture-text {
+            font-size: 1rem;
         }
     }
 </style>
@@ -420,50 +417,28 @@
 
     <!-- Vietnamese Text Section -->
     <div class="content-section" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-card">
-            <div class="section-header">
-                <div class="section-icon">
-                    <i class="fas fa-language"></i>
+        <div class="content-card">
+            <div class="card-header-custom">
+                <div class="card-icon">
+                    <i class="fas fa-book-open"></i>
                 </div>
-                <h2 class="section-title">Bản Dịch Tiếng Việt</h2>
-                <span class="language-label">Kinh Thánh 1925</span>
+                <h2 class="card-title">Bản Dịch Tiếng Việt</h2>
+                <span class="card-label">Kinh Thánh 1934</span>
             </div>
-            <div class="scripture-text">
+            <div class="scripture-text" id="vietnameseText">
                 {{ $vietnameseText }}
             </div>
         </div>
     </div>
 
-    <!-- Original Text Section -->
+    <!-- Exegesis Section - Renamed to "Phân Tích Bối Cảnh" -->
     <div class="content-section" data-aos="fade-up" data-aos-delay="200">
-        <div class="section-card original-text">
-            <div class="section-header">
-                <div class="section-icon">
-                    <i class="fas fa-scroll"></i>
-                </div>
-                <h2 class="section-title">Văn Bản Nguyên Gốc</h2>
-                <span class="language-label">
-                    @if($testament === 'old')
-                        Tiếng Do Thái
-                    @else
-                        Tiếng Hy Lạp
-                    @endif
-                </span>
-            </div>
-            <div class="original-scripture-text">
-                {{ $originalText }}
-            </div>
-        </div>
-    </div>
-
-    <!-- Exegesis Section -->
-    <div class="content-section" data-aos="fade-up" data-aos-delay="300">
-        <div class="section-card exegesis">
-            <div class="section-header">
-                <div class="section-icon">
+        <div class="content-card">
+            <div class="card-header-custom">
+                <div class="card-icon exegesis-icon">
                     <i class="fas fa-book-reader"></i>
                 </div>
-                <h2 class="section-title">Giải Thích Thần Học</h2>
+                <h2 class="card-title">Phân Tích Bối Cảnh</h2>
             </div>
             <div class="exegesis-content">
                 {!! nl2br(e($exegesis)) !!}
@@ -472,7 +447,7 @@
     </div>
 
     <!-- Action Buttons -->
-    <div class="action-buttons" data-aos="fade-up" data-aos-delay="400">
+    <div class="action-buttons" data-aos="fade-up" data-aos-delay="300">
         <a href="{{ route('dictionary.index') }}" class="btn-new-lookup">
             <i class="fas fa-search"></i>
             Tra Cứu Đoạn Khác
@@ -487,6 +462,20 @@
 
 @push('scripts')
 <script>
+    // Add colored verse numbers to Vietnamese text
+    document.addEventListener('DOMContentLoaded', function() {
+        const vietnameseTextElement = document.getElementById('vietnameseText');
+        if (vietnameseTextElement) {
+            let text = vietnameseTextElement.innerHTML;
+
+            // Replace verse numbers (pattern: "12 text" -> "<span class='verse-number'>12</span> text")
+            // This regex matches: digit(s) followed by space
+            text = text.replace(/\b(\d+)\s+/g, '<span class="verse-number">$1</span> ');
+
+            vietnameseTextElement.innerHTML = text;
+        }
+    });
+
     // Share functionality
     function shareResult() {
         const url = window.location.href;

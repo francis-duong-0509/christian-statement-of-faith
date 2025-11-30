@@ -387,6 +387,34 @@
         <form action="{{ route('dictionary.lookup') }}" method="POST" id="lookupForm">
             @csrf
 
+            <!-- Error Display -->
+            @if($errors->has('lookup_error'))
+                <div class="alert alert-danger mb-4" role="alert" style="background: linear-gradient(135deg, #fee2e2, #fecaca); border-left: 4px solid #dc2626; border-radius: 12px; padding: 1.25rem;">
+                    <div style="display: flex; align-items: start; gap: 1rem;">
+                        <i class="fas fa-exclamation-triangle" style="color: #dc2626; font-size: 1.5rem; margin-top: 0.25rem;"></i>
+                        <div style="flex: 1;">
+                            <strong style="color: #991b1b; font-size: 1.125rem;">Lỗi Tra Cứu</strong>
+                            <p style="color: #7f1d1d; margin: 0.5rem 0 0 0; line-height: 1.6;">
+                                {{ $errors->first('lookup_error') }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            @if(old('reference'))
+                <div class="alert alert-info mb-4" role="alert" style="background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-left: 4px solid #3b82f6; border-radius: 12px; padding: 1.25rem;">
+                    <div style="display: flex; align-items: start; gap: 1rem;">
+                        <i class="fas fa-info-circle" style="color: #3b82f6; font-size: 1.5rem; margin-top: 0.25rem;"></i>
+                        <div style="flex: 1;">
+                            <p style="color: #1e40af; margin: 0; line-height: 1.6;">
+                                Đã giữ lại thông tin bạn nhập: <strong>{{ old('reference') }}</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
             <!-- Testament Selector -->
             <div class="mb-4">
                 <label class="form-label">
