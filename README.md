@@ -414,8 +414,7 @@ Dự án này được phát triển cho mục đích cá nhân và phi thương
 ## 📧 Liên Hệ
 
 Nếu có thắc mắc về dự án, vui lòng liên hệ qua:
-- Email: [your-email@example.com]
-- GitHub Issues: [repository-url]/issues
+- Email: [duonganhhao4751@gmail.com]
 
 ---
 
