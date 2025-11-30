@@ -15,67 +15,48 @@
         --verse-number: #3b82f6;
     }
 
-    /* Result Hero - Compact and Modern */
+    /* Result Hero - Compact */
     .result-hero {
-        background: linear-gradient(135deg, var(--primary) 0%, #2d5a8a 100%);
-        padding: 4rem 0 3rem;
-        margin-bottom: 3rem;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .result-hero::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -20%;
-        width: 600px;
-        height: 600px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 50%;
+        background: var(--primary);
+        padding: 2.5rem 0;
+        margin-bottom: 2.5rem;
     }
 
     .result-hero-content {
-        position: relative;
-        z-index: 2;
         color: var(--white);
     }
 
     .testament-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(10px);
-        padding: 0.5rem 1.25rem;
-        border-radius: 50px;
-        font-size: 0.875rem;
-        font-weight: 600;
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0.375rem 0.875rem;
+        border-radius: 6px;
+        font-size: 0.8125rem;
+        font-weight: 500;
         margin-bottom: 1rem;
-        border: 2px solid rgba(255, 255, 255, 0.3);
     }
 
     .result-hero h1 {
-        font-size: 2.5rem;
-        font-weight: 900;
+        font-size: 2rem;
+        font-weight: 700;
         margin-bottom: 0.75rem;
-        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        line-height: 1.3;
     }
 
-    .verse-range-display {
-        font-size: 1rem;
-        opacity: 0.95;
-        margin-bottom: 1rem;
+    .verse-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        font-size: 0.9375rem;
+        opacity: 0.9;
+        flex-wrap: wrap;
     }
 
+    .verse-range-display,
     .verse-count-badge {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         gap: 0.5rem;
-        background: rgba(255, 255, 255, 0.15);
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        font-size: 0.875rem;
     }
 
     /* Breadcrumb */
@@ -200,27 +181,188 @@
         color: #374151;
     }
 
-    .exegesis-content p {
-        margin-bottom: 1.5rem;
+    /* Section Headers in Exegesis */
+    .exegesis-section {
+        margin-bottom: 3rem;
     }
 
-    .exegesis-content p:last-child {
+    .exegesis-section:last-child {
         margin-bottom: 0;
     }
 
+    .exegesis-section-header {
+        margin-bottom: 1.75rem;
+    }
+
+    .exegesis-section-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin: 0 0 0.5rem 0;
+        font-family: 'Merriweather', serif;
+        position: relative;
+        display: inline-block;
+    }
+
+    .exegesis-section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 2px;
+    }
+
+    .exegesis-section-content {
+        padding-left: 0;
+    }
+
+    /* Bullet Points - Term Definitions */
+    .exegesis-bullet {
+        margin-bottom: 1.5rem;
+        padding-left: 0;
+    }
+
+    .exegesis-bullet-term {
+        font-weight: 700;
+        color: var(--secondary);
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+        font-family: 'Merriweather', serif;
+    }
+
+    .exegesis-bullet-text {
+        color: #374151;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+    }
+
+    .exegesis-bullet-text strong {
+        font-weight: 700;
+        color: var(--primary);
+    }
+
+    /* Numbered Lists - Theological Points */
+    .exegesis-numbered {
+        counter-reset: exegesis-counter;
+        list-style: none;
+        padding-left: 0;
+        margin-top: 1.5rem;
+    }
+
+    .exegesis-numbered-item {
+        counter-increment: exegesis-counter;
+        margin-bottom: 2rem;
+        position: relative;
+        padding-left: 4rem;
+    }
+
+    .exegesis-numbered-item::before {
+        content: counter(exegesis-counter);
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: var(--primary);
+        color: white;
+        border-radius: 12px;
+        font-weight: 800;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+        box-shadow: 0 4px 16px rgba(30, 58, 95, 0.2);
+    }
+
+    .exegesis-numbered-title {
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+        font-family: 'Merriweather', serif;
+    }
+
+    .exegesis-numbered-text {
+        color: #4b5563;
+        line-height: 1.9;
+    }
+
+    /* Paragraph Text */
+    .exegesis-paragraph {
+        color: #4b5563;
+        line-height: 1.9;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Conclusion Section */
+    .exegesis-conclusion {
+        background: #f8f9fa;
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin-top: 3rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .exegesis-conclusion::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        background: linear-gradient(180deg, var(--primary), var(--secondary));
+    }
+
+    .exegesis-conclusion-header {
+        margin-bottom: 1.25rem;
+    }
+
+    .exegesis-conclusion-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin: 0;
+        font-family: 'Merriweather', serif;
+    }
+
+    .exegesis-conclusion-text {
+        color: #374151;
+        line-height: 1.9;
+        font-size: 1.0625rem;
+        margin: 0;
+    }
+
+    /* Strong/Bold Text */
     .exegesis-content strong {
         color: var(--primary);
         font-weight: 700;
     }
 
-    .exegesis-content ul,
-    .exegesis-content ol {
-        margin: 1.25rem 0;
-        padding-left: 1.75rem;
-    }
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+        .exegesis-section-title {
+            font-size: 1.25rem;
+        }
 
-    .exegesis-content li {
-        margin-bottom: 0.75rem;
+        .exegesis-numbered-item {
+            padding-left: 3.5rem;
+        }
+
+        .exegesis-numbered-item::before {
+            width: 40px;
+            height: 40px;
+            font-size: 1.125rem;
+        }
+
+        .exegesis-conclusion {
+            padding: 2rem 1.75rem 2rem 2rem;
+        }
     }
 
     /* Info Alert - Soft Design */
@@ -312,11 +454,16 @@
     /* Responsive */
     @media (max-width: 767px) {
         .result-hero {
-            padding: 3rem 0 2rem;
+            padding: 2rem 0;
         }
 
         .result-hero h1 {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
+        }
+
+        .verse-meta {
+            font-size: 0.875rem;
+            gap: 1rem;
         }
 
         .content-card {
@@ -341,30 +488,36 @@
         .scripture-text {
             font-size: 1rem;
         }
+
+        .exegesis-section-title {
+            font-size: 1.25rem;
+        }
+
+        .exegesis-numbered-item {
+            padding-left: 3.5rem;
+        }
+
+        .exegesis-numbered-item::before {
+            width: 40px;
+            height: 40px;
+            font-size: 1.125rem;
+        }
+
+        .exegesis-conclusion {
+            padding: 2rem 1.75rem 2rem 2rem;
+        }
     }
 </style>
 @endpush
 
 @section('content')
-<!-- Breadcrumb -->
-<div class="dictionary-breadcrumb">
-    <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="{{ route('home') }}">
-                        <i class="fas fa-home me-1"></i>Trang Chủ
-                    </a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="{{ route('dictionary.index') }}">
-                        <i class="fas fa-book-bible me-1"></i>Tra Cứu Kinh Thánh
-                    </a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $reference }}</li>
-            </ol>
-        </nav>
-    </div>
+
+<div class="container my-3">
+    <x-breadcrumb :items="[
+        ['url' => route('home'), 'label' => __t('Trang Chủ', 'Home')],
+        ['label' => __t('Tuyên Bố Đức Tin', 'Statement of Faith')],
+        ['label' => $reference]
+    ]" />
 </div>
 
 <!-- Result Hero -->
@@ -373,24 +526,18 @@
         <div class="result-hero-content" data-aos="fade-up">
             <div class="testament-badge">
                 @if($testament === 'old')
-                    <i class="fas fa-scroll"></i>
-                    <span>Cựu Ước - Tiếng Do Thái</span>
+                    Cựu Ước
                 @else
-                    <i class="fas fa-cross"></i>
-                    <span>Tân Ước - Tiếng Hy Lạp</span>
+                    Tân Ước
                 @endif
             </div>
+            <h1 class="text-white">{{ $reference }}</h1>
 
-            <h1>{{ $reference }}</h1>
-
-            <div class="verse-range-display">
-                <i class="fas fa-book-open me-2"></i>
-                {{ $book }} {{ $chapter }}:{{ $verseStart }}-{{ $verseEnd }}
-            </div>
-
-            <div class="verse-count-badge">
-                <i class="fas fa-list-ol"></i>
-                <span>{{ $verseCount }} câu Kinh Thánh</span>
+            <div class="verse-meta">
+                <div class="verse-count-badge">
+                    <i class="fas fa-list-ol"></i>
+                    <span class="text-white">{{ $verseCount }} câu</span>
+                </div>
             </div>
         </div>
     </div>
@@ -398,23 +545,6 @@
 
 <!-- Main Content -->
 <div class="container">
-    <!-- Info Alert -->
-    <div class="info-alert" data-aos="fade-up">
-        <i class="fas fa-lightbulb"></i>
-        <div class="info-alert-content">
-            <h4>Giải Thích Từ Ngôn Ngữ Gốc</h4>
-            <p>
-                Phần giải thích dưới đây dựa trên văn bản nguyên gốc
-                @if($testament === 'old')
-                    <strong>tiếng Do Thái</strong> của Cựu Ước,
-                @else
-                    <strong>tiếng Hy Lạp</strong> của Tân Ước,
-                @endif
-                nhằm truyền đạt ý nghĩa thuần túy nhất của Lời Chúa trong ngữ cảnh thần học và lịch sử.
-            </p>
-        </div>
-    </div>
-
     <!-- Vietnamese Text Section -->
     <div class="content-section" data-aos="fade-up" data-aos-delay="100">
         <div class="content-card">
@@ -423,7 +553,7 @@
                     <i class="fas fa-book-open"></i>
                 </div>
                 <h2 class="card-title">Bản Dịch Tiếng Việt</h2>
-                <span class="card-label">Kinh Thánh 1934</span>
+                <span class="card-label" style="color: #1E3A5F;">Kinh Thánh 1934</span>
             </div>
             <div class="scripture-text" id="vietnameseText">
                 {{ $vietnameseText }}
@@ -474,7 +604,162 @@
 
             vietnameseTextElement.innerHTML = text;
         }
+
+        // Format exegesis content beautifully
+        formatExegesis();
     });
+
+    // Format exegesis with sections, bullets, and numbered lists
+    function formatExegesis() {
+        const exegesis = document.querySelector('.exegesis-content');
+        if (!exegesis) return;
+
+        // Get the raw text content
+        let text = exegesis.textContent;
+
+        // Split by line breaks
+        const lines = text.split('\n');
+        let html = '';
+        let currentSection = null;
+        let currentSectionContent = '';
+        let inNumberedList = false;
+        let numberedItems = [];
+
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+
+            if (!line) continue;
+
+            // Check if this is a section header (starts with **)
+            if (line.startsWith('**') && line.endsWith('**')) {
+                // Close any open numbered list
+                if (inNumberedList) {
+                    currentSectionContent += formatNumberedList(numberedItems);
+                    numberedItems = [];
+                    inNumberedList = false;
+                }
+
+                // Close previous section if exists
+                if (currentSection) {
+                    currentSectionContent += '</div></div>';
+                    html += currentSectionContent;
+                }
+
+                // Extract section title
+                const title = line.replace(/\*\*/g, '');
+
+                // Check if this is the conclusion
+                if (title === 'Kết Luận') {
+                    currentSection = 'conclusion';
+                    currentSectionContent = `
+                        <div class="exegesis-conclusion">
+                            <div class="exegesis-conclusion-header">
+                                <h3 class="exegesis-conclusion-title">${title}</h3>
+                            </div>
+                            <div class="exegesis-conclusion-content">
+                    `;
+                } else {
+                    currentSection = 'regular';
+                    currentSectionContent = `
+                        <div class="exegesis-section">
+                            <div class="exegesis-section-header">
+                                <h3 class="exegesis-section-title">${title}</h3>
+                            </div>
+                            <div class="exegesis-section-content">
+                    `;
+                }
+            }
+            // Check if this is a bullet point (starts with •)
+            else if (line.startsWith('•')) {
+                const bulletContent = line.substring(1).trim();
+
+                // Check if it has a term definition (contains **)
+                const termMatch = bulletContent.match(/\*\*"?([^"*]+)"?\*\*\s*(\([^)]+\))?:\s*(.+)/);
+                if (termMatch) {
+                    const term = termMatch[1];
+                    const transliteration = termMatch[2] || '';
+                    let definition = termMatch[3];
+
+                    // Convert **text** to <strong>text</strong> in the definition
+                    definition = definition.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+
+                    currentSectionContent += `
+                        <div class="exegesis-bullet">
+                            <div class="exegesis-bullet-term">"${term}" ${transliteration}</div>
+                            <div class="exegesis-bullet-text">${definition}</div>
+                        </div>
+                    `;
+                } else {
+                    currentSectionContent += `<p class="exegesis-paragraph">${bulletContent}</p>`;
+                }
+            }
+            // Check if this is a numbered list item (starts with digit.)
+            else if (/^\d+\.\s/.test(line)) {
+                inNumberedList = true;
+
+                // Extract number, title, and content
+                const match = line.match(/^(\d+)\.\s+\*\*([^*]+)\*\*:\s*(.+)/);
+                if (match) {
+                    numberedItems.push({
+                        title: match[2],
+                        content: match[3]
+                    });
+                } else {
+                    // Just a regular numbered item without bold title
+                    const simpleMatch = line.match(/^\d+\.\s+(.+)/);
+                    if (simpleMatch) {
+                        numberedItems.push({
+                            title: '',
+                            content: simpleMatch[1]
+                        });
+                    }
+                }
+            }
+            // Regular paragraph
+            else {
+                // Close numbered list if open
+                if (inNumberedList) {
+                    currentSectionContent += formatNumberedList(numberedItems);
+                    numberedItems = [];
+                    inNumberedList = false;
+                }
+
+                // Handle bold text within paragraphs
+                const formattedLine = line.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+                currentSectionContent += `<p class="exegesis-paragraph">${formattedLine}</p>`;
+            }
+        }
+
+        // Close any remaining numbered list
+        if (inNumberedList) {
+            currentSectionContent += formatNumberedList(numberedItems);
+        }
+
+        // Close final section
+        if (currentSection) {
+            currentSectionContent += '</div></div>';
+            html += currentSectionContent;
+        }
+
+        // Update the exegesis content
+        exegesis.innerHTML = html;
+    }
+
+    function formatNumberedList(items) {
+        if (items.length === 0) return '';
+
+        let html = '<div class="exegesis-numbered">';
+        items.forEach(item => {
+            html += `
+                <div class="exegesis-numbered-item">
+                    ${item.title ? `<div class="exegesis-numbered-title">${item.title}</div>` : ''}
+                    <div class="exegesis-numbered-text">${item.content}</div>
+                </div>
+            `;
+        });
+        html += '</div>';
+        return html;
+    }
 
     // Share functionality
     function shareResult() {
