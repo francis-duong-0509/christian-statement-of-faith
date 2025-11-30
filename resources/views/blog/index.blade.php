@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __t('Bài Viết - Thần Học Cơ Đốc', 'Blog - Christian Statement of Faith'))
-@section('meta_description', __t('Bài Viết - Thần Học Cơ Đốc', 'Explore articles about faith, theology, and Christian living.'))
+@section('title', __t('Lời Lẽ Thật - Thần Học Cơ Đốc', 'Word of Truth - Christian Statement of Faith'))
+@section('meta_description', __t('Lời Lẽ Thật - Thần Học Cơ Đốc', 'Explore articles about faith, theology, and Christian living.'))
 
 @push('styles')
 <style>
@@ -496,7 +496,7 @@
         <div class="container">
             <div class="blog-hero-content">
                 <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
-                    {{ __t('Bài Viết', 'Blog') }}
+                    {{ __t('Lời Lẽ Thật', 'Word of Truth') }}
                 </h1>
                 <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                     {{ __t('Khám phá các bài viết về đức tin, thần học và đời sống Cơ Đốc', 'Explore articles about faith, theology, and Christian living') }}

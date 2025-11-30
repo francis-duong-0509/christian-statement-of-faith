@@ -5,10 +5,10 @@
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto">
                     <h2 class="section-title" data-aos="fade-up">
-                        {{ __t('Lời Sống và Linh Nghiệm', 'Living and Effective Words') }}
+                        {{ __t('Thần Học và Linh Nghiệm', 'Scripture and Faith') }}
                     </h2>
                     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        {{ __t('Lời sống và linh nghiệm từ những người đã trải qua và sống qua những trải nghiệm của họ', 'Living and effective words from people who have lived and experienced their experiences') }}
+                        {{ __t('Thần Học và Linh Nghiệm từ những người đã trải qua và sống qua những trải nghiệm thuộc linh và bước đi theo Chúa', 'Scripture and faith from people who have lived and experienced their experiences') }}
                     </p>
                 </div>
             </div>
