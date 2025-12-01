@@ -119,7 +119,8 @@ class BlogPost extends Model
     // ==========================================================
 
     /**
-     * Get the featured image URL with storage prefix
+     * Get the featured image URL for use with asset()
+     * Returns path like: uploads/blog/post/filename.jpg
      */
     public function getFeaturedImageUrlAttribute(): ?string
     {
@@ -129,17 +130,18 @@ class BlogPost extends Model
 
         $value = $this->attributes['featured_image'];
 
-        // If already has storage/ prefix, return as-is
-        if (str_starts_with($value, 'storage/')) {
+        // If already has uploads/ prefix, return as-is
+        if (str_starts_with($value, 'uploads/')) {
             return $value;
         }
 
-        // Otherwise prepend storage/
-        return 'storage/' . $value;
+        // Otherwise prepend uploads/
+        return 'uploads/' . $value;
     }
 
     /**
-     * Get the OG image URL with storage prefix
+     * Get the OG image URL for use with asset()
+     * Returns path like: uploads/blog/post/filename.jpg
      */
     public function getOgImageUrlAttribute(): ?string
     {
@@ -149,13 +151,13 @@ class BlogPost extends Model
 
         $value = $this->attributes['og_image'];
 
-        // If already has storage/ prefix, return as-is
-        if (str_starts_with($value, 'storage/')) {
+        // If already has uploads/ prefix, return as-is
+        if (str_starts_with($value, 'uploads/')) {
             return $value;
         }
 
-        // Otherwise prepend storage/
-        return 'storage/' . $value;
+        // Otherwise prepend uploads/
+        return 'uploads/' . $value;
     }
 
     public function getFormattedDateAttribute(): string

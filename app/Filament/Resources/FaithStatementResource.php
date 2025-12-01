@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class FaithStatementResource extends Resource
@@ -222,7 +223,7 @@ class FaithStatementResource extends Resource
                         Forms\Components\FileUpload::make('image')
                             ->label('Banner Image')
                             ->disk('public_uploads')
-                            ->directory('uploads/statement_of_faith')
+                            ->directory('faith/statement')
                             ->image()
                             ->imageEditor()
                             ->imageEditorAspectRatios([
@@ -238,6 +239,11 @@ class FaithStatementResource extends Resource
                             ->removeUploadedFileButtonPosition('right')
                             ->uploadButtonPosition('left')
                             ->uploadProgressIndicatorPosition('left')
+                            ->deleteUploadedFileUsing(function ($file) {
+                                if ($file) {
+                                    Storage::disk('public_uploads')->delete($file);
+                                }
+                            })
                             ->columnSpanFull(),
                     ])
                     ->collapsible()
@@ -295,7 +301,7 @@ class FaithStatementResource extends Resource
 
                 Tables\Columns\ImageColumn::make('image')
                     ->label('Banner')
-                    ->getStateUsing(fn ($record) => $record->image ? asset($record->image) : null)
+                    ->disk('public_uploads')
                     ->height(50)
                     ->width(100),
 

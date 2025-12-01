@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
@@ -157,7 +158,7 @@ class FaithCategoryResource extends Resource
                         Forms\Components\FileUpload::make('banner_image')
                             ->label('Banner Image')
                             ->disk('public_uploads')
-                            ->directory('uploads')
+                            ->directory('faith/category')
                             ->image()
                             ->imageEditor()
                             ->imageEditorAspectRatios([
@@ -173,6 +174,11 @@ class FaithCategoryResource extends Resource
                             ->removeUploadedFileButtonPosition('right')
                             ->uploadButtonPosition('left')
                             ->uploadProgressIndicatorPosition('left')
+                            ->deleteUploadedFileUsing(function ($file) {
+                                if ($file) {
+                                    Storage::disk('public_uploads')->delete($file);
+                                }
+                            })
                             ->columnSpanFull(),
                     ])
                     ->collapsible()
@@ -223,7 +229,7 @@ class FaithCategoryResource extends Resource
 
                 Tables\Columns\ImageColumn::make('banner_image')
                     ->label('Banner')
-                    ->getStateUsing(fn($record) => $record->banner_image ? asset($record->banner_image) : null)
+                    ->disk('public_uploads')
                     ->height(50)
                     ->width(100),
 

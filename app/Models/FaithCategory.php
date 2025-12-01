@@ -87,4 +87,25 @@ class FaithCategory extends Model
         $references = $this->scripture_references;
         return !empty($references) && is_array($references);
     }
+
+    /**
+     * Get the banner image URL for use with asset()
+     * Returns path like: uploads/faith/category/filename.jpg
+     */
+    public function getBannerImageUrlAttribute(): ?string
+    {
+        if (!$this->attributes['banner_image'] ?? null) {
+            return null;
+        }
+
+        $value = $this->attributes['banner_image'];
+
+        // If already has uploads/ prefix, return as-is
+        if (str_starts_with($value, 'uploads/')) {
+            return $value;
+        }
+
+        // Otherwise prepend uploads/
+        return 'uploads/' . $value;
+    }
 }

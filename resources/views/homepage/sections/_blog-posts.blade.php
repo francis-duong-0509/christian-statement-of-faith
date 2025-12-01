@@ -16,7 +16,7 @@
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ 100 * ($index + 1) }}">
                         <article class="blog-card h-100 d-flex flex-column">
                             <div class="blog-image">
-                                <img src="{{ $post->featured_image ?? 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=600&h=400&fit=crop' }}"
+                                <img src="{{ $post->featured_image ? asset($post->featured_image_url) : 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=600&h=400&fit=crop' }}"
                                      alt="{{ $post->title }}" loading="lazy">
                                 @if($post->category)
                                     <span class="blog-category">{{ $post->category->name ?? '' }}</span>
