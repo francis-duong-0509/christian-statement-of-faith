@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <!-- Gradient nền modern - xanh navy đậm -->
+    <linearGradient id="modernBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A2E"/>
+      <stop offset="50%" style="stop-color:#16213E"/>
+      <stop offset="100%" style="stop-color:#0F0F1A"/>
+    </linearGradient>
+    
+    <!-- Gradient accent - teal/cyan modern -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0D7377"/>
+      <stop offset="50%" style="stop-color:#14A3A8"/>
+      <stop offset="100%" style="stop-color:#0D7377"/>
+    </linearGradient>
+    
+    <!-- Gradient cho banner - slate modern -->
+    <linearGradient id="bannerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#334155"/>
+      <stop offset="50%" style="stop-color:#1E293B"/>
+      <stop offset="100%" style="stop-color:#0F172A"/>
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Subtle shadow -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- Line glow -->
+    <filter id="lineGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#modernBg)"/>
+  
+  <!-- Subtle grid pattern -->
+  <g stroke="#ffffff" stroke-width="0.5" opacity="0.03">
+    <line x1="0" y1="0" x2="0" y2="675"/>
+    <line x1="100" y1="0" x2="100" y2="675"/>
+    <line x1="200" y1="0" x2="200" y2="675"/>
+    <line x1="300" y1="0" x2="300" y2="675"/>
+    <line x1="400" y1="0" x2="400" y2="675"/>
+    <line x1="500" y1="0" x2="500" y2="675"/>
+    <line x1="600" y1="0" x2="600" y2="675"/>
+    <line x1="700" y1="0" x2="700" y2="675"/>
+    <line x1="800" y1="0" x2="800" y2="675"/>
+    <line x1="900" y1="0" x2="900" y2="675"/>
+    <line x1="1000" y1="0" x2="1000" y2="675"/>
+    <line x1="1100" y1="0" x2="1100" y2="675"/>
+    <line x1="1200" y1="0" x2="1200" y2="675"/>
+  </g>
+  
+  <!-- Khung viền modern - clean lines -->
+  <rect x="40" y="40" width="1120" height="595" fill="none" stroke="#14A3A8" stroke-width="1" opacity="0.4"/>
+  <rect x="50" y="50" width="1100" height="575" fill="none" stroke="#14A3A8" stroke-width="0.5" opacity="0.2"/>
+  
+  <!-- Corner accents - modern geometric -->
+  <g stroke="#14A3A8" stroke-width="2" fill="none" opacity="0.7">
+    <!-- Top Left -->
+    <path d="M40,80 L40,40 L80,40"/>
+    <circle cx="40" cy="40" r="3" fill="#14A3A8"/>
+    
+    <!-- Top Right -->
+    <path d="M1120,40 L1160,40 L1160,80"/>
+    <circle cx="1160" cy="40" r="3" fill="#14A3A8"/>
+    
+    <!-- Bottom Left -->
+    <path d="M40,595 L40,635 L80,635"/>
+    <circle cx="40" cy="635" r="3" fill="#14A3A8"/>
+    
+    <!-- Bottom Right -->
+    <path d="M1160,595 L1160,635 L1120,635"/>
+    <circle cx="1160" cy="635" r="3" fill="#14A3A8"/>
+  </g>
+  
+  <!-- Banner modern - rộng hơn -->
+  <g filter="url(#softShadow)">
+    <rect x="300" y="75" width="600" height="50" fill="url(#bannerGradient)" rx="2"/>
+    <rect x="300" y="75" width="600" height="1" fill="#14A3A8" opacity="0.5"/>
+  </g>
+  
+  <!-- Text trên banner -->
+  <text x="600" y="108" 
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" 
+        font-size="16" 
+        fill="#94A3B8"
+        text-anchor="middle"
+        letter-spacing="4"
+        font-weight="400">
+    KHÔNG CÓ GÌ ĐẸP BẰNG TÌNH YÊU ĐỨC CHÚA TRỜI
+  </text>
+  
+  <!-- Icon modern - người và mũi tên đi ra -->
+  <g transform="translate(600, 250)" filter="url(#glow)">
+    <!-- Circle chính -->
+    <circle cx="0" cy="0" r="60" fill="none" stroke="#14A3A8" stroke-width="2" opacity="0.6"/>
+    <circle cx="0" cy="0" r="45" fill="none" stroke="#14A3A8" stroke-width="1" opacity="0.3"/>
+    
+    <!-- Người ở giữa (simplified) -->
+    <circle cx="0" cy="-15" r="12" fill="none" stroke="#E2E8F0" stroke-width="2"/>
+    <path d="M0,0 L0,25 M-15,35 L0,20 L15,35 M-12,8 L12,8" fill="none" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Arrows đi ra - môn đồ hóa -->
+    <g stroke="#14A3A8" stroke-width="1.5" fill="none" opacity="0.8">
+      <path d="M70,0 L90,0 M85,-5 L90,0 L85,5"/>
+      <path d="M-70,0 L-90,0 M-85,-5 L-90,0 L-85,5"/>
+      <path d="M50,50 L65,65 M60,58 L65,65 L58,60"/>
+      <path d="M-50,50 L-65,65 M-60,58 L-65,65 L-58,60"/>
+      <path d="M50,-50 L65,-65 M60,-58 L65,-65 L58,-60"/>
+      <path d="M-50,-50 L-65,-65 M-60,-58 L-65,-65 L-58,-60"/>
+    </g>
+  </g>
+  
+  <!-- Title chính: THẦN HỌC -->
+  <text x="600" y="420" 
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" 
+        font-size="85" 
+        fill="#E2E8F0"
+        text-anchor="middle"
+        letter-spacing="15"
+        font-weight="300">
+    THẦN HỌC
+  </text>
+  
+  <!-- Decorative line - modern -->
+  <g transform="translate(600, 445)" filter="url(#lineGlow)">
+    <line x1="-180" y1="0" x2="-20" y2="0" stroke="#14A3A8" stroke-width="1"/>
+    <rect x="-8" y="-8" width="16" height="16" fill="none" stroke="#14A3A8" stroke-width="1" transform="rotate(45)"/>
+    <line x1="20" y1="0" x2="180" y2="0" stroke="#14A3A8" stroke-width="1"/>
+  </g>
+  
+  <!-- Subtitle: BƯỚC ĐI TRONG LẼ THẬT -->
+  <text x="600" y="510" 
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" 
+        font-size="55" 
+        fill="#14A3A8"
+        text-anchor="middle"
+        letter-spacing="12"
+        font-weight="600">
+    BƯỚC ĐI TRONG LẼ THẬT
+  </text>
+  
+  <!-- Side accents - vertical lines -->
+  <g stroke="#14A3A8" stroke-width="1" opacity="0.3">
+    <line x1="100" y1="200" x2="100" y2="475"/>
+    <line x1="105" y1="250" x2="105" y2="425"/>
+    <line x1="1100" y1="200" x2="1100" y2="475"/>
+    <line x1="1095" y1="250" x2="1095" y2="425"/>
+  </g>
+  
+  <!-- Dots decoration -->
+  <g fill="#14A3A8" opacity="0.4">
+    <circle cx="100" cy="200" r="3"/>
+    <circle cx="100" cy="475" r="3"/>
+    <circle cx="1100" cy="200" r="3"/>
+    <circle cx="1100" cy="475" r="3"/>
+  </g>
+  
+  <!-- Scripture reference -->
+  <text x="600" y="590" 
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" 
+        font-size="13" 
+        fill="#64748B"
+        text-anchor="middle"
+        letter-spacing="1">
+    "Vậy, hãy đi dạy dỗ muôn dân, hãy nhân danh Đức Cha, Đức Con, và Đức Thánh Linh
+  </text>
+  <text x="600" y="610" 
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" 
+        font-size="13" 
+        fill="#64748B"
+        text-anchor="middle"
+        letter-spacing="1">
+    mà làm phép báp-tem cho họ" — Ma-thi-ơ 28:19
+  </text>
+  
+  <!-- Subtle corner glow -->
+  <radialGradient id="cornerGlow" cx="0%" cy="0%" r="100%">
+    <stop offset="0%" style="stop-color:#14A3A8;stop-opacity:0.1"/>
+    <stop offset="100%" style="stop-color:#14A3A8;stop-opacity:0"/>
+  </radialGradient>
+  <rect x="0" y="0" width="300" height="300" fill="url(#cornerGlow)"/>
+  <rect x="900" y="375" width="300" height="300" fill="url(#cornerGlow)"/>
+</svg>
