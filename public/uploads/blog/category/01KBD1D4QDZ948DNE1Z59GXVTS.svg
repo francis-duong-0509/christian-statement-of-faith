@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <!-- Gradient cho phần THẬT (ánh sáng, vàng kim sáng hơn) -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFEF5"/>
+      <stop offset="30%" style="stop-color:#FFE082"/>
+      <stop offset="60%" style="stop-color:#FFD54F"/>
+      <stop offset="100%" style="stop-color:#FFC107"/>
+    </linearGradient>
+    
+    <!-- Gradient cho phần GIẢ (xám nhạt hơn, dễ nhìn) -->
+    <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#78909C"/>
+      <stop offset="50%" style="stop-color:#607D8B"/>
+      <stop offset="100%" style="stop-color:#546E7A"/>
+    </linearGradient>
+    
+    <!-- Radial glow cho phần sáng -->
+    <radialGradient id="lightGlow" cx="30%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0"/>
+    </radialGradient>
+    
+    <!-- Shadow filter nhẹ hơn -->
+    <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#37474F" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Glow filter cho chữ THẬT -->
+    <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Clip path cho diagonal split -->
+    <clipPath id="leftClip">
+      <polygon points="0,0 650,0 550,675 0,675"/>
+    </clipPath>
+    
+    <clipPath id="rightClip">
+      <polygon points="650,0 1200,0 1200,675 550,675"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Background sáng -->
+  <rect width="1200" height="675" fill="#F5F5F5"/>
+  
+  <!-- Phần bên trái - THẬT (Ánh sáng) -->
+  <g clip-path="url(#leftClip)">
+    <rect width="1200" height="675" fill="url(#goldGradient)"/>
+    <rect width="1200" height="675" fill="url(#lightGlow)"/>
+    
+    <!-- Rays of light -->
+    <g opacity="0.4">
+      <polygon points="0,0 200,0 400,675 0,675" fill="#FFFFFF"/>
+      <polygon points="100,0 250,0 450,675 300,675" fill="#FFFFFF" opacity="0.6"/>
+      <polygon points="200,0 300,0 500,675 400,675" fill="#FFFFFF" opacity="0.4"/>
+    </g>
+    
+    <!-- Cross symbol (subtle) -->
+    <g transform="translate(180, 280)" opacity="0.2">
+      <rect x="45" y="0" width="30" height="150" fill="#A1887F"/>
+      <rect x="0" y="35" width="120" height="25" fill="#A1887F"/>
+    </g>
+  </g>
+  
+  <!-- Phần bên phải - GIẢ (Xám nhạt hơn) -->
+  <g clip-path="url(#rightClip)">
+    <rect width="1200" height="675" fill="url(#darkGradient)"/>
+    
+    <!-- Subtle patterns -->
+    <g opacity="0.15">
+      <circle cx="900" cy="200" r="150" fill="#455A64"/>
+      <circle cx="1000" cy="400" r="100" fill="#455A64"/>
+      <circle cx="800" cy="500" r="120" fill="#455A64"/>
+    </g>
+    
+    <!-- Cracks/broken lines -->
+    <g stroke="#90A4AE" stroke-width="1.5" fill="none" opacity="0.5">
+      <path d="M700,100 L750,200 L720,300 L780,400"/>
+      <path d="M900,0 L880,150 L920,250 L870,400"/>
+      <path d="M1100,200 L1050,350 L1100,500"/>
+    </g>
+    
+    <!-- Mask symbol (subtle) -->
+    <g transform="translate(920, 260)" opacity="0.2">
+      <ellipse cx="60" cy="60" rx="55" ry="70" fill="none" stroke="#B0BEC5" stroke-width="3"/>
+      <ellipse cx="35" cy="45" rx="15" ry="10" fill="#B0BEC5"/>
+      <ellipse cx="85" cy="45" rx="15" ry="10" fill="#B0BEC5"/>
+      <path d="M40,90 Q60,110 80,90" fill="none" stroke="#B0BEC5" stroke-width="3"/>
+    </g>
+  </g>
+  
+  <!-- Đường phân chia diagonal với hiệu ứng -->
+  <g>
+    <!-- Glow effect on divider -->
+    <line x1="650" y1="0" x2="550" y2="675" stroke="#FFC107" stroke-width="12" opacity="0.3"/>
+    <line x1="650" y1="0" x2="550" y2="675" stroke="#FFFFFF" stroke-width="4" opacity="0.9"/>
+    <line x1="650" y1="0" x2="550" y2="675" stroke="#FFD54F" stroke-width="2"/>
+  </g>
+  
+  <!-- Typography: THẬT -->
+  <g filter="url(#goldGlow)">
+    <text x="150" y="380" 
+          font-family="'Playfair Display', Georgia, serif" 
+          font-size="140" 
+          font-weight="900"
+          fill="#6D4C41"
+          letter-spacing="15">
+      THẬT
+    </text>
+    <text x="152" y="378" 
+          font-family="'Playfair Display', Georgia, serif" 
+          font-size="140" 
+          font-weight="900"
+          fill="#FFF8E1"
+          letter-spacing="15">
+      THẬT
+    </text>
+  </g>
+  
+  <!-- Typography: GIẢ -->
+  <g filter="url(#textShadow)">
+    <text x="720" y="380" 
+          font-family="'Playfair Display', Georgia, serif" 
+          font-size="140" 
+          font-weight="900"
+          fill="#37474F"
+          letter-spacing="15">
+      GIẢ
+    </text>
+    <text x="722" y="378" 
+          font-family="'Playfair Display', Georgia, serif" 
+          font-size="140" 
+          font-weight="900"
+          fill="#ECEFF1"
+          letter-spacing="15">
+      GIẢ
+    </text>
+  </g>
+  
+  <!-- Subtitle -->
+  <text x="600" y="520" 
+        font-family="'Cormorant Garamond', Georgia, serif" 
+        font-size="24" 
+        fill="#455A64"
+        text-anchor="middle"
+        letter-spacing="8"
+        font-weight="600">
+    TRONG ĐỜI SỐNG CƠ ĐỐC NHÂN
+  </text>
+  
+  <!-- Decorative elements -->
+  <!-- Left ornament -->
+  <g transform="translate(280, 480)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#A1887F" stroke-width="2"/>
+    <circle cx="90" cy="0" r="5" fill="#FFB300"/>
+  </g>
+  
+  <!-- Right ornament -->
+  <g transform="translate(820, 480)">
+    <circle cx="0" cy="0" r="5" fill="#90A4AE"/>
+    <line x1="10" y1="0" x2="90" y2="0" stroke="#90A4AE" stroke-width="2"/>
+  </g>
+  
+  <!-- Scripture reference -->
+  <text x="600" y="620" 
+        font-family="'Cormorant Garamond', Georgia, serif" 
+        font-size="16" 
+        fill="#5D4037"
+        text-anchor="middle"
+        letter-spacing="2"
+        font-style="italic">
+    "Không phải hễ những kẻ nói cùng ta rằng: Lạy Chúa, lạy Chúa..." — Ma-thi-ơ 7:21
+  </text>
+  
+  <!-- Subtle vignette (much lighter) -->
+  <radialGradient id="vignette" cx="50%" cy="50%" r="80%">
+    <stop offset="70%" style="stop-color:#000000;stop-opacity:0"/>
+    <stop offset="100%" style="stop-color:#000000;stop-opacity:0.1"/>
+  </radialGradient>
+  <rect width="1200" height="675" fill="url(#vignette)"/>
+</svg>
