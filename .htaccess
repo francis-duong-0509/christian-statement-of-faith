@@ -1,3 +1,8 @@
+# Disable ModSecurity for admin panel (Hostinger blocks authenticated admin requests)
+<IfModule mod_security2.c>
+    SecRuleEngine Off
+</IfModule>
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteRule ^(.*)$ public/$1 [L]
