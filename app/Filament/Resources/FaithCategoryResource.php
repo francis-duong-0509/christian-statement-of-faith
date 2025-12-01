@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
@@ -173,6 +174,11 @@ class FaithCategoryResource extends Resource
                             ->removeUploadedFileButtonPosition('right')
                             ->uploadButtonPosition('left')
                             ->uploadProgressIndicatorPosition('left')
+                            ->deleteUploadedFileUsing(function ($file) {
+                                if ($file) {
+                                    Storage::disk('public_uploads')->delete($file);
+                                }
+                            })
                             ->columnSpanFull(),
                     ])
                     ->collapsible()

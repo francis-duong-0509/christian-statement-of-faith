@@ -9,6 +9,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class BlogCategoryResource extends Resource
@@ -58,7 +59,12 @@ class BlogCategoryResource extends Resource
                             ->disk('public_uploads')
                             ->directory('blog/category')
                             ->maxSize(2048)
-                            ->helperText('Recommended size: 800x600px'),
+                            ->helperText('Recommended size: 800x600px')
+                            ->deleteUploadedFileUsing(function ($file) {
+                                if ($file) {
+                                    Storage::disk('public_uploads')->delete($file);
+                                }
+                            }),
                     ]),
 
                 Forms\Components\Section::make('Settings')

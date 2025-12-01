@@ -9,6 +9,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class BlogPostResource extends Resource
@@ -98,14 +99,24 @@ class BlogPostResource extends Resource
                             ->disk('public_uploads')
                             ->directory('blog/post')
                             ->maxSize(2048)
-                            ->helperText('Recommended: 1200x630px'),
+                            ->helperText('Recommended: 1200x630px')
+                            ->deleteUploadedFileUsing(function ($file) {
+                                if ($file) {
+                                    Storage::disk('public_uploads')->delete($file);
+                                }
+                            }),
 
                         Forms\Components\FileUpload::make('og_image')
                             ->image()
                             ->disk('public_uploads')
                             ->directory('blog/post')
                             ->maxSize(2048)
-                            ->helperText('For social media sharing (leave empty to use featured image)'),
+                            ->helperText('For social media sharing (leave empty to use featured image)')
+                            ->deleteUploadedFileUsing(function ($file) {
+                                if ($file) {
+                                    Storage::disk('public_uploads')->delete($file);
+                                }
+                            }),
                     ])
                     ->columns(2),
 
