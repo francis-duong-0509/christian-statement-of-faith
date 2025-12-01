@@ -1,6 +1,14 @@
-# Disable ModSecurity for admin panel (Hostinger blocks authenticated admin requests)
+# Disable ModSecurity rules that block admin panel
 <IfModule mod_security2.c>
     SecRuleEngine Off
+    SecFilterEngine Off
+    SecFilterScanPOST Off
+</IfModule>
+
+# Alternative: Remove specific security rules
+<IfModule mod_security.c>
+    SecFilterEngine Off
+    SecFilterScanPOST Off
 </IfModule>
 
 <IfModule mod_rewrite.c>
