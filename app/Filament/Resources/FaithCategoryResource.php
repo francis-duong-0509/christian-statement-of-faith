@@ -157,7 +157,7 @@ class FaithCategoryResource extends Resource
                         Forms\Components\FileUpload::make('banner_image')
                             ->label('Banner Image')
                             ->disk('public_uploads')
-                            ->directory('uploads')
+                            ->directory('faith/category')
                             ->image()
                             ->imageEditor()
                             ->imageEditorAspectRatios([
@@ -223,7 +223,7 @@ class FaithCategoryResource extends Resource
 
                 Tables\Columns\ImageColumn::make('banner_image')
                     ->label('Banner')
-                    ->getStateUsing(fn($record) => $record->banner_image ? asset($record->banner_image) : null)
+                    ->disk('public_uploads')
                     ->height(50)
                     ->width(100),
 

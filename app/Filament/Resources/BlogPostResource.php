@@ -95,13 +95,15 @@ class BlogPostResource extends Resource
                     ->schema([
                         Forms\Components\FileUpload::make('featured_image')
                             ->image()
-                            ->directory('uploads/blog/post')
+                            ->disk('public_uploads')
+                            ->directory('blog/post')
                             ->maxSize(2048)
                             ->helperText('Recommended: 1200x630px'),
 
                         Forms\Components\FileUpload::make('og_image')
                             ->image()
-                            ->directory('uploads/blog/post')
+                            ->disk('public_uploads')
+                            ->directory('blog/post')
                             ->maxSize(2048)
                             ->helperText('For social media sharing (leave empty to use featured image)'),
                     ])
@@ -155,6 +157,7 @@ class BlogPostResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('featured_image')
+                    ->disk('public_uploads')
                     ->width(80)
                     ->height(60),
 

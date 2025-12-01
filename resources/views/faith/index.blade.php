@@ -45,10 +45,7 @@
 
                 {{-- Category Header with Featured Image --}}
                 <div class="category-hero-header">
-                    @php
-                        $categoryImageUrl = $category->banner_image ? asset($category->banner_image) : null;
-                    @endphp
-                    <div class="category-hero-bg" style="background-image: url('{{ $categoryImageUrl }}');"></div>
+                    <div class="category-hero-bg" style="background-image: url('{{ $category->banner_image ? asset($category->banner_image_url) : '' }}');"></div>
                     <div class="category-hero-overlay"></div>
                     <div class="category-hero-content">
                         <div class="category-badge-hero">
@@ -72,11 +69,8 @@
                         <div class="statement-showcase-card" data-aos="fade-up" data-aos-delay="{{ 100 * ($statementIndex % 3) }}">
 
                             {{-- Featured Image with Overlay Badge --}}
-                            @php
-                                $statementImageUrl = $statement->image ? asset($statement->image) : null;
-                            @endphp
                             <div class="statement-featured-img">
-                                <img src="{{ $statementImageUrl }}" alt="{{ $statement->title }}" loading="lazy">
+                                <img src="{{ $statement->image ? asset($statement->image_url) : '' }}" alt="{{ $statement->title }}" loading="lazy">
                                 <div class="statement-img-overlay">
                                     <div class="overlay-badge">{{ $category->order }}.{{ $statement->order }}</div>
                                     <div class="overlay-icon"><i class="fas fa-cross"></i></div>

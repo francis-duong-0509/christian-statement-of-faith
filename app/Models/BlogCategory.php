@@ -81,7 +81,8 @@ class BlogCategory extends Model
     // ==========================================================
 
     /**
-     * Get the image URL with storage prefix
+     * Get the image URL for use with asset()
+     * Returns path like: uploads/blog/category/filename.jpg
      */
     public function getImageUrlAttribute(): ?string
     {
@@ -91,13 +92,13 @@ class BlogCategory extends Model
 
         $value = $this->attributes['image'];
 
-        // If already has storage/ prefix, return as-is
-        if (str_starts_with($value, 'storage/')) {
+        // If already has uploads/ prefix, return as-is
+        if (str_starts_with($value, 'uploads/')) {
             return $value;
         }
 
-        // Otherwise prepend storage/
-        return 'storage/' . $value;
+        // Otherwise prepend uploads/
+        return 'uploads/' . $value;
     }
 
     // ==========================================================

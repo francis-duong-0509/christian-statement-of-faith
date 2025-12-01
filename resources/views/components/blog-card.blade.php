@@ -4,7 +4,7 @@
       {{-- Featured Image --}}
       @if($post->featured_image)
           <img
-              src="{{ asset('storage/' . $post->featured_image) }}"
+              src="{{ asset($post->featured_image_url) }}"
               class="card-img-top"
               alt="{{ $post->title }}"
               style="height: {{ $featured ? '250px' : '200px' }}; object-fit: cover;" >

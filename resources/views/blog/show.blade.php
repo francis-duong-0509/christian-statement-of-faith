@@ -7,7 +7,7 @@
     {{-- Open Graph for social sharing --}}
     <meta property="og:title" content="{{ $post->title }}">
     <meta property="og:description" content="{{ $post->excerpt }}">
-    <meta property="og:image" content="{{ asset('storage/' . ($post->og_image ?? $post->featured_image)) }}">
+    <meta property="og:image" content="{{ asset($post->og_image_url ?? $post->featured_image_url) }}">
     <meta property="og:url" content="{{ route('blog.show', $post->slug) }}">
     <meta property="og:type" content="article">
 
@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $post->title }}">
     <meta name="twitter:description" content="{{ $post->excerpt }}">
-    <meta name="twitter:image" content="{{ asset('storage/' . ($post->og_image ?? $post->featured_image)) }}">
+    <meta name="twitter:image" content="{{ asset($post->og_image_url ?? $post->featured_image_url) }}">
 @endpush
 
 @push('styles')
@@ -508,7 +508,7 @@
                 <!-- Featured Image -->
                 @if($post->featured_image)
                     <div class="post-featured-image" data-aos="fade-up">
-                        <img src="{{ asset('storage/' . $post->featured_image) }}" alt="{{ $post->title }}" loading="lazy">
+                        <img src="{{ asset($post->featured_image_url) }}" alt="{{ $post->title }}" loading="lazy">
                     </div>
                 @endif
 
