@@ -5,6 +5,7 @@ use App\Http\Controllers\DictionaryController;
 use App\Http\Controllers\FaithStatementController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\SubscriberController;
 use Illuminate\Support\Facades\Route;
 
 // HOMEPAGE
@@ -35,3 +36,6 @@ Route::prefix('dictionary')->name('dictionary.')->group(function () {
     Route::get('/', [DictionaryController::class, 'index'])->name('index');
     Route::post('/lookup', [DictionaryController::class,'lookup'])->name('lookup');
 });
+
+// SUBSCRIBE
+Route::post('/subscribe', [SubscriberController::class, 'store'])->name('subscribe')->middleware('throttle:subscribe');
