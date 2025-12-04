@@ -1,14 +1,18 @@
+# Disable ModSecurity
+<IfModule mod_security.c>
+    SecFilterEngine Off
+    SecFilterScanPOST Off
+</IfModule>
+
+<IfModule mod_security2.c>
+    SecRuleEngine Off
+</IfModule>
+
+# Rewrite to public folder
 <IfModule mod_rewrite.c>
-    RewriteEngine On
+     RewriteEngine On
     RewriteBase /
 
-    # Don't rewrite if already accessing public folder directly
     RewriteCond %{REQUEST_URI} !^/public/
-
-    # Don't rewrite existing files/directories
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-
-    # Rewrite to public with query string preserved
     RewriteRule ^(.*)$ public/$1 [L,QSA]
 </IfModule>
