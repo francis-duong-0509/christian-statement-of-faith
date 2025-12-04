@@ -22,6 +22,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Force HTTPS in production
+        if($this->app->environment('production') || config('app.force_https', false)) {
+            \URL::forceScheme('https');
+        }
+
         // Rate limiter for newsletter subscription (5 attempts per hour per IP)
         RateLimiter::for('subscribe', function (Request $request) {
             return Limit::perHour(5)->by($request->ip());
