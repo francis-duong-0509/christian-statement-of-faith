@@ -173,6 +173,20 @@ class BlogPost extends Model
         return $minutes . ' phút đọc';
     }
 
+    public function getContentAttribute($value)
+    {
+        if (empty($value)) return $value;
+
+        // Pattern to match localhost URLs with any port
+        // Example: http://localhost:8100/storage/...
+        $pattern = '/https?:\/\/localhost(:\d+)?/';
+
+        // Replace with current APP_URL (without trailing slash)
+        $appUrl = rtrim(config('app.url', '/'));
+
+        return preg_replace($pattern, $appUrl, $value);
+    }
+
     // ==========================================================
     // HELPER METHODS
     // ==========================================================

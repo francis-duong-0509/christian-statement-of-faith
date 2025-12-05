@@ -3,8 +3,10 @@
 namespace App\Services;
 
 use App\Models\BlogPost;
+use App\Models\BlogPostView;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class BlogService
@@ -51,9 +53,9 @@ class BlogService
             ->with(['category', 'author'])
             ->first();
 
-        if ($post && $incrementViews) {
+        /* if ($post && $incrementViews) {
             $post->incrementViews();
-        }
+        } */
 
         return $post;
     }
@@ -278,5 +280,33 @@ class BlogService
             'related_posts' => $this->getRelatedPosts($post, 3),
             'popular_posts' => $this->getPopularPosts(5),
         ];
+    }
+
+    public function recordView(BlogPost $post, string $ipAddress): bool
+    {
+        $cooldownMinutes = 5;
+
+        // Check if this IP viewed this post in the last 5 minutes
+        $recentView = BlogPostView::where('blog_post_id', $post->id)
+            ->where('ip_address', $ipAddress)
+            ->where('viewed_at', '>', now()->subMinutes($cooldownMinutes))
+            ->exists();
+
+        if ($recentView) {
+            return false; // Already counted recently
+        }
+
+        // Record the view and increment counter
+        DB::transaction(function () use ($post, $ipAddress) {
+            BlogPostView::create([
+                'blog_post_id' => $post->id,
+                'ip_address' => $ipAddress,
+                'viewed_at' => now(),
+            ]);
+
+            $post->increment('views_count');
+        });
+
+        return true;
     }
 }

@@ -7,10 +7,8 @@
                 <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
                     {{ __t('Niềm Tin Kitô Giáo: Dựa Trên Kinh Thánh', 'Christian Theology: Rooted in Scripture Alone') }}
                 </h1>
-                <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"
-                   data-lang-en="A comprehensive resource for understanding biblical doctrine and theological truth grounded in God's Word."
-                   data-lang-vi="Tất cả là nhờ bỏi Chúa, trong Chúa và vì Chúa.">
-                    {{ __t('Tất cả là nhờ bỏi Chúa, trong Chúa và vì Chúa.', 'A comprehensive resource for understanding biblical doctrine and theological truth grounded in God\'s Word.') }}
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    {{ __t('Nguyện xin ân điển và bình an của Cha là Đức Chúa Trời chân thật và duy nhất và con một của Cha là Chúa Giêsu Kito ở cùng anh chị em luôn mãi.', 'A comprehensive resource for understanding biblical doctrine and theological truth grounded in God\'s Word.') }}
                 </p>
                 <div class="hero-cta" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                     <a href="{{ route('faith.index') }}" class="btn btn-hero-primary btn-lg me-3">
