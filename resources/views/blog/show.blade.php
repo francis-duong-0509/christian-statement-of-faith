@@ -522,7 +522,7 @@
                            class="btn btn-social btn-facebook">
                             <i class="fab fa-facebook-f"></i>Facebook
                         </a>
-                        <a href="https://twitter.com/intent/tweet?url={{ urlencode(route('blog.show', $post->slug)) }}&text={{ urlencode($post->title) }}"
+                        {{-- <a href="https://twitter.com/intent/tweet?url={{ urlencode(route('blog.show', $post->slug)) }}&text={{ urlencode($post->title) }}"
                            target="_blank"
                            class="btn btn-social btn-twitter">
                             <i class="fab fa-twitter"></i>Twitter
@@ -531,7 +531,7 @@
                            target="_blank"
                            class="btn btn-social btn-linkedin">
                             <i class="fab fa-linkedin-in"></i>LinkedIn
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
             </div>
