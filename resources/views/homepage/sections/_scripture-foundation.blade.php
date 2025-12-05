@@ -5,10 +5,10 @@
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto">
                     <h2 class="section-title" data-aos="fade-up">
-                        {{ __t('Thần Học và Linh Nghiệm', 'Scripture and Faith') }}
+                        {{ __t('Đức Tin và Linh Nghiệm', 'Scripture and Faith') }}
                     </h2>
                     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        {{ __t('Thần Học và Linh Nghiệm từ những người đã trải qua và sống qua những trải nghiệm thuộc linh và bước đi theo Chúa', 'Scripture and faith from people who have lived and experienced their experiences') }}
+                        {{ __t('Đức Tin và Linh Nghiệm từ những người đã trải qua và sống qua những trải nghiệm thuộc linh và bước đi theo Chúa', 'Scripture and faith from people who have lived and experienced their experiences') }}
                     </p>
                 </div>
             </div>
@@ -21,7 +21,9 @@
                             <!-- Card Image (if exists, otherwise show gradient header) -->
                             @if($category->image)
                                 <div class="foundation-card-image">
-                                    <img src="{{ asset($category->image_url) }}" alt="{{ $category->name }}" loading="lazy">
+                                    <a href="{{ route('blog.index', ['category_id' => $category->id]) }}">
+                                        <img src="{{ asset($category->image_url) }}" alt="{{ $category->name }}" loading="lazy">
+                                    </a>
                                 </div>
                             @else
                                 <!-- Fallback: Gradient header if no image -->

@@ -3,11 +3,13 @@
 <article class="card h-100 shadow-sm hover-lift">
       {{-- Featured Image --}}
       @if($post->featured_image)
-          <img
+          <a href="{{ route('blog.show', $post->slug) }}">
+            <img
               src="{{ asset($post->featured_image_url) }}"
               class="card-img-top"
               alt="{{ $post->title }}"
               style="height: {{ $featured ? '250px' : '200px' }}; object-fit: cover;" >
+          </a>
       @else
           <div
               class="card-img-top bg-secondary d-flex align-items-center justify-content-center"
@@ -33,7 +35,7 @@
           </div>
 
           {{-- Title --}}
-          <h3 class="card-title {{ $featured ? 'h4' : 'h5' }} mb-2">
+          <h3 class="blog-title {{ $featured ? 'h4' : 'h5' }} mb-2" style="color: #2A5080">
               <a href="{{ route('blog.show', $post->slug) }}" class="text-decoration-none text-dark">
                   {{ $post->title }}
               </a>
@@ -51,20 +53,10 @@
                   {{ $post->formatted_date }}
               </small>
               <small class="text-muted">
-                  <i class="bi bi-clock"></i>
-                  {{ $post->reading_time }}
-              </small>
-          </div>
-
-          {{-- Author (if exists) --}}
-          @if($post->author)
-              <div class="mt-2">
-                  <small class="text-muted">
                       <i class="bi bi-person"></i>
-                      {{ __t('Tác giả', 'By') }} {{ $post->author->name }}
+                      {{ __t('Tác giả: ', 'By') }} <span style="font-weight: bold; color: #2A5080">{{ $post->author->name }}</span>
                   </small>
-              </div>
-          @endif
+          </div>
 
           {{-- Views Count --}}
           <div class="mt-2">

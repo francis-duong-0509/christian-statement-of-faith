@@ -10,29 +10,29 @@
                     </a>
                 </div>
                 <p class="footer-text">
-                    {{ __t('Vi Duc Chua Troi yeu-thuong the-gian, den noi da ban Con mot cua Ngai, hau cho he ai tin Con ay khong bi hu-mat ma duoc su song doi doi.',
+                    {{ __t('Vì Đức Chúa Trời yêu-thương thế-gian, đến nỗi đã ban Con một của Ngài, hầu cho hễ ai tin Con ấy không bị hư-mất mà được sự sống đời đời.',
                        'For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.') }}
                 </p>
-                <div class="social-links mt-3">
+                {{-- <div class="social-links mt-3">
                     <a href="https://www.facebook.com/francis.duong.0509" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.threads.com/@francis.duong.0509" aria-label="Threads" target="_blank"><i class="fab fa-twitter"></i></a>
-                </div>
+                </div> --}}
             </div>
 
             <!-- Quick Links Column -->
             <div class="col-lg-2 col-md-6">
-                <h5 class="footer-title">{{ __t('Lien Ket Nhanh', 'Quick Links') }}</h5>
+                <h5 class="footer-title">{{ __t('Liên Kết Nhanh', 'Quick Links') }}</h5>
                 <ul class="footer-links">
-                    <li><a href="{{ route('home') }}"><span>{{ __t('Trang Chu', 'Home') }}</span></a></li>
-                    <li><a href="{{ route('faith.index') }}"><span>{{ __t('Tuyen Bo Duc Tin', 'Statement of Faith') }}</span></a></li>
-                    <li><a href="{{ route('dictionary.index') }}"><span>{{ __t('Tu Dien', 'Dictionary') }}</span></a></li>
-                    <li><a href="{{ route('blog.index') }}"><span>{{ __t('Blog', 'Blog') }}</span></a></li>
+                    <li><a href="{{ route('home') }}"><span>{{ __t('Trang Chủ', 'Home') }}</span></a></li>
+                    <li><a href="{{ route('faith.index') }}"><span>{{ __t('Tuyên Bố Đức Tín', 'Statement of Faith') }}</span></a></li>
+                    <li><a href="{{ route('dictionary.index') }}"><span>{{ __t('Từ Điển', 'Dictionary') }}</span></a></li>
+                    <li><a href="{{ route('blog.index') }}"><span>{{ __t('Lời Lẽ Thật', 'Blog') }}</span></a></li>
                 </ul>
             </div>
 
             <!-- Contact Column -->
             <div class="col-lg-3 col-md-6">
-                <h5 class="footer-title">{{ __t('Lien He', 'Contact') }}</h5>
+                <h5 class="footer-title">{{ __t('Liên Hệ', 'Contact') }}</h5>
                 <ul class="footer-contact">
                     <li>
                         <i class="fas fa-envelope"></i>
@@ -50,7 +50,7 @@
         <div class="row mt-5 pt-4 border-top">
             <div class="col-md-6 text-center text-md-start">
                 <p class="copyright mb-0">
-                    &copy; 2025 <span>{{ __t('Only by Grace. Moi quyen duoc bao luu.', 'Only by Grace. All rights reserved.') }}</span>
+                    &copy; 2025 <span>{{ __t('Only by Grace', 'Only by Grace. All rights reserved.') }}</span>
                 </p>
             </div>
         </div>

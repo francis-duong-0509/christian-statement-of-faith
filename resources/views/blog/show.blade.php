@@ -481,10 +481,6 @@
                         <span>{{ $post->formatted_date }}</span>
                     </div>
                     <div class="post-meta-item">
-                        <i class="fas fa-clock"></i>
-                        <span>{{ $post->reading_time }}</span>
-                    </div>
-                    <div class="post-meta-item">
                         <i class="fas fa-eye"></i>
                         <span>{{ number_format($post->views_count) }} {{ __t('lượt xem', 'views') }}</span>
                     </div>

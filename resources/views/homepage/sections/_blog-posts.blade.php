@@ -16,8 +16,10 @@
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ 100 * ($index + 1) }}">
                         <article class="blog-card h-100 d-flex flex-column">
                             <div class="blog-image">
-                                <img src="{{ $post->featured_image ? asset($post->featured_image_url) : 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=600&h=400&fit=crop' }}"
+                                <a href="{{ route('blog.show', $post->slug) }}">
+                                    <img src="{{ $post->featured_image ? asset($post->featured_image_url) : 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=600&h=400&fit=crop' }}"
                                      alt="{{ $post->title }}" loading="lazy">
+                                </a>
                                 @if($post->category)
                                     <span class="blog-category">{{ $post->category->name ?? '' }}</span>
                                 @endif
@@ -25,9 +27,10 @@
                             <div class="blog-content flex-grow-1 d-flex flex-column">
                                 <div class="blog-meta">
                                     <span><i class="far fa-calendar"></i> {{ $post->formatted_date }}</span>
-                                    <span><i class="far fa-clock"></i> {{ $post->reading_time }}</span>
                                 </div>
-                                <h3 class="blog-title">{{ $post->title }}</h3>
+                                <a href="{{ route('blog.show', $post->slug) }}">
+                                    <h3 class="blog-title">{{ $post->title }}</h3>
+                                </a>
                                 <p class="blog-excerpt flex-grow-1">
                                     {{ Str::limit($post->excerpt, 120) }}
                                 </p>
