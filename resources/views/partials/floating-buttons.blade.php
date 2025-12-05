@@ -8,11 +8,6 @@
         </button>
     </div>
 
-    <!-- Facebook Button (MIDDLE) -->
-    <a href="https://www.facebook.com/francis.duong.0509" target="_blank" class="fab-button fab-facebook" aria-label="Visit our Facebook page">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-
     <!-- To Top Button (BOTTOM - Utility) -->
     <button class="fab-button fab-to-top" id="fabToTop" aria-label="{{ __t('Lên đầu trang', 'Scroll to top') }}">
         <i class="fas fa-arrow-up"></i>

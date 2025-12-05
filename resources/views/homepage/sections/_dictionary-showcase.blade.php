@@ -5,7 +5,7 @@
             <div class="row text-center mb-5">
                 <div class="col-lg-10 mx-auto">
                     <h2 class="section-title" data-aos="fade-up">
-                        {{ __t('Giảng Giải Kinh Thánh', 'Scripture Exegesis') }}
+                        {{ __t('Tìm Hiểu Bối Cảnh Phân Đoạn', 'Scripture Exegesis') }}
                     </h2>
                     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
                         {{ __t('Tra cứu và phân tích chi tiết từng đoạn Kinh Thánh với giảng giải thần học sâu sắc từ ngôn ngữ gốc', 'Look up and analyze Scripture passages with deep theological exegesis from original languages') }}
@@ -80,7 +80,7 @@
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="term-card scripture-card">
                         <span class="language-badge badge-greek">TÂN ƯỚC</span>
-                        <div class="term-original">{{ __t('Ma-thi-ơ 5', 'Matthew 5') }}</div>
+                        <div class="term-original">{{ __t('Mát-thêu 5', 'Matthew 5') }}</div>
                         <div class="term-vietnamese">{{ __t('Bài Giảng Trên Núi - Phân Tích Toàn Chương', 'Sermon on the Mount - Full Chapter Analysis') }}</div>
                         <div class="scripture-preview">
                             {{ __t('"Phước cho người nào có lòng nghèo khổ, vì nước thiên đàng thuộc về họ..."', '"Blessed are the poor in spirit, for theirs is the kingdom of heaven..."') }}
@@ -96,7 +96,7 @@
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="term-card scripture-card">
                         <span class="language-badge badge-greek">TÂN ƯỚC</span>
-                        <div class="term-original">{{ __t('Giăng 3:16-21', 'John 3:16-21') }}</div>
+                        <div class="term-original">{{ __t('Gio-an 3:16-21', 'John 3:16-21') }}</div>
                         <div class="term-vietnamese">{{ __t('Tình Yêu Thương Của Đức Chúa Trời - Phân Tích Đoạn Văn', 'God\'s Love - Passage Analysis') }}</div>
                         <div class="scripture-preview">
                             {{ __t('"Vì Đức Chúa Trời yêu thương thế gian, đến nỗi đã ban Con Một..."', '"For God so loved the world that he gave his one and only Son..."') }}
@@ -128,10 +128,10 @@
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="term-card scripture-card">
                         <span class="language-badge badge-hebrew">CỰU ƯỚC</span>
-                        <div class="term-original">{{ __t('Thi Thiên 23', 'Psalm 23') }}</div>
-                        <div class="term-vietnamese">{{ __t('Đức Giê-hô-va Là Mục Giả Tôi - Phân Tích Toàn Chương', 'The Lord is My Shepherd - Full Chapter Analysis') }}</div>
+                        <div class="term-original">{{ __t('Thánh Vịnh 23', 'Psalm 23') }}</div>
+                        <div class="term-vietnamese">{{ __t('Đức Gia-vê Là Mục Giả Tôi - Phân Tích Toàn Chương', 'The Lord is My Shepherd - Full Chapter Analysis') }}</div>
                         <div class="scripture-preview">
-                            {{ __t('"Đức Giê-hô-va là mục giả tôi; tôi sẽ chẳng thiếu thốn gì..."', '"The Lord is my shepherd; I shall not want..."') }}
+                            {{ __t('"Đức Gia-vê là mục giả tôi; tôi sẽ chẳng thiếu thốn gì..."', '"The Lord is my shepherd; I shall not want..."') }}
                         </div>
                         <div class="scripture-info">
                             <i class="fas fa-list-ol me-2"></i>

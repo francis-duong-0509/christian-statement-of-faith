@@ -75,7 +75,11 @@ class BlogPostResource extends Resource
                         Forms\Components\RichEditor::make('content')
                             ->required()
                             ->columnSpanFull()
+                            ->fileAttachmentsDisk('public_uploads')
+                            ->fileAttachmentsDirectory('blog/content')
+                            ->fileAttachmentsVisibility('public')
                             ->toolbarButtons([
+                                'attachFiles',
                                 'bold',
                                 'italic',
                                 'underline',

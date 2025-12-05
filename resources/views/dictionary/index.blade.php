@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Giảng Giải Kinh - Biblical Dictionary')
-@section('meta_description', 'Giảng Giải Kinh - Biblical Dictionary')
+@section('title', 'Tìm Hiểu Bối Cảnh Phân Đoạn - Biblical Dictionary')
+@section('meta_description', 'Tìm Hiểu Bối Cảnh Phân Đoạn - Biblical Dictionary')
 
 @push('styles')
 <style>
@@ -293,10 +293,10 @@
     <div class="container">
         <div class="blog-hero-content">
             <h1 class="hero-title text-center" data-aos="fade-up" data-aos-duration="1000">
-                {{ __t('Giảng Giải Kinh', 'Scripture Lectures') }}
+                {{ __t('Tìm Hiểu Bối Cảnh Phân Đoạn', 'Understanding Biblical Context') }}
             </h1>
             <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                {{ __t('Mục tiêu của chúng tôi là thực hiện Đại Mạng Lệnh của Đức Chúa Jesus bằng cách chia sẻ phúc âm nguyên chất và giảng dạy Kinh Thánh theo phương pháp giảng giải kinh', 'Our goal is to implement God’s Great Commission by sharing the original meaning of Scripture and teaching the Bible through the method of Scripture lectures.') }}
+                {{ __t('Mục tiêu của chúng tôi là thực hiện Đại Mạng Lệnh của Đức Chúa Giêsu bằng cách chia sẻ phúc âm nguyên chất và giảng dạy Kinh Thánh theo phương pháp giảng giải kinh', 'Our goal is to implement God’s Great Commission by sharing the original meaning of Scripture and teaching the Bible through the method of Scripture lectures.') }}
             </p>
         </div>
     </div>
@@ -430,7 +430,7 @@
             <button type="submit" class="btn btn-lookup" id="btnLookup">
                 <span class="btn-text-normal">
                     <i class="fas fa-search"></i>
-                    {{ __t('Giảng kinh', 'dictionary') }}
+                    {{ __t('Tra cứu', 'dictionary') }}
                 </span>
                 <span class="btn-text-loading">
                     <span class="spinner"></span>

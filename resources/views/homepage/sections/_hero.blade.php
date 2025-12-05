@@ -5,12 +5,12 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
                 <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
-                    {{ __t('Thần Học Cơ Đốc: Dựa Trên Kinh Thánh', 'Christian Theology: Rooted in Scripture Alone') }}
+                    {{ __t('Niềm Tin Kitô Giáo: Dựa Trên Kinh Thánh', 'Christian Theology: Rooted in Scripture Alone') }}
                 </h1>
                 <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"
                    data-lang-en="A comprehensive resource for understanding biblical doctrine and theological truth grounded in God's Word."
-                   data-lang-vi="Nguồn tài nguyên toàn diện để hiểu giáo lý Kinh Thánh và chân lý thần học dựa trên Lời Chúa.">
-                    {{ __t('Nguồn tài nguyên toàn diện để hiểu giáo lý Kinh Thánh và chân lý thần học dựa trên Lời Chúa.', 'A comprehensive resource for understanding biblical doctrine and theological truth grounded in God\'s Word.') }}
+                   data-lang-vi="Tất cả là nhờ bỏi Chúa, trong Chúa và vì Chúa.">
+                    {{ __t('Tất cả là nhờ bỏi Chúa, trong Chúa và vì Chúa.', 'A comprehensive resource for understanding biblical doctrine and theological truth grounded in God\'s Word.') }}
                 </p>
                 <div class="hero-cta" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                     <a href="{{ route('faith.index') }}" class="btn btn-hero-primary btn-lg me-3">

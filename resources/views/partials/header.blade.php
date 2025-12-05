@@ -33,7 +33,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('dictionary.index') }}" class="nav-link {{ request()->is('dictionary*') ? 'active' : '' }}" >
-                        {{ __t('Giảng Giải Kinh', 'Scripture Lectures') }}
+                        {{ __t('Tìm Hiểu Bối Cảnh', 'Scripture Lectures') }}
                     </a>
                 </li>
                 {{-- <li class="nav-item">
