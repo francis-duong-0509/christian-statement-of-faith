@@ -27,10 +27,10 @@
                     <i class="fas fa-heart donate-heart-icon"></i>
                 </div>
                 <h3 id="donateModalTitle" class="donate-modal-title">
-                    <span>{{ __t('Đồng Hành Cùng Chúng Tôi Giúp Đỡ Người Thiếu Phúc Âm', "Partner With Us in God's Work") }}</span>
+                    <span>{{ __t('Tiền Của Quí Vị Chúng Tôi Sẽ Sử Dụng Để Giúp Đỡ Người Nghèo Dù Cho Đó là 1000 VNĐ', "Your gift will be used to help the poor, even if it's just 1000 VNĐ") }}</span>
                 </h3>
                 <p class="donate-subtitle">
-                    <span>{{ __t('Mọi đóng góp chỉ để duy trì và làm việc lành nếu dư. Không ăn lợi nhuận', 'Every gift makes a difference') }}</span>
+                    <span>{{ __t('Mọi đóng góp chỉ để duy trì và giúp đỡ người nghèo khó. Không ăn lợi nhuận', 'Every gift makes a difference') }}</span>
                 </p>
                 <button class="modal-close" aria-label="Close modal" data-dismiss-donate="modal">
                     <i class="fas fa-times"></i>
@@ -42,13 +42,10 @@
                 <!-- Thank You Message -->
                 <div class="donate-message">
                     <p>
-                        {{ __t('Mọi sự ủng hộ của bạn, dù lớn hay nhỏ, đều giúp chúng tôi tiếp tục chia sẻ Lời Chúa và giúp đỡ người nghèo khó, người đói Phúc Âm. Chúng tôi tin rằng việc trang bị cho tín đồ hiểu biết sâu sắc về Kinh Thánh là phần thiết yếu trong sứ mạng loan báo Phúc Âm.', "Your support, whether large or small, helps us continue sharing God's Word and developing quality theological resources. We believe equipping believers with deep biblical understanding is essential to the mission of proclaiming the Gospel.") }}
+                        {{ __t('Mọi sự ủng hộ của bạn, dù là 1000 VNĐ chúng tôi cũng vẫn dùng để giúp đỡ người nghèo khó, không thu lợi nhuận, không làm sai trái với số tiền của quí vị.', "Your gift will be used to help the poor, even if it's just 1000 VNĐ. We operate entirely as a non-profit ministry and depend on the generous support of people like you. Every contribution is used faithfully for God's glory and to serve the Church.") }}
                     </p>
                     <p>
-                        {{ __t('Chúng tôi hoạt động hoàn toàn phi lợi nhuận và phụ thuộc vào sự hỗ trợ hào phóng của những người như bạn. Mỗi đóng góp được sử dụng một cách trung tín để vinh hiển Đức Chúa Trời.', "We operate entirely as a non-profit ministry and depend on the generous support of people like you. Every contribution is used faithfully for God's glory and to serve the Church.") }}
-                    </p>
-                    <p>
-                        {{ __t('Cảm ơn bạn đã cân nhắc ủng hộ chức vụ này!', "Thank you for considering supporting this ministry!") }}
+                        {{ __t('Cảm ơn bạn đã cân nhắc ủng hộ chúng tôi!', "Thank you for considering supporting this ministry!") }}
                     </p>
                 </div>
 
@@ -67,7 +64,7 @@
                                      class="qr-code-image">
                             </div>
                             <p class="qr-caption">
-                                <span>{{ __t('Quét Mã Để Dâng Hiến - Mọi Số Tiền Đều Được Trân Trọng', 'Scan to Give - Any Amount Appreciated') }}</span>
+                                <span>{{ __t('Quét Mã Để Giúp Người Nghèo Khó - Mọi Số Tiền Đều Được Trân Trọng', 'Scan to Give - Any Amount Appreciated') }}</span>
                             </p>
                         </div>
                     </div>

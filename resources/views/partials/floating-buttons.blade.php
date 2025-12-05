@@ -2,7 +2,7 @@
 <div class="floating-buttons">
     <!-- Donate Button with Label (TOP - Most Prominent) -->
     <div class="fab-with-label">
-        <span class="fab-label">{{ __t('Dâng Hiến', 'Give') }}</span>
+        <span class="fab-label">{{ __t('Giúp Đỡ Người Nghèo', 'Help the Poor') }}</span>
         <button class="fab-button fab-donate" id="fabDonate" aria-label="Support our ministry">
             <i class="fas fa-heart"></i>
         </button>
