@@ -591,4 +591,37 @@
         });
     });
 </script>
+
+<script>
+    (function () {
+        const POST_ID = {{ $post->id }};
+        const READING_TIME_MS = 5 * 60 * 1000; // 5 minutes
+
+        let viewCounted = false;
+
+        const timer = setTimeout(function () {
+            if (viewCounted) return;
+
+            fetch(`/api/blog/${POST_ID}/view`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') || '',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                viewCounted = true;
+                console.log('View recored:', data.counted);
+            })
+            .catch(error => {
+                console.error('Error recording view:', error);
+            });
+        }, READING_TIME_MS);
+
+        window.addEventListener('beforeunload', function () {
+            clearTimeout(timer);
+        });
+    })();
+</script>
 @endpush
