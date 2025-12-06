@@ -25,8 +25,8 @@
                 <ul class="footer-links">
                     <li><a href="{{ route('home') }}"><span>{{ __t('Trang Chủ', 'Home') }}</span></a></li>
                     <li><a href="{{ route('faith.index') }}"><span>{{ __t('Tuyên Bố Đức Tín', 'Statement of Faith') }}</span></a></li>
-                    <li><a href="{{ route('dictionary.index') }}"><span>{{ __t('Từ Điển', 'Dictionary') }}</span></a></li>
-                    <li><a href="{{ route('blog.index') }}"><span>{{ __t('Lời Lẽ Thật', 'Blog') }}</span></a></li>
+                    <li><a href="{{ route('blog.index') }}"><span>{{ __t('Lời Sống', 'Scripture and Faith') }}</span></a></li>
+                    <li><a href="{{ route('dictionary.index') }}"><span>{{ __t('Bối Cảnh Kinh Thánh', 'Scripture Context') }}</span></a></li>
                 </ul>
             </div>
 
