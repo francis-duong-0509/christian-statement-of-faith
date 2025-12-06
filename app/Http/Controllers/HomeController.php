@@ -27,6 +27,9 @@ class HomeController extends Controller
         $foundationCategories = \App\Models\BlogCategory::active()
             ->whereIn('order', [0, 1, 2])
             ->ordered()
+            ->withCount(['posts as published_posts_count' => function ($query) {
+                $query->published();
+            }])
             ->get();
 
         // Latest 3 blog posts for blog-posts section
