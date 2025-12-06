@@ -4,10 +4,10 @@
         <div class="row text-center mb-5">
             <div class="col-lg-10 mx-auto">
                 <h2 class="section-title-main" data-aos="fade-up">
-                    {{ __t('Chúng Tôi Tin Điều Gì', 'What We Believe') }}
+                    {{ __t('Tôi Tin Điều Gì ?', 'What We Believe') }}
                 </h2>
                 <p class="section-intro" data-aos="fade-up" data-aos-delay="100">
-                    {{ __t('Những niềm tin thần học cốt lõi dựa trên Kinh Thánh', 'Core theological convictions grounded in Scripture') }}
+                    {{ __t('Đức tin thật cốt lõi dựa trên Kinh Thánh', 'Core theological convictions grounded in Scripture') }}
                 </p>
             </div>
         </div>
@@ -37,22 +37,6 @@
                                         >
                                             {{ $scripture['ref'] ?? '' }}
                                         </button>{{ !$loop->last ? ',' : '' }}
-                                    @endforeach
-                                @else
-                                    {{-- Fallback: Show statement references if category has none --}}
-                                    @foreach($category->statements as $statement)
-                                        @if($statement->hasScriptureReferences())
-                                            @foreach($statement->scripture_references as $scripture)
-                                                <button
-                                                    type="button"
-                                                    class="scripture-ref-btn"
-                                                    data-tippy-content="{{ $scripture['text'] ?? '' }}"
-                                                    data-ref="{{ $scripture['ref'] ?? '' }}"
-                                                >
-                                                    {{ $scripture['ref'] ?? '' }}
-                                                </button>{{ !$loop->last ? ',' : '' }}
-                                            @endforeach
-                                        @endif
                                     @endforeach
                                 @endif
                             </div>
